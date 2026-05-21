@@ -71,20 +71,6 @@ function placeholderCard(pos) {
         <div class="card-info"><p class="card-cat">—</p><h3 class="card-title">—</h3></div>
       </a>`;
 }
-function archiveCard(project, idx) {
-  const tone  = `t${(idx % 5) + 1}`;
-  const num   = String(idx + 1).padStart(2, '0');
-  const media = thumbMedia(project.mosaicImage, project.title);
-  return `    <a href="projects/${project.id}.html" class="project-card">
-      <div class="card-thumb ${tone}">${media}</div>
-      <div class="card-overlay"></div>
-      <span class="card-num">${num}</span>
-      <div class="card-info">
-        <p class="card-cat">${escHtml(project.category)}</p>
-        <h3 class="card-title">${escHtml(project.title)}</h3>
-      </div>
-    </a>`;
-}
 function escHtml(s) {
   return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
@@ -163,7 +149,7 @@ function generateProjectPage(project) {
   <div class="menu-collapse">
     <nav class="menu-list">
       <a href="../index.html">Index</a>
-      <a href="../work.html" class="active">Work</a>
+      <a href="../index.html">Archive</a>
       <a href="../index.html#about">About</a>
       <a href="../index.html#services">Services</a>
       <a href="../index.html#contact">Contact</a>
@@ -207,8 +193,7 @@ function generateProjectPage(project) {
 ${galleryHtml}
     </section>
     <nav class="project-nav">
-      <a href="../work.html">[← all work]</a>
-      <a href="../work.html">[next project →]</a>
+      <a href="../index.html">[← all work]</a>
     </nav>
   </main>
   <footer>
@@ -246,23 +231,6 @@ function rebuildIndexMosaic(projects) {
   fs.writeFileSync(indexPath, html, 'utf8');
 }
 
-function rebuildWorkArchive(projects) {
-  const workPath = path.join(ROOT, 'work.html');
-  let html = fs.readFileSync(workPath, 'utf8');
-
-  const online = projects.filter(p => p.status === 'online');
-  const cards  = online.map((p, i) => archiveCard(p, i));
-  const countStr = `[ ${String(online.length).padStart(2, '0')} ]`;
-
-  html = html.replace(
-    /<!-- ARCHIVE_START -->[\s\S]*?<!-- ARCHIVE_END -->/,
-    `<!-- ARCHIVE_START -->\n${cards.join('\n')}\n    <!-- ARCHIVE_END -->`
-  );
-  html = html.replace(/<span class="section-count">\[.*?\]<\/span>/, `<span class="section-count">${countStr}</span>`);
-
-  fs.writeFileSync(workPath, html, 'utf8');
-}
-
 // ── Multer (file uploads) ─────────────────────────────
 const storage = multer.diskStorage({
   destination(req, file, cb) {
@@ -293,7 +261,7 @@ app.get('/api/pages', (req, res) => {
   const pages = [];
 
   // Root pages
-  for (const file of ['index.html', 'work.html']) {
+  for (const file of ['index.html']) {
     if (!fs.existsSync(path.join(ROOT, file))) continue;
     const src   = fs.readFileSync(path.join(ROOT, file), 'utf8');
     const title = (src.match(/<title>(.*?)<\/title>/) || [])[1] || file;
@@ -346,7 +314,6 @@ app.patch('/api/projects/:id/status', (req, res) => {
   p.status = req.body.status === 'online' ? 'online' : 'offline';
   saveProjects(data);
   rebuildIndexMosaic(data.projects);
-  rebuildWorkArchive(data.projects);
   res.json({ ok: true, status: p.status });
 });
 
@@ -425,9 +392,7 @@ app.post('/api/projects', uploadFields, (req, res) => {
       'utf8'
     );
 
-    // Rebuild index and work pages
     rebuildIndexMosaic(data.projects);
-    rebuildWorkArchive(data.projects);
 
     const heicFiles = [
       ...(req.files?.heroImage    || []),
@@ -513,7 +478,6 @@ app.put('/api/projects/:id', uploadFields, (req, res) => {
       'utf8'
     );
     rebuildIndexMosaic(data.projects);
-    rebuildWorkArchive(data.projects);
 
     const heicFiles = [
       ...(req.files?.heroImage    || []),
@@ -541,7 +505,6 @@ app.delete('/api/projects/:id', (req, res) => {
   if (fs.existsSync(htmlPath)) fs.unlinkSync(htmlPath);
 
   rebuildIndexMosaic(data.projects);
-  rebuildWorkArchive(data.projects);
   res.json({ ok: true });
 });
 
@@ -552,7 +515,6 @@ app.post('/api/rebuild', (req, res) => {
     fs.writeFileSync(path.join(ROOT, 'projects', `${p.id}.html`), generateProjectPage(p), 'utf8');
   });
   rebuildIndexMosaic(data.projects);
-  rebuildWorkArchive(data.projects);
   res.json({ ok: true, rebuilt: data.projects.length });
 });
 
