@@ -1074,7 +1074,10 @@ a.project-mosaic-item img {
   object-position: center;
   display: block;
   filter: grayscale(100%);
-  transition: opacity 0.15s ease;
+  transition: opacity 0.15s ease, transform 0.6s cubic-bezier(.25,.46,.45,.94);
+}
+.home-preview-link:hover .home-preview-img {
+  transform: scale(1.04);
 }
 
 /* Preview meta: below image — Air-8: left calc(33.33%+19px) top 634px */
