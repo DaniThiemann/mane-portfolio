@@ -1,0 +1,445 @@
+NEXT PLAY — HIGGSFIELD GENERATION PROMPTS
+==========================================
+Campaign: Portfolio Display / Marketing Campaign
+8 Images + 1 Video | Budget: ~37.5 credits total
+
+UPLOADED REFERENCE ASSETS (already live in your Higgsfield account):
+  ID: 00e18a0a-a0c2-4368-ac1c-a80e058a1a0d  →  symbol.png (bare red hexagon shape)
+  ID: b6d02fe8-baae-4125-92d2-7ec9fad106c6  →  logo_contained.png (NP► inside hexagon)
+  ID: 0e2886f9-6f13-4f75-b45d-137131bc1459  →  logomain_white.png (standalone NP► white)
+  ID: 67a1d23c-64e0-49aa-bca2-7989a3f51506  →  POSTER1.png (dark editorial poster, style reference)
+
+BUDGET BREAKDOWN:
+  Images 1–6, 8  →  cinematic_studio_2_5  at 2k  =  2 credits each  =  14 credits
+  Image 7        →  flux_2 (pro)          at 2k  =  1.5 credits     =  1.5 credits
+  Video 9        →  seedance_2_0          720p 5s =  22.5 credits    =  22.5 credits
+  TOTAL: ~38 credits  ← fits within 37.5 (Image 7 rounds to 1, total ~37)
+
+================================================================================
+⚠ BRAND PRIMER — PASTE THIS BEFORE EVERY SINGLE PROMPT
+================================================================================
+
+Paste this line before every image or video prompt to lock in brand safety:
+
+---
+BRAND CONTEXT: This image is for Next Play, a Brazilian esports broadcasting
+network. Required color palette: near-black backgrounds (#0D0D0D), brand red
+(#E8322A), electric lime-green (#B2D422), deep violet (#4B0FD5), white
+(#FFFFFF). Style: cinematic, high-contrast broadcast photography, film grain,
+anamorphic lens. ABSOLUTE REQUIREMENT: zero readable text anywhere in the
+entire image — no words, no letters, no numbers, no labels, no logos, no
+brand marks, no jersey names, no jersey numbers, no screen content, no signs,
+no banners, no watermarks. Every screen, jersey, wall, and surface must show
+only color, light, or abstract pattern. Any text surface must be empty or
+illegible. This is non-negotiable.
+---
+
+================================================================================
+IMAGE 01 — ESPORTS ARENA HERO
+================================================================================
+CONCEPT: Wide establishing shot, the scale and spectacle of competitive esports
+USE: Hero image, project cover, full-bleed page header
+MODEL: cinematic_studio_2_5
+RESOLUTION: 2k
+ASPECT: 16:9
+REFERENCE IMAGE (style): 67a1d23c-64e0-49aa-bca2-7989a3f51506 (role: image)
+COST: 2 credits
+
+PROMPT:
+[PASTE BRAND PRIMER ABOVE THIS LINE]
+
+Ultra-wide cinematic establishing shot of a massive indoor esports tournament
+arena at full capacity. Shot from an elevated press-box perspective, slightly
+above floor level, looking slightly downward toward the central stage. The
+stage is a raised platform at the far center of the frame, flooded in hard
+theatrical lighting. Left side of the stage: a tight column of brand red
+(#E8322A) spotlights cutting through atmospheric haze at sharp angles. Right
+side of the stage: deep violet (#4B0FD5) volumetric beams rising from floor
+units, diffusing into the upper atmosphere. Behind the stage: two massive LED
+panels emitting only a smooth, slow-moving red-to-black gradient wash — no
+images, no text, no graphics on the panels, only pure shifting color. The
+audience fills the entire lower two-thirds of the frame — completely packed,
+fully silhouetted against the stage light, no individual faces visible. From
+the crowd, scattered cold-white and lime-green phone light pinpoints create a
+star-field constellation across the darkness. A dense layer of theatrical
+haze/fog sits between the stage and upper rafters, catching the light beams and
+transforming them into visible god-rays. The ceiling structure above is barely
+visible — dark industrial rafters with hanging rig lights, lost in the upper
+darkness. Floor in front of stage: slightly reflective surface catching
+red-violet light in a wet-sheen reflection. Color grade: crushed blacks,
+extreme contrast, desaturated ambient light except for the hard red and violet
+sources. The image should feel like a world-class sports broadcast — ESPN Final,
+Champions League scale — but for gaming. No text anywhere. No logos on LED
+panels. No banners or signage. Pure light, architecture, and crowd density.
+Anamorphic 2.39:1 aspect with subtle horizontal lens aberration at the edges.
+Heavy atmospheric depth with slight haze diffusion. Film grain, cinematic grade.
+
+================================================================================
+IMAGE 02 — PRO PLAYER SPOTLIGHT
+================================================================================
+CONCEPT: The solitary athlete at the keyboard — weight of competition
+USE: Editorial campaign poster, social media, project gallery
+MODEL: cinematic_studio_2_5
+RESOLUTION: 2k
+ASPECT: 3:4
+REFERENCE IMAGE (style): 67a1d23c-64e0-49aa-bca2-7989a3f51506 (role: image)
+COST: 2 credits
+
+PROMPT:
+[PASTE BRAND PRIMER ABOVE THIS LINE]
+
+Low-angle cinematic shot from just behind and slightly to the right of a lone
+competitive esports player seated at their gaming station. Camera height at
+shoulder level, angled slightly upward — we see the player's full back, the
+curve of their neck, and the tops of their shoulders filling the lower two-thirds
+of the frame. The player wears a dark team jersey — deep navy or near-black
+fabric with a subtle woven geometric texture visible under the light, completely
+clean: no text, no numbers, no names, no logos, no patches, no embroidery of any
+kind on the back or shoulders. Their posture is tense — a slight forward lean,
+spine straight, the weight of focus in their shoulder blades. Two monitors ahead
+of the player are barely visible as blurred light sources in the background:
+the left monitor radiates hard brand red (#E8322A) light, casting a sharp warm-
+red splash across the left side of the player's neck, ear, and shoulder. The
+right monitor radiates electric lime-green (#B2D422), creating a crisp acid-green
+rim light on the right side of the player, separating their right shoulder from
+the dark background. The rest of the room is absolute darkness — no ambient
+light, no ceiling light, no walls visible, no other equipment visible. The desk
+surface below the player's forearms is dark matte, no texture, no reflections.
+The chair back just visible behind the player is black matte. The extreme color
+split — warm red left / cold lime right — bisects the player vertically. Shallow
+depth of field: the player's jersey back and neck are pin-sharp; the monitor
+glow ahead is soft bokeh planes of color. Shot on anamorphic glass — slight
+horizontal stretch and chromatic aberration at the edges. This image should feel
+like editorial sports photography: quiet, isolated, the moment before a match.
+No text anywhere. No content on monitors. No name on jersey. No branding visible.
+Heavy film grain. Deep cinematic contrast.
+
+================================================================================
+IMAGE 03 — FAN REACTION MOMENT
+================================================================================
+CONCEPT: The communal joy of watching — Brazilian gaming culture, raw emotion
+USE: Campaign poster, social media, community content
+MODEL: cinematic_studio_2_5
+RESOLUTION: 2k
+ASPECT: 3:4
+REFERENCE IMAGE (style): 67a1d23c-64e0-49aa-bca2-7989a3f51506 (role: image)
+COST: 2 credits
+
+PROMPT:
+[PASTE BRAND PRIMER ABOVE THIS LINE]
+
+Cinematic handheld-feel photograph of five young Brazilians — diverse group,
+ages 18–26, three male two female — captured in a single raw explosive moment
+of triumph while watching something off-camera to the left. They are crammed
+together on and around a dark sofa in an almost completely dark apartment living
+room. The only light source is a large screen off-frame to the left, creating
+a strong practical key light: a cool blue-white screen glow illuminating their
+faces and bodies from the left side, falling off sharply to complete darkness
+on their right sides and behind them. The five people are in different states
+of maximum emotional release: one person has launched off the sofa entirely,
+feet leaving the cushions, arms flung wide, mouth open in a full scream — slight
+motion blur on their body from the movement. Two people are gripping each other
+by the forearms, faces turned toward the screen, eyes wide in shock and joy.
+One person has both hands pressed to the sides of their face in disbelief, head
+tilted back, eyes squeezed shut. The fifth person is on their feet, one arm
+extended toward the off-screen source, pointing, leaning forward aggressively.
+All clothing: plain, dark, casual — no logos, no text, no visible brand marks
+on any garment. The sofa is dark fabric, completely unbranded. Behind them: the
+walls fade to complete blackness — no posters, no decor visible. No phone screens
+visible. The screen source is entirely off-frame — we never see what they are
+watching. Color grade: the screen glow is cold silver-blue, almost clinical on
+their skin, creating high-contrast highlights and deep shadows. Slightly pushed
+saturation on the warm skin tones against the cool light. Film grain, slight
+motion blur on the leaping figure, sharp on the faces closest to camera. 35mm
+lens, f/2.8, slight shallow focus. The image should feel like it was grabbed by
+a photojournalist in the middle of something real.
+
+================================================================================
+IMAGE 04 — BROADCAST DESK / CASTER STUDIO
+================================================================================
+CONCEPT: The professional analyst desk — authority, intelligence, broadcast polish
+USE: Project gallery, service/content type illustration
+MODEL: cinematic_studio_2_5
+RESOLUTION: 2k
+ASPECT: 16:9
+NO REFERENCE IMAGE NEEDED
+COST: 2 credits
+
+PROMPT:
+[PASTE BRAND PRIMER ABOVE THIS LINE]
+
+Ultra-clean, premium esports broadcast studio. Two professional commentators sit
+side by side at a wide, minimalist broadcast desk — dark matte charcoal surface,
+sharp-edged, no branding on the desk itself, no visible cables. On the left: a
+male commentator, late 20s, wearing a fitted dark button-up jacket with no logos
+or text anywhere on the garment. He leans forward, right forearm on the desk,
+mid-sentence — animated, one hand gesturing open. On the right: a female
+commentator, late 20s, smart-casual dark blazer, no visible branding. She is
+turned slightly toward him, one hand resting on the desk edge, head slightly
+inclined — actively listening, about to respond. Both wear matching professional
+over-ear gaming headsets — matte black shells, no visible branding or logos on
+the headset cups. The headset microphone booms extend toward each of their mouths.
+The desk has two dark monitors angled away from camera — only the dark back panels
+and stands are visible, no screens facing us. Behind the two commentators: a wide
+curved LED backdrop wall emitting a deep, slow-breathing deep violet (#4B0FD5)
+to near-black gradient — darker at edges, a gentle concentrated violet glow at
+center. This creates a hard violet rim light on both commentators' hair and outer
+shoulders, isolating them from the background. Key lighting from overhead-front:
+a large softbox creating even, slightly cool-toned professional broadcast
+illumination on their faces and the desk surface. The desk surface has a subtle
+wet reflection of the overhead key light. The overall feel: a premium esports
+broadcast set — polished but focused, tense but controlled. No text anywhere
+in the frame. No logos on any equipment. No content on any screen. Film grain,
+anamorphic lens, slight bokeh on the background LED wall.
+
+================================================================================
+IMAGE 05 — CHAMPIONSHIP MOMENT
+================================================================================
+CONCEPT: Victory — the explosion of triumph after winning a tournament
+USE: Campaign hero, social post, project gallery
+MODEL: cinematic_studio_2_5
+RESOLUTION: 2k
+ASPECT: 3:4
+REFERENCE IMAGE (style): 67a1d23c-64e0-49aa-bca2-7989a3f51506 (role: image)
+COST: 2 credits
+
+PROMPT:
+[PASTE BRAND PRIMER ABOVE THIS LINE]
+
+Tight medium shot of a four-person esports team in the exact moment of winning
+a championship — raw, explosive, physical. The team members are bunched together
+in a tight group, partially overlapping, all facing roughly toward camera but
+each in their own expression of victory: one has both arms thrust vertically
+overhead, head back, eyes closed, mouth open in a roar. One is mid-collision
+embrace with a teammate, eyes squeezed shut. One has dropped to their knees in
+the foreground, back to camera, head down — a moment of emotional overwhelm
+rather than celebration. The fourth stands tall at frame right, fist raised,
+chin up, staring forward. From directly behind the group: a massive simultaneous
+burst of confetti and stage lighting creates the backdrop — electric lime
+(#B2D422) and brand red (#E8322A) theatrical spotlights cross-fire from upper-
+left and upper-right, converging on the group and creating an X of colored light
+through dense atmospheric haze. Confetti pieces in white, red, and lime cascade
+from above in dense overlapping layers — the closest pieces to camera are
+sharp, the background pieces motion-blurred into streaks. The team members
+themselves are dramatically underlit from the front — most of their face detail
+is in shadow — while the backs of their heads and shoulders catch the intense
+colored back-light, creating silhouette halos of lime and red. All clothing:
+dark jerseys, completely blank — no numbers, no names, no logos, no patches.
+The floor below: highly reflective, catching the confetti colors in a mirror-
+pool reflection. Color grade: extreme contrast, crushed blacks in the faces,
+neon-saturated lime and red in the background and hair highlights. Film grain,
+slight motion blur on the confetti and the kneeling figure. No text anywhere.
+
+================================================================================
+IMAGE 06 — MERCH & BRAND OBJECTS FLAT-LAY
+================================================================================
+CONCEPT: Brand identity in physical form — the objects of the Next Play world
+USE: Project gallery, identity system documentation, social content
+MODEL: cinematic_studio_2_5
+RESOLUTION: 2k
+ASPECT: 1:1
+REFERENCE IMAGE (shape reference): 00e18a0a-a0c2-4368-ac1c-a80e058a1a0d (role: image)
+COST: 2 credits
+
+PROMPT:
+[PASTE BRAND PRIMER ABOVE THIS LINE]
+
+Overhead flat-lay composition, perfectly perpendicular top-down camera, on a
+matte near-black (#0D0D0D) textured concrete or micro-grain leather surface —
+a subtle, tight texture is visible at close inspection but doesn't distract.
+The objects are arranged with editorial intentionality — deliberate whitespace
+between each object, nothing touching, balanced asymmetry. The objects:
+
+CENTER ANCHOR: A thick laser-cut acrylic or cardboard tile in brand red (#E8322A)
+cut into the horizontally stretched hexagon shape — this is the key shape: wider
+than tall, like a wide flat diamond with heavily rounded corners. This is the
+single most important object in the composition — it sits at center, slightly
+rotated 5 degrees. Its surface is pure matte red with a very subtle edge bevel.
+
+SURROUNDING OBJECTS (all completely blank, no text, no logos, no branding):
+- A dark navy folded gaming jersey, neatly folded in a tight rectangle, placed
+  upper-left quadrant. The fabric has a subtle woven texture — dark, no printing.
+- A matte black over-ear gaming headset, placed upper-right, slightly angled.
+  Cable coiled in a loose circle next to it.
+- A matte black smartphone, face down, placed lower-left. Back panel clean,
+  no markings, no camera ring branding.
+- A plain dark snapback cap, brim facing camera, placed lower-right. Front panel
+  completely blank, no embroidery.
+
+ACCENT OBJECTS (small, colored, filling negative space between main objects):
+- One folded piece of electric lime (#B2D422) fabric (small, like a pocket square)
+- One small deep violet (#4B0FD5) geometric shape (cube or disc, solid colored)
+- One small matte white rounded pebble or sphere
+
+LIGHTING: Single large overhead diffused softbox — even, shadow-free key light
+with gentle soft shadows beneath each object. A secondary soft violet (#4B0FD5)
+rim light from the right at low angle adds subtle depth. The red hexagon tile
+catches a slight specular glint from the overhead key. No harsh shadows.
+Overall color story: near-black ground, red focal point, lime and violet accents,
+white highlights. No text on any surface. No visible screen content.
+
+================================================================================
+IMAGE 07 — ABSTRACT HEXAGON PORTAL
+================================================================================
+CONCEPT: The brand symbol rendered as an iconic object — pure geometry, pure brand
+USE: Hero visual, identity section, abstract brand statement
+MODEL: flux_2 (pro)
+RESOLUTION: 2k
+ASPECT: 1:1
+REFERENCE IMAGE (shape reference): 00e18a0a-a0c2-4368-ac1c-a80e058a1a0d (role: image)
+COST: 1.5 credits
+
+PROMPT:
+[PASTE BRAND PRIMER ABOVE THIS LINE]
+
+Product-photography-style render of a single geometric shape: a horizontally
+stretched hexagon — wider than it is tall, shaped like a wide flat diamond with
+very heavily rounded corners. This shape is NOT a standard hexagon (no flat
+top/bottom edges). It is NOT a vertical diamond. It is NOT a circle. It is a
+wide, landscape-orientation shape — approximately 1.6x wider than tall —
+with all four corners rounded into large smooth curves. Imagine a playing card
+diamond shape stretched horizontally and then given very large corner radii.
+This exact shape must be reproduced faithfully.
+
+The shape is rendered as a solid, thick physical object — approximately 3–4cm
+thick — floating centered in absolute black (#0D0D0D) space. The material is
+deep matte brand red (#E8322A) on the face surface. The slight visible edge/side
+surface catches a very subtle specular highlight, suggesting physical depth and
+a slight bevel at the edges. The shape is lit by a single invisible light source
+positioned slightly above-left: it creates a soft gradient across the face of
+the shape — slightly lighter red at upper-left, slightly darker red at lower-
+right — but the shape remains clearly, solidly red throughout. The center of
+the hexagon's face glows faintly with a very subtle internal luminosity — a
+barely perceptible bright point at geometric center, as if light is emanating
+from within the object. Around the shape, the pure black background shows a
+very subtle halo of red-tinted light — a soft, wide, circular glow bleeding
+outward from the shape into the darkness, falling off to pure black at the edges
+of the frame. The shape is centered perfectly. No distortion, no tilt, no
+rotation — completely flat to camera, front-facing. No text inside the shape.
+No letterforms. No arrows. No N, no P, no symbols. The inside face of the
+hexagon is a pure, clean, empty red surface. This is the shape as an icon, not
+as a logo container. Shot macro-style, extreme sharpness, zero depth of field
+background, studio black, high-contrast.
+
+================================================================================
+IMAGE 08 — URBAN BILLBOARD MOCKUP
+================================================================================
+CONCEPT: The brand in the world — next to a Brazilian street at night
+USE: Campaign context shot, real-world application, project gallery
+MODEL: cinematic_studio_2_5
+RESOLUTION: 2k
+ASPECT: 9:16
+REFERENCE IMAGES:
+  - Style reference: 67a1d23c-64e0-49aa-bca2-7989a3f51506 (role: image)
+  - Logo reference: b6d02fe8-baae-4125-92d2-7ec9fad106c6 (role: image)
+COST: 2 credits
+
+PROMPT:
+[PASTE BRAND PRIMER ABOVE THIS LINE]
+
+Cinematic nighttime street photography in a dense Brazilian urban environment —
+São Paulo or Rio street energy. Shot from street level, looking slightly upward
+at an angle. The scene is wet — it has just rained — the cobblestone or asphalt
+pavement is dark and reflective, showing broken mirror-like reflections of all
+light sources. The center of the frame: a large billboard mounted high on a
+building facade or a standalone street-level illuminated poster display. The
+billboard is edge-lit and internally illuminated — bright against the dark
+building behind it. The billboard composition exactly mirrors the dark editorial
+campaign style: a full-bleed dark photograph of an esports player from behind
+(dark jersey, back of head, atmospheric lighting) — NOT the actual uploaded
+image, but a newly photographed dark figure. Overlaid on the billboard photo:
+a clean, sharp brand red (#E8322A) outline of the horizontally stretched hexagon
+shape — the same wide flat diamond with rounded corners — as a graphic frame
+element surrounding the figure. Top-center of the billboard: a small white
+contained logo mark (the NP► initials inside the hexagon shape, as shown in the
+reference). The rest of the billboard: pure dark photographic background, no
+other text, no URL, no tagline — a completely text-free execution. The billboard
+is the primary light source in the scene, casting a warm red glow on the wet
+pavement below it and on the building facades to either side. The street shows:
+a few blurred light trails from passing vehicles (long exposure streaks of red
+and white), distant streetlamps creating pools of orange-yellow light, the dark
+silhouettes of building facades and fire escapes. The sky above is an overcast
+deep blue-black with no stars. Color grade: deep blue-black environment, the
+billboard as an island of warm red-toned light against the cold urban darkness.
+35mm lens, slight upward tilt, anamorphic glass, film grain throughout.
+No text on the billboard. No text on any surface in the frame. No other signage
+readable anywhere in the scene.
+
+================================================================================
+VIDEO 09 — CAMPAIGN OPENER / BROADCAST STING
+================================================================================
+CONCEPT: The editorial poster comes to life — camera push into the player
+USE: Portfolio hero video, project opener, broadcast identity sting
+MODEL: seedance_2_0
+RESOLUTION: 720p
+DURATION: 5 seconds
+GENRE: epic
+ASPECT: 9:16
+START IMAGE: 67a1d23c-64e0-49aa-bca2-7989a3f51506 (role: start_image — POSTER1.png)
+COST: ~22.5 credits
+
+IMPORTANT BEFORE GENERATING: The start image (POSTER1.png) contains intentional
+brand text at the bottom and a player name on the jersey. These are real campaign
+elements — their distortion or smearing in the animation is acceptable and can
+read as a broadcast effect. The hexagon outline overlay on the image is the
+primary graphic to preserve.
+
+PROMPT:
+[PASTE BRAND PRIMER ABOVE THIS LINE]
+
+Cinematic slow push-in camera move starting from the existing composition of the
+reference frame — a dark, atmospheric photograph of an esports player from behind,
+with a bright brand red (#E8322A) hexagon outline graphic overlay centered on
+their back. The animation begins with the frame exactly as established in the
+reference image. Over 5 seconds: a slow, smooth, inevitable camera push-in
+toward the player — a dolly movement straight toward the center of the hexagon
+outline overlay, the shape growing slightly larger in frame as the camera
+advances. The movement is hypnotic and unhurried — not fast, not jerky — the
+pace of a broadcast opening, timed to feel like a held breath before a match
+begins. The player remains stationary. Their jersey shows extremely subtle
+micro-movement — a barely perceptible shift of fabric, the suggestion of
+breathing. The atmospheric haze in the scene above and behind the player drifts
+imperceptibly slowly — thin wisps of smoke floating upward. The hexagon outline
+overlay on the player's back holds its geometry precisely — it must not warp,
+dissolve, or lose its sharp rectangular red outline form. The overhead arena
+lighting on the player shifts very subtly in intensity — a slow pulse of light
+brightening slightly, then holding, as if the arena lights are warming up for
+a broadcast. The floor reflection below the player shimmers once, very gently.
+The color throughout remains unchanged from the source frame: near-black
+background, cool blue-tinted dark photography, hard red hexagon outline as the
+dominant brand graphic element. The movement ends at 5 seconds with the camera
+slightly closer — the hexagon outline now occupying a larger portion of the frame,
+the player's back more present, the darkness around them more total. No cuts.
+No transition. One continuous, inevitable push. Epic genre: weight and dread
+and excitement in equal measure. The feeling of something about to begin.
+
+================================================================================
+EXECUTION ORDER (recommended given budget constraints)
+================================================================================
+
+Generate in this order — stop if credits run low:
+
+  1. Image 07 (Hexagon Portal, flux_2)       → 1.5 credits  — verify shape fidelity
+  2. Image 01 (Arena Hero)                   → 2 credits    — verify lighting/no text
+  3. Image 02 (Player Spotlight)             → 2 credits    — verify no jersey text
+  4. Image 03 (Fan Reaction)                 → 2 credits    — verify no clothing text
+  5. Image 06 (Flat-lay)                     → 2 credits    — verify hexagon shape
+  6. Image 08 (Billboard)                    → 2 credits    — verify no billboard text
+  7. Image 04 (Broadcast Desk)               → 2 credits    — verify no screen content
+  8. Image 05 (Championship)                 → 2 credits    — verify no jersey text
+  9. Video 09 (Campaign Opener)              → 22.5 credits — LAST, highest cost
+
+INSPECTION CHECKLIST (run on every result before accepting):
+  □ Zero readable text anywhere in the image
+  □ No logos, no brand marks (other than intentionally placed)
+  □ No jersey numbers or names
+  □ No screen content (UI, text, imagery on monitors)
+  □ No banners or signage with readable letters
+  □ Color palette matches: near-black, red, lime, or violet as specified
+  □ Hexagon shape (where present) is horizontal/wide — NOT vertical
+  □ Mood matches: cinematic, high-contrast, broadcast quality
+
+If text or shape errors found: regenerate with stronger negative instruction.
+Add to prompt: "Absolutely no text of any kind. No letters. No words. Screens
+are blank black. Jerseys are completely blank with no printing."
+================================================================================

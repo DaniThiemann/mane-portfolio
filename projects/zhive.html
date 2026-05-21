@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>zhive — dani</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" href="../assets/favicon/FavIconDark.png" media="(prefers-color-scheme: light)" type="image/png" />
+  <link rel="icon" href="../assets/favicon/FavIconWhite.png" media="(prefers-color-scheme: dark)" type="image/png" />
+  <style>
+    /* Release forced aspect-ratio crops so screenshots render at natural proportions */
+    .project-mosaic .project-mosaic-item,
+    .project-mosaic .project-mosaic-item.tall,
+    .project-mosaic .project-mosaic-item.full-width {
+      aspect-ratio: auto;
+    }
+    /* No cropping — full image height flows; top-anchored so any leftover space is at the bottom */
+    .project-mosaic .project-mosaic-item img,
+    .project-mosaic .project-mosaic-item video {
+      height: auto;
+      width: 100%;
+      display: block;
+      object-fit: fill;
+      object-position: top;
+    }
+
+    /* Row spacing — matches item gap (1.2rem) across sections */
+    .project-mosaic.zh-first { padding-bottom: 1.2rem; }
+    .project-mosaic.zh-mid   { padding-top: 0; padding-bottom: 1.2rem; }
+    .project-mosaic.zh-last  { padding-top: 0; }
+
+    /* Right-column stack: explicit gap in vw so it scales with column width.
+       3.68vw = 53px at 1440px viewport → both columns land at equal height. */
+    .zh-col-stack {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 3.68vw;
+    }
+
+    /* vector.svg: no container box, centered on the column axis */
+    .zh-vector {
+      background: transparent;
+      overflow: visible;
+      display: flex;
+      justify-content: center;
+    }
+    /* 59% = 65% × 0.9 (10% smaller); at 3.68vw gap both columns align at bottom */
+    .zh-vector img {
+      width: 59%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="cur"></div>
+  <a href="../index.html" class="proj-logo">dani ;)</a>
+  <nav class="proj-nav">
+    <a href="../index.html">&lt;archive&gt;</a>
+    <a href="#">&lt;curriculum&gt;</a>
+  </nav>
+
+  <main class="project-page">
+
+    <section class="project-hero">
+      <img src="../assets/perproject/zhiveassets/hf-control-panel.png" alt="ZHIVE — Smart Home Control Panel">
+    </section>
+
+    <section class="project-info">
+      <h1 class="project-title type" data-text="&lt;zhive&gt;">&lt;zhive&gt;</h1>
+      <div class="project-info-row">
+        <p class="project-description reveal">lighting, security, energy, and climate control in one residential interface — built for brazil, where engineering precision meets domestic comfort. dark-toned and architecturally structured, each solution has its own dedicated page.</p>
+        <span class="project-info-dot">( ... )</span>
+        <div class="project-meta">
+          <div class="project-meta-row reveal">
+            <span class="project-meta-value">zhive — smart home solutions</span>
+          </div>
+          <div class="project-meta-row reveal">
+            <span class="project-meta-value">2026</span>
+          </div>
+          <div class="project-meta-row reveal">
+            <span class="project-meta-value">web design, ux/ui</span>
+          </div>
+          <div class="project-meta-row reveal">
+            <span class="project-meta-value">web designer</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="project-gallery-bar">gallery</div>
+
+    <!-- Section 1: Início (left) | Iluminação + smart lock stacked top-down (right) -->
+    <section class="project-mosaic zh-first">
+      <div class="project-mosaic-item">
+        <img src="../assets/perproject/zhiveassets/Início - Zhive.png" alt="ZHIVE — Homepage">
+      </div>
+      <div class="zh-col-stack">
+        <div class="project-mosaic-item">
+          <img src="../assets/perproject/zhiveassets/Iluminação.png" alt="ZHIVE — Lighting Page">
+        </div>
+        <div class="project-mosaic-item">
+          <img src="../assets/perproject/zhiveassets/hf-smart-lock.png" alt="ZHIVE — Smart Lock">
+        </div>
+        <div class="project-mosaic-item zh-vector">
+          <img src="../assets/perproject/zhiveassets/vector.svg" alt="ZHIVE — logo mark">
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: lighting video — full width -->
+    <section class="project-mosaic zh-mid">
+      <div class="project-mosaic-item full-width video-item">
+        <video src="../assets/perproject/zhiveassets/hf-lighting.mp4" autoplay muted loop playsinline></video>
+      </div>
+    </section>
+
+    <!-- Section 3: security + energy management subpages -->
+    <section class="project-mosaic zh-mid">
+      <div class="project-mosaic-item">
+        <img src="../assets/perproject/zhiveassets/Segurança.png" alt="ZHIVE — Security Page">
+      </div>
+      <div class="project-mosaic-item">
+        <img src="../assets/perproject/zhiveassets/Gestão de Energia.png" alt="ZHIVE — Energy Management Page">
+      </div>
+    </section>
+
+    <!-- Section 4: blinds video — full width closer -->
+    <section class="project-mosaic zh-last">
+      <div class="project-mosaic-item full-width video-item">
+        <video src="../assets/perproject/zhiveassets/hf-blinds.mp4" autoplay muted loop playsinline></video>
+      </div>
+    </section>
+
+    <nav class="project-nav">
+      <a href="fmaeda-keiei.html">&lt;prev project&gt;</a>
+      <a href="../index.html">&lt;archive&gt;</a>
+    </nav>
+
+  </main>
+
+  <footer>
+    <span class="footer-copy">© 2026 dani</span>
+    <a href="#" class="footer-link" onclick="event.preventDefault();window.scrollTo({top:0,behavior:'smooth'})">[top ↑]</a>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

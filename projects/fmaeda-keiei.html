@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>f. maeda keiei — dani</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" href="../assets/favicon/FavIconDark.png" media="(prefers-color-scheme: light)" type="image/png" />
+  <link rel="icon" href="../assets/favicon/FavIconWhite.png" media="(prefers-color-scheme: dark)" type="image/png" />
+  <style>
+    /* ── F. Maeda Keiei — per-page gallery overrides ───────── */
+
+    /* Release forced aspect-ratio so images render at natural height */
+    .fm-mosaic .project-mosaic-item,
+    .fm-mosaic .project-mosaic-item.tall,
+    .fm-mosaic .project-mosaic-item.full-width {
+      aspect-ratio: auto;
+    }
+
+    /* Exception: animation item stays 16:9 */
+    .fm-mosaic .anim-item {
+      aspect-ratio: 16 / 9;
+    }
+
+    /* No cropping — full image, top-anchored per gallery rules */
+    .fm-mosaic .project-mosaic-item img {
+      height: auto;
+      width: 100%;
+      display: block;
+      object-fit: fill;
+      object-position: top;
+    }
+
+    /* Side-by-side pair: stretch to shared height, image fills the cell */
+    .fm-side-pair {
+      display: contents; /* participate in parent grid as if unwrapped */
+    }
+    .fm-mosaic .fm-paired img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    /* Section padding stitching (gaps = 1.2rem between items) */
+    .fm-mosaic.fm-first { padding-bottom: 1.2rem; }
+    .fm-mosaic.fm-mid   { padding-top: 0; padding-bottom: 1.2rem; }
+    .fm-mosaic.fm-last  { padding-top: 0; }
+
+    /* Side-by-side row: equal height by stretching cells */
+    .fm-mosaic.fm-mid {
+      align-items: stretch;
+    }
+
+    /* ── iframe animation: full-bleed inside its 16:9 container ── */
+    .anim-item {
+      overflow: hidden;
+      position: relative;
+      background: #0A0A0A;
+    }
+    #logo-anim-frame {
+      position: absolute;
+      top: 0; left: 0;
+      width: 1920px;
+      height: 1080px;
+      transform-origin: top left;
+      border: none;
+      pointer-events: none;
+      display: block;
+    }
+
+    /* ── Mobile ─────────────────────────────────────────── */
+    @media (max-width: 860px) {
+      .fm-mosaic.fm-mid { align-items: start; }
+    }
+  </style>
+</head>
+<body>
+  <div id="cur"></div>
+
+  <a href="../index.html" class="proj-logo">dani ;)</a>
+  <nav class="proj-nav">
+    <a href="../index.html">&lt;archive&gt;</a>
+    <a href="#">&lt;curriculum&gt;</a>
+  </nav>
+
+  <main class="project-page">
+
+    <!-- ── Hero ───────────────────────────────────────────── -->
+    <section class="project-hero">
+      <img src="../assets/perproject/fmaedakeiei/dark_2%20(1).jpg" alt="F. Maeda Keiei — live site" />
+    </section>
+
+    <!-- ── Project info ───────────────────────────────────── -->
+    <section class="project-info">
+      <h1 class="project-title type" data-text="&lt;f. maeda keiei&gt;">&lt;f. maeda keiei&gt;</h1>
+      <div class="project-info-row">
+        <p class="project-description reveal">a brazilian-japanese consultancy for international operational expansion. binary palette, five-circle pentagon mark, typographic weight contrast as the sole design device. delivered across symbol, lockup, app icon, business cards, and live site.</p>
+        <span class="project-info-dot">( ... )</span>
+        <div class="project-meta">
+          <div class="project-meta-row reveal">
+            <span class="project-meta-value">f. maeda keiei</span>
+          </div>
+          <div class="project-meta-row reveal">
+            <span class="project-meta-value">2026</span>
+          </div>
+          <div class="project-meta-row reveal">
+            <span class="project-meta-value">brand identity &amp; web design</span>
+          </div>
+          <div class="project-meta-row reveal">
+            <span class="project-meta-value">brand designer</span>
+          </div>
+          <div class="project-meta-row reveal">
+            <a href="https://www.fmaeda.co" target="_blank" rel="noopener" class="project-meta-link project-meta-value">fmaeda.co ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Gallery bar ────────────────────────────────────── -->
+    <div class="project-gallery-bar">gallery</div>
+
+    <!-- ── Section 1: Logo animation — full width ─────────── -->
+    <section class="project-mosaic fm-mosaic fm-first">
+      <div class="project-mosaic-item full-width video-item anim-item reveal">
+        <iframe
+          id="logo-anim-frame"
+          src=""
+          data-src="../assets/perproject/fmaedakeiei/logo-anim.html"
+          scrolling="no"
+          frameborder="0"
+          title="F. Maeda Keiei — Logo Animation"
+        ></iframe>
+      </div>
+    </section>
+
+    <!-- ── Section 2: Mark overhead + desk scene side by side ── -->
+    <section class="project-mosaic fm-mosaic fm-mid">
+      <div class="project-mosaic-item fm-paired reveal">
+        <img src="../assets/perproject/fmaedakeiei/hf-mark-overhead.png" alt="F. Maeda Keiei — mark overhead" />
+      </div>
+      <div class="project-mosaic-item fm-paired reveal">
+        <img src="../assets/perproject/fmaedakeiei/hf-desk-scene.png" alt="F. Maeda Keiei — executive desk" />
+      </div>
+    </section>
+
+    <!-- ── Section 3: Studio — full width ─────────────────── -->
+    <section class="project-mosaic fm-mosaic fm-last">
+      <div class="project-mosaic-item full-width reveal">
+        <img src="../assets/perproject/fmaedakeiei/generated-studio.png" alt="F. Maeda Keiei — studio" />
+      </div>
+    </section>
+
+    <!-- ── Project navigation ─────────────────────────────── -->
+    <nav class="project-nav">
+      <a href="nextplay.html">&lt;prev project&gt;</a>
+      <a href="zhive.html">&lt;next project&gt;</a>
+    </nav>
+
+  </main>
+
+  <footer>
+    <span class="footer-copy">© 2026 dani</span>
+    <a href="#" class="footer-link" onclick="event.preventDefault();window.scrollTo({top:0,behavior:'smooth'})">[top ↑]</a>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    // ── Scale iframe to fill its 16:9 container ──────────────
+    function scaleAnim() {
+      const container = document.querySelector('.anim-item');
+      const frame = document.getElementById('logo-anim-frame');
+      if (!container || !frame) return;
+      const scale = container.offsetWidth / 1920;
+      frame.style.transform = `scale(${scale})`;
+      container.style.height = Math.round(container.offsetWidth * (9 / 16)) + 'px';
+    }
+    window.addEventListener('resize', scaleAnim);
+
+    // Fire animation only when the container enters the viewport
+    (function () {
+      const frame = document.getElementById('logo-anim-frame');
+      if (!frame) return;
+      const obs = new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) {
+          frame.src = frame.dataset.src;
+          frame.addEventListener('load', scaleAnim, { once: true });
+          obs.disconnect();
+        }
+      }, { threshold: 0.1 });
+      obs.observe(frame.closest('.anim-item') || frame);
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+node_modules/
+MOCKUPS/
+.claude/
+.mcp.json
+.roborev.toml
+
+# Large reference/source files not needed for the site
+assets/perproject/nextplay/REFERENCE.zip
+assets/perproject/brunge/IMG_2952.MOV
+assets/perproject/brunge/Sequência 01.mp4

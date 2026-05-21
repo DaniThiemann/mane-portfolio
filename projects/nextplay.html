@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>next play — dani</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" href="../assets/favicon/FavIconDark.png" media="(prefers-color-scheme: light)" type="image/png" />
+  <link rel="icon" href="../assets/favicon/FavIconWhite.png" media="(prefers-color-scheme: dark)" type="image/png" />
+  <style>
+    /* Show images at their natural proportions — release forced aspect-ratio crops */
+    .project-mosaic .project-mosaic-item,
+    .project-mosaic .project-mosaic-item.tall,
+    .project-mosaic .project-mosaic-item.full-width {
+      aspect-ratio: auto;
+    }
+    .project-mosaic .project-mosaic-item img {
+      height: auto;
+    }
+
+    /* Multi-section gallery: distribute padding so gap between rows
+       matches the item gap (1.2rem) instead of stacking 3rem + 2rem */
+    .project-mosaic.np-first { padding-bottom: 1.2rem; }
+    .project-mosaic.np-mid   { padding-top: 0; padding-bottom: 1.2rem; }
+    .project-mosaic.np-last  { padding-top: 0; }
+
+    /* 2:1 ratio row — SM_010 wider, billboard narrower */
+    .project-mosaic.np-21 {
+      grid-template-columns: 2fr 1fr;
+    }
+
+    @media (max-width: 860px) {
+      .project-mosaic.np-21 {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="cur"></div>
+  <a href="../index.html" class="proj-logo">dani ;)</a>
+  <nav class="proj-nav">
+    <a href="../index.html">&lt;archive&gt;</a>
+    <a href="#">&lt;curriculum&gt;</a>
+  </nav>
+
+  <main class="project-page">
+
+    <section class="project-hero">
+      <img src="../assets/perproject/nextplay/generated/06_merch_flatlay.png" alt="NEXT PLAY">
+    </section>
+
+    <section class="project-info">
+      <h1 class="project-title type" data-text="&lt;next play&gt;">&lt;next play&gt;</h1>
+      <div class="project-info-row">
+        <p class="project-description reveal">brazil's first esports broadcasting portal — built to own an entire vertical. the stretched hexagon frames content, tiles as texture, signals outward. red for the primary mark, violet for the analyst desk, lime for championship nights.</p>
+        <span class="project-info-dot">( ... )</span>
+        <div class="project-meta">
+          <div class="project-meta-row reveal">
+            <span class="project-meta-value">next play — nextplay.com.br</span>
+          </div>
+          <div class="project-meta-row reveal">
+            <span class="project-meta-value">2026</span>
+          </div>
+          <div class="project-meta-row reveal">
+            <span class="project-meta-value">branding, identity, motion</span>
+          </div>
+          <div class="project-meta-row reveal">
+            <span class="project-meta-value">brand designer</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="project-gallery-bar">gallery</div>
+
+    <!-- Row 1: poster pair -->
+    <section class="project-mosaic np-first">
+      <div class="project-mosaic-item tall">
+        <img src="../assets/perproject/nextplay/generated/poster1.png" alt="NEXT PLAY — Typographic Poster">
+      </div>
+      <div class="project-mosaic-item tall">
+        <img src="../assets/perproject/nextplay/generated/poster2.png" alt="NEXT PLAY — Typographic Poster">
+      </div>
+    </section>
+
+    <!-- Row 2: arena — full width -->
+    <section class="project-mosaic np-mid">
+      <div class="project-mosaic-item full-width">
+        <img src="../assets/perproject/nextplay/generated/01_arena_hero.png" alt="NEXT PLAY — Arena">
+      </div>
+    </section>
+
+    <!-- Row 3: championship + fan reaction -->
+    <section class="project-mosaic np-mid">
+      <div class="project-mosaic-item tall">
+        <img src="../assets/perproject/nextplay/generated/05_championship.png" alt="NEXT PLAY — Championship">
+      </div>
+      <div class="project-mosaic-item tall">
+        <img src="../assets/perproject/nextplay/generated/03_fan_reaction.png" alt="NEXT PLAY — Fan Reaction">
+      </div>
+    </section>
+
+    <!-- Row 4: SM_010 (2fr) + billboard (1fr) — same height -->
+    <section class="project-mosaic np-mid np-21">
+      <div class="project-mosaic-item">
+        <img src="../assets/perproject/nextplay/generated/SM_010.png" alt="NEXT PLAY — Brand in Context">
+      </div>
+      <div class="project-mosaic-item">
+        <img src="../assets/perproject/nextplay/generated/08_billboard.png" alt="NEXT PLAY — Billboard">
+      </div>
+    </section>
+
+    <!-- Row 5: aspas + PRONTO-13 -->
+    <section class="project-mosaic np-last">
+      <div class="project-mosaic-item tall">
+        <img src="../assets/perproject/nextplay/generated/aspas.png" alt="NEXT PLAY — Aspas">
+      </div>
+      <div class="project-mosaic-item tall">
+        <img src="../assets/perproject/nextplay/generated/PRONTO-13.png" alt="NEXT PLAY — Community">
+      </div>
+    </section>
+
+    <nav class="project-nav">
+      <a href="brunge.html">&lt;prev project&gt;</a>
+      <a href="fmaeda-keiei.html">&lt;next project&gt;</a>
+    </nav>
+
+  </main>
+
+  <footer>
+    <span class="footer-copy">© 2026 dani</span>
+    <a href="#" class="footer-link" onclick="event.preventDefault();window.scrollTo({top:0,behavior:'smooth'})">[top ↑]</a>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

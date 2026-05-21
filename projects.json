@@ -1,0 +1,41 @@
+{
+  "projects": [
+    {
+      "id": "brunge",
+      "title": "BRUNGE",
+      "client": "brunge - spec coffee roast op.",
+      "year": 2026,
+      "category": "Branding & Packaging",
+      "role": "Brand Designer",
+      "website": "",
+      "description": "Brunge was not born from a business plan, but from an impulse. To roast. Small batches. Accessible coffees. Some will be amazing. Some may be weird. Some will exist only because we wanted to try something that nobody asked for. There is nothing to hide.",
+      "status": "online",
+      "mosaicPosition": 2,
+      "mosaicImage": "assets/perproject/brunge/coverImg_Prancheta 1 cÃ³pia 9.jpg",
+      "hero": "assets/perproject/brunge/CoverHeaderbrunge.jpg",
+      "gallery": [
+        {
+          "file": "assets/perproject/brunge/MOSAICIMG_Prancheta 1 cÃ³pia 4.jpg",
+          "caption": "",
+          "layout": "tall"
+        },
+        {
+          "file": "assets/perproject/brunge/MOSAICIMG_Prancheta 1 cÃ³pia 11.jpg",
+          "caption": "",
+          "layout": "tall"
+        },
+        {
+          "file": "assets/perproject/brunge/MOSAICIMG_Prancheta 1 cÃ³pia 3.jpg",
+          "caption": "",
+          "layout": "standard"
+        },
+        {
+          "file": "assets/perproject/brunge/MOSAICIMG_Prancheta 1 cÃ³pia 10.jpg",
+          "caption": "",
+          "layout": "tall"
+        }
+      ],
+      "created": "2026-05-10"
+    }
+  ]
+}

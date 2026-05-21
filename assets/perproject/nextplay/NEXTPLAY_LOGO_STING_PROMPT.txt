@@ -1,0 +1,211 @@
+NEXT PLAY — LOGO REVEAL STING
+==============================
+Broadcast transition / TV commercial / YouTube pre-roll / Channel bumper
+"Hexagon Echo Reveal"
+
+MODEL: kling3_0
+RESOLUTION: 1080p
+DURATION: 10 seconds
+ASPECT: 16:9
+REFERENCE IMAGE: b6d02fe8-baae-4125-92d2-7ec9fad106c6 (role: image — logo_contained.png)
+ESTIMATED COST: ~20 credits
+
+NOTE ON REFERENCE: The uploaded logo_contained.png shows the NP► contained mark
+(bold geometric "N" + play-button chevron inside a horizontally stretched hexagon)
+in solid red (#E8322A) with white NP► mark inside. Use this as the identity
+reference for what appears at the end of the animation. In the final reveal, the
+logo should appear in brand red (#E8322A) — the contained version — centered
+on screen against the deep violet (#4B0FD5) hexagon backdrop.
+
+ALTERNATIVE: kling2_6 at 10s if kling3_0 unavailable/too costly.
+
+================================================================================
+⚠ BRAND PRIMER — PREPEND THIS BEFORE THE MAIN PROMPT
+================================================================================
+
+BRAND CONTEXT: This animation is for Next Play — Brazil's first dedicated esports
+broadcasting network. Brand palette: near-black (#0D0D0D) backgrounds, brand red
+(#E8322A) primary logo color, deep violet (#4B0FD5) secondary/roundtable color,
+electric lime (#B2D422), white (#FFFFFF).
+ABSOLUTE REQUIREMENT: zero readable text of any kind anywhere in the animation —
+no words, no letters, no numbers, no labels, no signs. The only "marks" present
+are abstract geometric shapes and the logo symbol itself (two bold geometric
+letterforms + a play-button triangle shape, contained within a hexagon).
+This is a graphic identity motion piece — pure shape, color, and movement.
+
+================================================================================
+MAIN PROMPT
+================================================================================
+
+[PASTE BRAND PRIMER ABOVE THIS LINE]
+
+A premium broadcast motion graphics identity sting — the kind used as a channel
+opener, TV commercial bumper, or YouTube pre-roll transition for a major esports
+network. Entirely abstract graphic animation. No live footage, no photography,
+no people, no environments. Pure geometric shape animation on a near-black
+(#0D0D0D) background.
+
+THE CORE SHAPE — memorize this exactly:
+A horizontally stretched hexagon — wider than it is tall, like a wide flat diamond
+with very heavily rounded corners. Approximately 1.6x wider than tall. All four
+corner points (left, right, top, bottom) are deeply rounded — not sharp. It is
+NOT a standard hexagon with flat top and bottom edges. It is NOT a vertical
+diamond. Think: a rugby ball rotated horizontal, but with flattened sides. This
+exact shape — in multiple sizes — is the ONLY geometric element in this animation.
+
+THE LOGO SYMBOL — appears only at the climax:
+The same horizontally stretched hexagon shape, in solid brand red (#E8322A),
+containing two bold white geometric marks: a wide geometric "N" shape (diagonal
+stroke, rounded terminals) on the left and a bold play-button triangle (▶) on the
+right. The white marks are knockout shapes cut out of the red hexagon body. This
+is the contained logo mark of Next Play — it appears perfectly centered on screen
+as the animation's focal point.
+
+ANIMATION SEQUENCE — execute exactly in this order:
+
+PHASE 1 — THE ARRIVAL (0:00 – 0:20s):
+Pure black (#0D0D0D) screen. Total silence in visuals.
+
+PHASE 2 — LAYER 1 SNAPS IN (0:20s – 0:60s):
+From absolute center of the screen, the first hexagon materializes — small,
+roughly 12% of screen width — in deep violet (#4B0FD5), solid filled, flat to
+camera, perfectly horizontally oriented (wider than tall). It does NOT fade in.
+It SNAPS in with mechanical speed, then immediately overshoots its final size
+(expands 15% beyond target), then bounces back and LOCKS into position. The
+bounce is crisp and decisive — like a card being slapped onto a table. Once
+locked, it holds completely still. A very subtle inner glow emanates from its
+edges — a soft violet luminosity against the black. Duration of this snap-bounce:
+~0.4 seconds.
+
+PHASE 3 — LAYER 2 SNAPS IN (0:60s – 1:10s):
+A second, larger hexagon (same shape, same deep violet #4B0FD5, now ~28% of
+screen width) materializes BEHIND layer 1, also from dead center. Same snap-
+bounce mechanic: fast snap to size → overshoot → bounce back → lock. The bounce
+of this layer is slightly softer than layer 1 — a tiny bit more elastic, a tiny
+bit more hang time before locking. Layer 1 remains perfectly still in front of it.
+Both are visible now: small one in front, larger one behind.
+
+PHASE 4 — LAYER 3 SNAPS IN (1:10s – 1:60s):
+Third hexagon (same violet, ~46% screen width) materializes from center behind
+the previous two. Same snap-bounce, slightly more elastic still. Three concentric
+horizontally-stretched hexagons are now visible, all centered, all deep violet,
+all locked in position. The impression is of expanding ripples frozen at different
+radii from a single center point.
+
+PHASE 5 — LAYER 4 SNAPS IN (1:60s – 2:10s):
+Fourth hexagon (~64% screen width). Same mechanic. The bounce has a slightly more
+dramatic overshoot — it pushes almost to screen edges before snapping back to its
+locked size. Four concentric violet hexagons.
+
+PHASE 6 — LAYER 5 FILLS THE SCREEN (2:10s – 2:80s):
+The fifth and largest hexagon (~88% screen width, its rounded points nearly
+reaching all four screen edges) materializes from center. This one has the most
+dramatic snap: it briefly FILLS the entire screen — a split-second flash of total
+violet — before bouncing back hard and locking into its final size. This is the
+peak moment of visual impact. Five concentric violet hexagons, all perfectly still.
+A single beat of silence before the next phase.
+
+PHASE 7 — THE LOGO REVEALS (2:80s – 4:00s):
+From the precise center of the screen — overlaid in front of all five violet
+hexagon layers — the Next Play contained logo mark materializes. It starts as a
+single bright point of brand red (#E8322A) light at center, then rapidly expands
+outward (scale from 0% to 100% over ~0.5 seconds) with a slight overshoot and
+settle — matching the same bounce physics as the hexagon layers. The final logo
+size is approximately 20% of screen width — small enough to sit comfortably
+inside the smallest violet hexagon, clearly legible, dominant.
+The logo is: solid brand red (#E8322A) horizontally stretched hexagon containing
+white NP► mark (geometric N + play-button triangle). It glows faintly with a
+warm red light against the violet layers behind it. At the moment the logo locks
+into position, a very brief (0.1 second) flash of warm red light radiates outward
+from it — a single pulse, like a heartbeat.
+
+PHASE 8 — THE COMPRESSION (4:00s – 6:50s):
+The five violet hexagon layers begin compressing back toward center, one by one
+from the outermost to the innermost, with staggered timing:
+- Layer 5 (outermost) begins compressing first at 4:00s — it shrinks toward center
+  but does NOT disappear. It compresses to approximately 72% of its locked size
+  and then STOPS — holding as a slightly smaller ring/layer.
+- Layer 4 begins compressing at 4:30s — same behavior, stops at ~72% of locked size.
+- Layer 3 at 4:80s, Layer 2 at 5:20s, Layer 1 at 5:60s.
+Each layer compresses with the same snap-bounce mechanic (fast inward, slight
+overshoot, settle). Each layer ends up slightly smaller than its original locked
+size but still clearly visible as a distinct concentric ring around the logo.
+The effect: the hexagon layers are "breathing in" — tightening around the logo
+like a contracting iris, but never fully closing.
+
+PHASE 9 — FINAL STATE, HELD (6:50s – 10:00s):
+The animation arrives at its resting composition and holds perfectly still:
+Dead center of the near-black screen: the Next Play contained logo mark in solid
+brand red (#E8322A), white NP► knockout marks visible inside it.
+Behind the logo, five concentric horizontally-stretched hexagon shapes in deep
+violet (#4B0FD5), each ring progressively larger than the previous, arranged
+symmetrically outward from the logo. The innermost ring tightly frames the logo.
+The outermost ring is the largest — its rounded points extend toward but do not
+reach the screen edges. Each ring is slightly lighter/brighter than the one
+outside it — the innermost ring is the most saturated violet, the outermost
+slightly more muted/dark — creating a sense of depth and atmospheric perspective.
+The logo appears to be broadcasting energy outward — the concentric hexagon rings
+are its signal, its echo, its reach.
+A very subtle, slow breathing pulse animates the rings during the hold: they
+collectively expand ~3% and contract ~3% on a slow 2-second cycle — barely
+perceptible, like the animation is breathing. The logo itself does not pulse.
+
+VISUAL QUALITY REQUIREMENTS:
+- All shapes are perfectly flat to camera — no perspective distortion, no 3D tilt
+- All hexagons are the same orientation: horizontal, wider than tall, same
+  proportional shape (1.6x wide-to-tall ratio), only different sizes
+- No gradients or textures on the violet hexagons — flat solid color
+- The logo is sharp, clean, perfectly centered — no blur, no distortion
+- Background is pure near-black (#0D0D0D) throughout
+- No particle effects, no light leaks, no lens flares, no glitch effects
+- No text of any kind at any point in the animation
+- Render quality: premium broadcast, clean edges, smooth motion
+
+MOOD / FEEL:
+Premium sports broadcast opener. The confidence of a major sports network's
+ident — think ESPN, Sky Sports, NFL Network — but for esports and coded in the
+deep-brand language of Next Play. Mechanical precision, slight bounce elasticity,
+commanding hold. Not flashy, not overdesigned. The shapes do exactly what they
+need to do and stop. Authority through restraint.
+
+================================================================================
+EXECUTION NOTES
+================================================================================
+
+UPLOADED REFERENCE ASSET (already in your Higgsfield account):
+  ID: b6d02fe8-baae-4125-92d2-7ec9fad106c6  →  logo_contained.png
+  Use as role: image (style/identity reference, not start_image)
+
+SHAPE CONSISTENCY CHECK — before accepting the result, verify:
+  □ All hexagons are horizontal (wider than tall) — not vertical, not circular
+  □ All corners are heavily rounded — not sharp diamond points
+  □ Logo appears in red (#E8322A) not violet
+  □ Logo contains the NP► mark (N + play triangle) — not a blank shape
+  □ Five distinct hexagon ring layers visible in final frame
+  □ Zero text anywhere in the animation
+  □ Background remains near-black throughout
+
+IF THE SHAPE IS WRONG (vertical hexagon, sharp corners, circular):
+  Add to prompt: "The hexagon shape is strictly horizontal — landscape format,
+  wider than tall. Think of a traditional playing card diamond (◆) stretched
+  to be 60% wider than its original width, then rounded heavily at all four
+  corner points. It is never vertical. It is never a regular hexagon with flat
+  top and bottom. Wider. Flatter. Rounder."
+
+================================================================================
+VARIANT IDEAS (lower priority, generate after main version approved)
+================================================================================
+
+VARIANT A — WHITE LOGO (cleaner):
+  Same animation but the final logo mark renders in white (#FFFFFF) instead of
+  brand red (#E8322A) — softer finish, more mysterious.
+
+VARIANT B — RED RINGS (championship version):
+  Same animation but all five hexagon rings are in brand red (#E8322A) instead
+  of deep violet. Use for championship content, competitive match coverage.
+
+VARIANT C — REVERSE (logo-first):
+  Start with the logo already visible at center. Then the hexagon rings EXPAND
+  outward from the logo one by one, with the same snap-bounce mechanic, filling
+  the screen outward rather than inward. Use as an outro/sign-off bumper.
+================================================================================

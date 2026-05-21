@@ -1,0 +1,140 @@
+NEXT PLAY — MASTER BRAND PROMPT
+================================
+Paste this at the start of any session where you need to build, design, generate,
+or write anything for the Next Play brand.
+
+================================================================================
+
+[CLIENT BRIEF]
+Next Play is a Brazilian esports broadcasting network — the first dedicated portal
+for competitive gaming content in Brazil. Think SporTV or DAZN, but exclusively
+for esports: League of Legends, Valorant, CS:GO championships, weekly highlights,
+athlete interviews, commentator roundtables.
+
+Brand role: Brand Designer
+Project type: Full identity system + marketing campaign assets
+Primary slogan: O PORTAL DOS E-SPORTS CHEGOU
+Secondary tagline: O universo dos eSports na sua tela
+Website: nextplay.com.br
+Language: Brazilian Portuguese
+
+Target audience: Brazilian gaming community, 16–30, highly online, esports-native.
+Speak to them directly, as peers. Never corporate. Never passive.
+
+================================================================================
+
+[FULL BRAND SYSTEM]
+→ Read the complete system from:
+  assets/perproject/nextplay/NEXTPLAY_BRAND_SYSTEM.txt
+
+Key visual rules to hold in working memory:
+
+SYMBOL: Horizontally stretched hexagon, rounded corners, wider than tall.
+This shape is the brand's portal device — it frames content, tiles as texture,
+and contains the logo mark.
+
+LOGO MARK: Bold geometric N + play-button chevron (►) = "NP►"
+Contained version: NP► mark inside the hexagon shape.
+
+COLORS:
+  Brand Red    #E8322A  — primary, symbol, default logo
+  Lime Green   #B2D422  — championships / competitive
+  Deep Violet  #4B0FD5  — roundtable / analysis
+  Near-Black   #0D0D0D  — backgrounds
+  White        #FFFFFF  — on dark
+
+TYPOGRAPHY:
+  Impact headlines:  ABC Gravity XX Compressed (all-caps, bleed off edges)
+  Brand display:     Monument Extended Bold
+  Body/UI:           IBM Plex Sans (Light → Bold)
+  Accent:            Poppins Bold
+
+ICONS (always pair with their color):
+  Flame    → Red    → Weekly highlights
+  Swords   → Green  → Championships
+  Headset  → Violet → Roundtable/commentary
+
+TEXTURE: Hexagon honeycomb tile pattern (monochromatic, full-bleed backgrounds)
+
+HARD RULES:
+  - Never rotate the symbol or logo
+  - Never mix colors within one symbol instance
+  - Never use icons as logo replacements
+  - Never low-contrast color combinations
+  - Never alter the internal content of the contained mark
+
+================================================================================
+
+[REFERENCE ASSETS — read before generating anything]
+  Symbol:               assets/perproject/nextplay/logo&symbol/symbol.png
+  Logo red:             assets/perproject/nextplay/logo&symbol/logomain_red.png
+  Logo green:           assets/perproject/nextplay/logo&symbol/logomain_green.png
+  Logo purple:          assets/perproject/nextplay/logo&symbol/logomain_purple.png
+  Logo white:           assets/perproject/nextplay/logo&symbol/logomain_white.png
+  Contained logo:       assets/perproject/nextplay/logo&symbol/logo_contained.png
+  All icons:            assets/perproject/nextplay/icons/
+  All posters:          assets/perproject/nextplay/posters/
+  3D GIF frames:        assets/perproject/nextplay/gif/ (0001–0100.png)
+  Videos:               assets/perproject/nextplay/videos/
+
+================================================================================
+
+[SKILLS TO INVOKE — always call before starting the relevant task]
+
+Building the project page (HTML/CSS):
+  → /frontend-design
+  → /ui-ux-pro-max
+
+Marketing banners or social media assets:
+  → /banner-design
+  → /design
+
+Brand copy, tone of voice, messaging:
+  → /brand
+
+Design system output, tokens, component specs:
+  → /design-system
+
+================================================================================
+
+[AI IMAGE GENERATION RULES — Higgsfield / flux_2]
+
+Model:       flux_2 (pro)
+Resolution:  2k
+
+Always include in every prompt:
+  "No readable text, no words, no letters, no labels on any surface."
+
+Color grading target:
+  Deep reds (#E8322A), electric limes (#B2D422), deep violets (#4B0FD5),
+  near-black backgrounds (#0D0D0D). High contrast. Cinematic.
+
+Mood reference:
+  Esports tournament broadcast energy. Arena lighting. Crowd atmosphere.
+  Think: ESPN esports coverage meets Brazilian street energy.
+
+After generation:
+  Inspect every text-bearing surface (screens, jerseys, signs, notepads) for
+  hallucinated or gibberish text. If found: regenerate with stronger "no text"
+  instructions.
+
+Upload brand mark images as `image` role reference inputs when generating
+anything that needs the NP► symbol or hexagon shape present in scene.
+
+================================================================================
+
+[POSTER DESIGN MODES — quick reference]
+
+MODE 1 / PHOTOGRAPHY
+  Dark full-bleed photo + hexagon outline overlay + NP mark top + slogan bottom
+
+MODE 2 / TYPOGRAPHIC
+  Bold flat BG (green or violet) + massive compressed type + hexagon cutout window
+
+MODE 3 / ICON GRID
+  Hexagon tile texture BG + 3 icons stacked + NP mark corner + tagline
+
+MODE 4 / COMMUNITY
+  Warm cinematic photo + Monument Extended "NEXT PLAY" headline + hexagon accents
+
+================================================================================

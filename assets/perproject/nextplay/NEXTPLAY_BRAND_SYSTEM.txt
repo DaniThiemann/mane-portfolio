@@ -1,0 +1,222 @@
+NEXT PLAY — BRAND DESIGN SYSTEM
+================================
+Brazilian Esports Broadcasting Network
+Role: Brand Designer | Year: 2026
+Category: Branding, Identity, Motion, Broadcast
+
+================================================================================
+1. BRAND OVERVIEW & POSITIONING
+================================================================================
+
+Next Play is Brazil's dedicated esports broadcasting portal — positioned as the
+SporTV or DAZN of competitive gaming. It covers:
+  - League of Legends, Valorant, CS:GO championships
+  - Weekly highlight clips ("destaques da semana")
+  - Athlete/player interviews
+  - Commentator roundtable sessions ("mesa redonda")
+
+Target audience: Brazilian gaming community, 16–30, highly online, culturally
+fluent in esports. They know who "Aspas" is. They follow team rivalries.
+They use esports vocabulary natively.
+
+Primary slogan:  O PORTAL DOS E-SPORTS CHEGOU
+Secondary tagline: O universo dos eSports na sua tela
+CTA language: ASSISTA AO VIVO / CHEGOU / É AGORA
+
+Competitive context: Not competing with traditional sports broadcasters.
+Owning the esports vertical entirely in Brazil — first-mover identity.
+
+
+================================================================================
+2. VISUAL IDENTITY
+================================================================================
+
+--- SYMBOL ---
+A horizontally stretched hexagon with heavily rounded corners — wider than tall,
+like a lateral portal or broadcast lens. This is the brand's primary geometric
+shape. It appears in three roles:
+  (a) Standalone symbol: the bare hexagon shape in red
+  (b) Contained logo: NP► mark locked inside the hexagon (for app icons, badges)
+  (c) Graphic frame: hexagon outline overlaid on photography as a portal/window
+      device — the shape frames the content within, reinforcing the "portal" concept
+
+--- LOGO MARK ---
+Two geometric, bold, rounded letterforms:
+  N  — a wide geometric N with a diagonal stroke and rounded stroke terminals
+  P► — the letter P replaced by a play-button chevron (►), sharing exact weight
+       and corner radius with the N
+
+Together they read "NP►" — the N for Next, the play button for broadcast.
+The main logo is always the standalone NP► mark.
+The contained version is NP► locked inside the hexagon.
+
+Logo color variants (use whole files, never recolor):
+  logomain_red.png    — primary brand application
+  logomain_green.png  — championship / competitive contexts
+  logomain_purple.png — roundtable / analysis contexts
+  logomain_white.png  — on dark backgrounds
+
+--- COLOR SYSTEM ---
+Brand Red        #E8322A   Primary. Symbol, main logo, dominant poster color.
+Electric Green   #B2D422   Championships / competitive. Lime, high-energy.
+Deep Violet      #4B0FD5   Commentator / roundtable / analysis content.
+Near-Black       #0D0D0D   Backgrounds, dark mode, dominant base.
+White            #FFFFFF   Logo on dark backgrounds; text on dark.
+
+Color pairing rules:
+  Red on black       — main brand default
+  Green on violet    — championship match promotion
+  Violet on green    — inverted championship variant
+  Red on black (photography) — editorial poster mode
+  NEVER: low-contrast combinations (e.g. green on white, red on violet)
+  NEVER: mix colors within a single symbol/logo instance
+
+--- TYPOGRAPHY ---
+Display / Full-bleed impact:
+  ABC Gravity XX Compressed / Variable Condensed
+  Use: massive all-caps headlines bleeding off edges, match promotion, raw energy
+
+Brand display (on white/light grounds):
+  Monument Extended Bold
+  Use: "NEXT PLAY" at large scale, clean typographic lockups
+
+Body / UI / Supporting:
+  IBM Plex Sans — Light, Regular, Medium, Bold
+  Use: all running text, labels, metadata, UI copy, captions
+
+Accent:
+  Poppins Bold
+  Use: secondary headline supporting roles
+
+--- CONTENT CATEGORY ICONS ---
+Three icons form the content taxonomy system. Each icon is bold, rounded,
+geometric — matching the weight of the logo mark. Each icon owns one color.
+
+  FLAME icon     → Red    (#E8322A) → Weekly highlights / trending content
+  CROSSED SWORDS → Green  (#B2D422) → Championships / competitive match coverage
+  HEADSET icon   → Violet (#4B0FD5) → Roundtable / analyst desk sessions
+
+Icon files: assets/perproject/nextplay/icons/[icon]_[color].png
+Note: sword filename has a typo — it is "sowrd_[color].png" not "sword_"
+
+--- PATTERN / TEXTURE ---
+The stretched hexagon tiles into a dense honeycomb-mesh repeat pattern used as
+full-bleed backgrounds. This is the brand's primary non-photographic texture.
+It appears in all icon-showcase posters. When used monochromatically (e.g. violet
+tiles on violet ground) it creates an embossed/tonal depth effect.
+
+
+================================================================================
+3. POSTER DESIGN LANGUAGE — THREE MODES
+================================================================================
+
+MODE 1: PHOTOGRAPHY (editorial/campaign)
+  - Full-bleed dark photograph (esports player, crowd, fan group)
+  - NP► contained logo mark centered at top (red)
+  - Hexagon outline overlaid on photo as a graphic frame/portal device
+  - Slogan or player name inside or near the hexagon
+  - URL + slogan at bottom, white on dark
+  Example: POSTER1.png (Aspas player from behind, hexagon outline over jersey)
+
+MODE 2: TYPOGRAPHIC (match promotion / campaign)
+  - Bold flat background (green or violet — never red for this mode)
+  - Massive ABC Gravity Compressed headline text, bleeding off all edges
+  - Hexagon shape as a cut-out window in the center, revealing a contrasting
+    repeat-text pattern inside (brand name, "DIA DE JOGO", etc.)
+  - "ASSISTA AO VIVO" + URL at bottom in same compressed type
+  Example: PRONTO-26.png (violet), PRONTO-27.png (green)
+
+MODE 3: ICON GRID (awareness / content taxonomy)
+  - Full-bleed hexagon tile texture as background
+  - Three content icons stacked vertically in tonal/embossed treatment
+  - NP contained logo at top-right corner
+  - Tagline at bottom: "O universo dos eSports na sua tela."
+  - Color variants: red texture (PRONTO copy 4), violet texture (PRONTO copy 3),
+    green texture (PRONTO copy 5)
+  Example: PRONTO_Prancheta 1 cópia 3/4/5.png
+
+MODE 4: FAN/COMMUNITY (warm, social-first)
+  - Photography with purple/pink cinematic grade
+  - Large "NEXT PLAY" wordmark (Monument Extended Bold) at top
+  - Hexagon outlines used decoratively, not framing
+  - Warmer, more inviting tone — entry-point for new audience
+  Example: PRONTO-13.png (fan group watching a screen)
+
+
+================================================================================
+4. BRAND RULES (from usage direction slide — APNXTPLAY.png)
+================================================================================
+
+DO NOT:
+  1. Divide or fragment the brand mark
+  2. Place the symbol below the wordmark
+  3. Rotate the brand mark or symbol
+  4. Alter the internal content of the symbol (the NP► inside the hexagon)
+  5. Apply any graphic mark as part of the symbol
+  6. Use icons as a logo or directly alongside the symbol (without proper hierarchy)
+  7. Alter icon positioning or scale relative to the brand mark
+  8. Remove established icon elements
+  9. Use low-contrast color combinations
+  10. Use different colors on different elements within the same symbol instance
+
+
+================================================================================
+5. MOTION / ANIMATION
+================================================================================
+
+3D Logo Animation (gif frames 0001–0100.png):
+  - The NP► symbol rendered in 3D, spinning on its vertical axis
+  - Material: red, matte/semi-gloss, dark studio lighting
+  - 100 frames = one full rotation cycle
+  - Used as: hero opener, broadcast identity sting, social loop
+
+Icon Strip (Roleta1.mp4):
+  - The three content category icons cycling/rolling in sequence
+  - Used as: content bumper, social story, channel separator
+
+Logo Reveal (FINALCRISTAL0001-0097.mp4):
+  - Crystal/glass material logo reveal animation
+  - Used as: broadcast intro, pre-roll identity
+
+
+================================================================================
+6. ASSET REFERENCE MAP
+================================================================================
+
+Symbol (bare hexagon):         logo&symbol/symbol.png
+Main logo – red:               logo&symbol/logomain_red.png
+Main logo – green:             logo&symbol/logomain_green.png
+Main logo – purple:            logo&symbol/logomain_purple.png
+Main logo – white:             logo&symbol/logomain_white.png
+Contained logo (NP in hex):    logo&symbol/logo_contained.png
+
+Flame icon (4 colors):         icons/flame_[red/green/purple/white].png
+Sword icon (4 colors):         icons/sowrd_green.png / sword_[purple/red/white].png
+Headset icon (4 colors):       icons/headset_[red/green/purple/white].png
+
+Posters:                       posters/POSTER1.png, PRONTO-13/26/27.png,
+                               PRONTO_Prancheta 1 cópia 3/4/5.png
+
+3D GIF frames (100 frames):    gif/0001.png – 0100.png
+Videos:                        videos/FINALCRISTAL0001-0097.mp4
+                               videos/Roleta1.mp4
+
+Usage direction:               usagedirection/APNXTPLAY.png
+
+
+================================================================================
+7. TONE OF VOICE
+================================================================================
+
+Language: Brazilian Portuguese (primary)
+Energy: Direct, excited, unapologetic, community-peer
+Not corporate. Not passive. Not hedged.
+
+Imperative CTAs: ASSISTA AO VIVO, CHEGOU, VAI COMEÇAR, É AGORA
+Descriptive: O portal dos e-sports, o universo dos e-sports, ao vivo, campeonato
+Audience-aware: Uses esports vocabulary — atleta, clutch, pick, draft, mapa
+
+Content pillar copy:
+  Championships:     CAMPEONATO / DIA DE JOGO / ASSISTA AO VIVO
+  Weekly highlights: DESTAQUES DA SEMANA / O QUE ROLOU / MELHORES MOMENTOS
+  Roundtable:        MESA REDONDA / ANÁLISE / OS ESPECIALISTAS FALAM

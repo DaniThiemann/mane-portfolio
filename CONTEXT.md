@@ -1,0 +1,128 @@
+# Portfolio — Context & Resume File
+_Read this file at the start of any new session to restore full project context._
+
+---
+
+## How to resume
+
+Tell Claude:
+> "Read CONTEXT.md and CLAUDE.md in the portfolio project at C:\Users\danie\Desktop\Portfolio26\YE000, then help me continue building the portfolio."
+
+Claude should also check memory at:
+`C:\Users\danie\.claude\projects\C--Users-danie-Desktop-Portfolio26-YE000\memory\MEMORY.md`
+
+---
+
+## What this project is
+
+A static HTML/CSS/JS graphic design portfolio website with a local Node/Express admin dashboard for managing projects without touching code.
+
+- **Portfolio site:** `index.html`, `work.html`, `projects/*.html`
+- **Admin dashboard:** `node server.js` → http://localhost:3000/admin/
+- **Design system:** `css/style.css` — single source of truth
+- **Project data:** `projects.json` — source of truth for all project metadata
+
+---
+
+## Server setup
+
+```
+cd C:\Users\danie\Desktop\Portfolio26\YE000
+node server.js
+```
+
+- Portfolio → http://localhost:3000/
+- Admin → http://localhost:3000/admin/
+- **Important:** Always access admin through localhost, never by opening the file directly.
+
+---
+
+## Design language
+
+**Aesthetic:** Printed form / risograph / zine — ink on paper, analogue feel.
+
+**Typefaces:**
+- `Courier Prime` — monospace, used for labels, metadata, captions, UI chrome
+- `Roboto` — display, used for headings and titles
+
+**Colour tokens (css/style.css):**
+- `--paper: #F4F1EC` — warm off-white background
+- `--ink: #0A0A0A` — near-black text and fills
+- `--ink-mid` — mid-tone for secondary labels
+- `--dash` — dashed border / divider colour
+- Tone swatches: `--tone-1` through `--tone-5` — muted tints for card backgrounds
+- Card tone classes: `.t1` through `.t5`
+
+**UI patterns:**
+- Dashed borders as dividers (never solid rules)
+- Lowercase labels, uppercase used sparingly
+- Monospace metadata rows (`label` / `value` pairs)
+- Cards use `object-fit: cover` media (img or video) inside `.card-thumb`
+- Grayscale filter on cards, lifts on hover with a subtle scale
+- Custom cursor (`#cur`), scroll-reveal animations (`.reveal`), typewriter effect (`.type`)
+
+---
+
+## Admin dashboard — how it works
+
+The admin at `/admin/` is a form-driven interface that:
+1. Accepts project data + file uploads
+2. Writes the project HTML page to `projects/{slug}.html`
+3. Rewrites the homepage mosaic section in `index.html`
+4. Rewrites the archive grid in `work.html`
+5. Saves all project metadata to `projects.json`
+
+Both `index.html` and `work.html` have comment markers (`<!-- MOSAIC_START/END -->`, `<!-- ARCHIVE_START/END -->`) that the server uses to locate and replace the card sections on every add/toggle.
+
+**Cover images:** Can be image or video (mp4, webm). Videos autoplay muted on loop as card covers.
+
+---
+
+## Current projects
+
+### F. Maeda Keiei (`projects/fmaeda-keiei.html`)
+- **Category:** Branding, 2026
+- **Role:** Brand Designer
+- **Status:** Online, Mosaic position 1
+- **Cover:** `assets/perproject/fmaedakeiei/hf-card-macro.png`
+- **Hero:** `assets/perproject/fmaedakeiei/businesscards.jpg`
+- **Website:** https://www.fmaeda.co
+- **Mark:** Five white circles in a pentagon — 1 top-center, 2 middle (left/right), 2 bottom (left/right). Always 5, never 4.
+- **Palette:** Pure black `#0A0A0A` and pure white `#FFFFFF` only — no grays, no tints.
+- **Assets folder:** `assets/perproject/fmaedakeiei/`
+
+---
+
+## What has been built
+
+- [x] Static portfolio site: index, work, project page template
+- [x] Design system in `css/style.css` (tokens, cards, mosaic, archive, nav, footer, animations)
+- [x] Local admin dashboard with form to add projects, mosaic position picker, conflict resolution, gallery builder
+- [x] Server auto-generates project HTML pages and rebuilds index/work on every change
+- [x] Card covers support both image and video
+- [x] Admin form: ① basic info + website URL, ② mosaic position, ③ header image, ④ cover image, ⑤ gallery, ⑥ visibility
+- [x] F. Maeda Keiei project page complete with gallery
+
+---
+
+## Design skills Claude should use
+
+When working on UI, pages, or visual elements in this project, invoke:
+
+- `/frontend-design` — for building or refining page layouts, components, and visual hierarchy
+- `/ui-ux-pro-max` — for UX decisions, component design, and interaction patterns
+- `/design-system` — for design token decisions, spacing scales, typography choices
+- `/ui-styling` — for CSS work using the existing token system
+
+Always read `css/style.css` before suggesting visual changes — it is the single source of truth and all new styles should follow its conventions (dashes over solids, mono labels, paper/ink palette).
+
+---
+
+## Conventions to maintain
+
+- No comments in code unless the WHY is non-obvious
+- No new dependencies — plain HTML/CSS/JS + Node/Express/multer only
+- All styles go in `css/style.css`, never inline except for dynamic values (background-image URLs, JS-set styles)
+- Project pages are generated by `server.js:generateProjectPage()` — edit the template there, not the HTML files directly
+- `projects.json` is the data source — never edit project HTML files directly after generation
+- Card tone classes (t1–t5) cycle automatically based on position index
