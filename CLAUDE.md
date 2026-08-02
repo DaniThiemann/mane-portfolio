@@ -1,23 +1,46 @@
 # Portfolio — Project Instructions
 
 ## Project Overview
-Static HTML/CSS/JS graphic design portfolio website with a local Node.js/Express admin dashboard.
-- **Stack:** HTML, CSS, vanilla JS, Node/Express (server.js), multer for uploads
+Static one-page HTML/CSS/JS graphic design portfolio. No build step, no server.
+- **Stack:** HTML, CSS, vanilla JS. `index.html` is the entire site — every project is a modal on it.
 - **Design system:** `css/style.css` — single source of truth for all styles
 - **Aesthetic:** Printed form / risograph / zine — ink on paper, Courier Prime mono, Roboto display
 - **Colors:** `--paper: #F4F1EC`, `--ink: #0A0A0A`, muted tones, dashed dividers
-- **Server:** `node server.js` → http://localhost:3000 | Admin → http://localhost:3000/admin/
+- **Local preview:** `python -m http.server 8000`
+
+## Asset Structure — two zones
+
+**`assets/` is published.** Only web-ready files, committed and deployed. Fixed names per project:
+
+```
+assets/projects/<slug>/preview.png     homepage hover image
+assets/projects/<slug>/cover.jpg       archive card thumbnail
+assets/projects/<slug>/gallery/01.jpg  modal gallery, numbered in display order
+assets/site/favicon/, assets/site/portrait.png
+```
+
+**`content/` is authoring.** Gitignored, never deployed. Per project: `project.md` (copy),
+`inbox/` (unsorted drops), `source/` (full-quality originals), `notes/` (briefs, prompts).
+
+When publishing new media: read `content/projects/<slug>/inbox/`, confirm the selection with
+the user, file originals into `source/`, then write compressed copies into `assets/` under the
+naming contract above and wire them into `index.html`.
+
+- Resize published images to max 2000px wide, JPEG q3 via ffmpeg. Keep PNG only for real transparency
+  (check first — several source PNGs carry an all-opaque alpha channel and should become JPEG).
+- Published filenames must be lowercase ASCII, no spaces or accents. Hosting is case-sensitive.
+- One slug per project — folder name, modal id (`modal-<slug>`), and `project.md` all agree.
 
 ## Active Projects
 
-### F. Maeda Keiei (`projects/fmaeda-keiei.html`)
+### F. Maeda Keiei (`modal-fmaeda` in `index.html`)
 **Brand identity project — Branding, 2026, Role: Brand Designer**
 
 #### Logo & Brand
 - **Mark:** Five white circles in an exact pentagon: 1 circle at top-center, 2 circles in the middle row (left and right), 2 circles at the bottom row (left and right). ALWAYS 5 circles, NEVER 4.
 - **Wordmark:** "F. Maeda" bold + "keiei" light — same sans-serif, weight contrast as design device
 - **Palette:** Pure black (`#0A0A0A`) and pure white (`#FFFFFF`) only — no grays, no tints
-- **Reference assets:** `assets/perproject/fmaedakeiei/`
+- **Reference assets:** `content/projects/fmaeda-keiei/source/`
   - `image2.jpg` — isolated mark (5-circle pentagon), the canonical logo reference
   - `appleicon.png` — square app icon version of the mark
   - `brand.jpg` — horizontal + stacked logo lockup on black
@@ -26,7 +49,10 @@ Static HTML/CSS/JS graphic design portfolio website with a local Node.js/Express
   - `dark_2 (1).jpg` — live site in browser screenshot
   - `hf-mark-overhead.png` — Higgsfield generated: 5 discs overhead studio
   - `hf-desk-scene.png` — Higgsfield generated: executive desk scene
-  - `hf-card-macro.png` — Higgsfield generated: card macro (mosaic cover)
+  - `hf-card-macro.png` — Higgsfield generated: card macro
+- **Archive card:** a live GSAP animation, not an image —
+  `assets/projects/fmaeda-keiei/logo-anim.html`, loaded in an iframe. It references
+  `js/gsap.min.js` via `../../../` — that relative depth must be preserved if the file moves.
 - **Live site:** https://www.fmaeda.co
 
 #### Website Copy (fmaeda.co)
@@ -151,15 +177,13 @@ Wire up every entry point that would normally link to the project page:
 - `.modal-inner .modal-proj-marker` — `>` spacing before mosaic
 - `.modal-proj-mosaic` — 2-col image grid
 
-## Project Page Gallery Rules
-When building project page mosaics:
-1. **Never crop images** — always release forced `aspect-ratio` on mosaic items and set `height: auto; object-fit: fill` on images so the full image height flows naturally.
-2. **Always top-align images** — set `object-position: top` on all mosaic `img` and `video` elements. If two images in the same row have different heights, any leftover empty space falls to the bottom of the shorter item, never to the top.
-3. These two rules apply in the per-page `<style>` block override AND are now the default in `css/style.css` (`object-position: top` on `.project-mosaic-item img, video`).
+## Gallery Rules
+1. **Never crop images** — never force an `aspect-ratio` on mosaic items; set `height: auto` so the full image height flows naturally.
+2. **Always top-align images** — `object-position: top` on all mosaic `img` and `video`. If two images in a row have different heights, leftover space falls to the bottom of the shorter item, never the top.
 
 ## AI Image Generation Rules
 When generating images for any project:
-1. Always read the brand reference images in `assets/perproject/[project]/` before writing prompts
+1. Always read the brand reference images in `content/projects/[slug]/source/` before writing prompts
 2. Always read the website copy from this file for the relevant project
 3. Upload brand mark reference images to Higgsfield as `image` role media inputs
 4. Be hyper-specific about circle/shape counts — never assume, always state the exact number

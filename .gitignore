@@ -1,10 +1,17 @@
-node_modules/
+# Authoring folder — source media and drafts, local only.
+# Not deployed, not versioned. Back this up separately.
+content/
+
+# Mockup PSD library
 MOCKUPS/
+
+# Tooling
 .claude/
 .mcp.json
 .roborev.toml
+node_modules/
 
-# Large reference/source files not needed for the site
-assets/perproject/nextplay/REFERENCE.zip
-assets/perproject/brunge/IMG_2952.MOV
-assets/perproject/brunge/Sequência 01.mp4
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini

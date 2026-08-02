@@ -1,43 +1,64 @@
 # mane-portfolio
 
-Static HTML/CSS/JS graphic design portfolio with a local Node/Express admin dashboard.
+Static one-page graphic design portfolio. No framework, no build step, no
+server — `index.html` is the whole site. Every project opens as a draggable
+modal on that page.
 
 ## Structure
 
 ```
-portfolio/
-├── index.html              ← Site entry point — mosaic, all modals (archive, curriculum, projects)
-├── projects/               ← Hand-crafted project pages (brunge, nextplay, fmaeda-keiei, zhive)
-├── css/style.css           ← Single design system — all styles live here
-├── js/main.js              ← All scripts (modal system, cursor, scroll, filters)
-├── assets/
-│   ├── favicon/            ← FavIconDark.png / FavIconWhite.png
-│   ├── perproject/         ← Per-project images and videos
-│   └── references/         ← Reference docs and source PDFs
-├── admin/index.html        ← Local admin dashboard UI
-└── server.js               ← Local admin server (Node/Express + multer)
+index.html          ← the entire site: home, archive, curriculum, project modals
+css/style.css       ← design system — all styles live here
+js/main.js          ← modal system, cursor, scroll reveal, filters
+js/gsap.min.js      ← used only by the f. maeda logo animation
+
+assets/             ← PUBLISHED — web-ready, committed, deployed
+├── site/
+│   ├── favicon/favicon-dark.png, favicon-white.png
+│   └── portrait.png
+└── projects/<slug>/
+    ├── preview.png     ← homepage hover image
+    ├── cover.jpg       ← archive card thumbnail
+    └── gallery/01.jpg… ← modal gallery, in display order
+
+content/            ← AUTHORING — source media and copy, gitignored, local only
+└── projects/<slug>/
+    ├── project.md      ← the words
+    ├── inbox/          ← drop new files here
+    ├── source/         ← full-quality originals
+    └── notes/          ← briefs, prompts, references
 ```
+
+The split is the whole point: `assets/` holds only what ships, at web weight,
+under predictable names. `content/` holds everything else. See
+`content/README.md` for the day-to-day workflow.
 
 ## Running locally
 
+No server needed — open `index.html` in a browser.
+
+If you want proper paths (recommended, matches production):
+
 ```bash
-node server.js
+python -m http.server 8000
 ```
 
-- Portfolio → http://localhost:3000/
-- Admin dashboard → http://localhost:3000/admin/
+→ http://localhost:8000/
 
-## Adding / editing projects
+## Adding or editing a project
 
-Use the admin dashboard at `/admin/`. It handles:
-- Adding new projects (uploads assets, writes the project page, updates the homepage mosaic)
-- Editing existing projects
-- Toggling online/offline status
-- Reordering the homepage mosaic
+Edit `content/projects/<slug>/project.md`, drop media in `inbox/`, and ask
+Claude to publish it. Published images are resized to 2000px and compressed;
+originals stay in `source/`.
 
-## Stack
+## Deployment
 
-- Plain HTML, CSS, vanilla JS — no framework
-- Node.js + Express + multer for the local admin only
-- Fonts: Inter (UI), Courier Prime (display)
-- Hosted as a static site (Netlify)
+Static hosting on Netlify from `main`. Everything in the repo root is the
+site — `content/` and `MOCKUPS/` are gitignored and never deployed.
+
+## Conventions
+
+- All styles go in `css/style.css` — never inline, except JS-set values
+- Published filenames are lowercase ASCII, no spaces or accents
+  (hosting is case-sensitive; `Vector.svg` and `vector.svg` are different files)
+- One slug per project, used for the folder name and the modal id
