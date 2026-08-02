@@ -115,6 +115,27 @@ It is about sustaining decisions after the excitement fades."
 - Executive restraint: sparse desks, deliberate objects, no visual noise
 - Japanese-Western duality: precision meets operational discipline
 
+### Z-Hive (`modal-zhive` in `index.html`)
+**Brand identity + website — automação residencial, Curitiba, 2026**
+
+**The identity was redesigned in 2026. Ignore anything describing the old one.**
+The old assets (Vector.svg, the teal "Zhive" screens, hf-lighting/hf-blinds videos)
+are superseded and live only in `content/projects/zhive/source/`.
+
+- **Mark:** one continuous ribbon folding back on itself — a single path routing through
+  a structure. Two interlocking angular strokes with rounded terminals. Source of truth:
+  `content/projects/zhive/inbox/simbolo1logo.svg`; a clean render for AI reference is
+  `content/projects/zhive/source/zhive-mark-sq.jpg`.
+- **Palette:** navy-black `#0A1420`, ice blue `#8EC5F5`, warm amber `#E8A552`, white.
+  **Rule: cool signal-white is the system, warm amber is the home — never mix them in one surface.**
+- **Tagline:** "Rotina em Fluxo". Positioning: local processing, 0ms latency, zero cloud,
+  zero subscriptions.
+- **Live site:** https://website-delta-lemon-kcmfovjt1z.vercel.app/ — signature moments are
+  the isometric blueprint ("um ecossistema, um fluxo": hub + LUZ/CAM/TV/PERSIANA/CLIMA nodes
+  with light pulsing along the connections) and the CENAS scene simulator (Bom Dia / Chegando /
+  Cinema / Jantar / Boa Noite / Férias driving a live vector room).
+- `inbox/04_appsplash.png` is unused — it contains a hand.
+
 ## Interactive Elements — Button & Link Hover Rule
 
 Every clickable text element (nav buttons, contact button, modal close `( x )`, email/instagram links, filter buttons, footer links, project meta links, and all future buttons/links) uses a single unified hover pattern:
@@ -170,12 +191,23 @@ Curriculum modal uses the same chassis with `.cv-intro-row` / `.cv-section` fill
 3. Each project's modal gallery lists `cover.jpg` first (where it exists), then `gallery/01…` in order.
 
 ## AI Image Generation Rules
-When generating images for any project:
+When generating images or video for any project:
 1. Always read the brand reference images in `content/projects/[slug]/source/` before writing prompts
 2. Always read the website copy from this file for the relevant project
-3. Upload brand mark reference images to Higgsfield as `image` role media inputs
+3. Upload the brand mark as a reference (`nano_banana_pro` uses role `image`, `flux_2` uses `image_references`)
 4. Be hyper-specific about circle/shape counts — never assume, always state the exact number
-5. Use `flux_2` model (defaults to `pro`) at `resolution: 2k` for static images
+5. **Model choice:** `nano_banana_pro` at 2k when the logo must be reproduced exactly (best mark
+   fidelity, ~2 credits); `flux_2` pro at 2k for atmosphere where the mark isn't the subject (~1.5).
+   Video: `seedance_2_0`, 5s, `mode: fast`, 720p, `generate_audio: false` (~17.5 credits).
+6. **Never put hex codes in a video prompt** — Seedance renders them as literal on-screen text
+   (a `#0A0A0A` in the prompt printed "0A.0A.03" across the bottom of a clip). Name colours in words
+   for video; hex is safe for stills.
+7. **No humans and no faces in any generation** — say so explicitly in the prompt, and also exclude
+   silhouettes, hands and crowds, which slip in otherwise.
+8. Seedance may answer with a `preset_recommendation`; when the prompt is deliberate art direction,
+   resend with `declined_preset_id` rather than accepting the preset, which overrides the direction.
+9. Check `unlim.available` before assuming free generations — on this account it is **false**,
+   so every generation costs credits.
 
 ## Token Usage
 Announce token usage at every 10% milestone proactively (60%, 70%, 80%, 90%).
