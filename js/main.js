@@ -37,6 +37,15 @@ if (cur) {
   window.addEventListener('resize', scaleToCover);
 })();
 
+/* ── Footer project count — highlight + grid covers ── */
+(function initProjectCount() {
+  const el = document.getElementById('sf-count');
+  if (!el) return;
+  const n = document.querySelectorAll('.mag-cover').length +
+            document.querySelectorAll('.mag-hero').length;
+  el.textContent = String(n).padStart(2, '0');
+})();
+
 /* ─────────────────────────────────────────────────────
    MODAL SYSTEM
    Multiple modals can be open simultaneously.
