@@ -11,82 +11,37 @@ if (cur) {
   });
 }
 
-
-/* ── Scroll reveal ─────────────────────────────────── */
-const io = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('in');
-      io.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.1 });
-document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
 /* ─────────────────────────────────────────────────────
-   TYPEWRITER ANIMATION on page load
-   Any element with .type and a data-text attribute
-   will type its text out character by character.
-   Multiple .type elements run in sequence (staggered).
+   F. MAEDA ANIMATION COVER
+   The grid card is a live GSAP animation in an iframe
+   (1920×1080 canvas) scaled to cover the card cell.
    ───────────────────────────────────────────────────── */
-function typeText(el, text, speed = 28, done = () => {}) {
-  el.textContent = '';
-  let i = 0;
-  const tick = () => {
-    if (i < text.length) {
-      el.textContent += text.charAt(i);
-      i++;
-      // tiny natural irregularity
-      const jitter = Math.random() * 14;
-      setTimeout(tick, speed + jitter);
-    } else {
-      el.classList.add('typed');
-      done();
-    }
-  };
-  tick();
-}
+(function initFmCover() {
+  const frame = document.getElementById('fm-anim');
+  const thumb = document.getElementById('fm-card-thumb');
+  if (!frame || !thumb) return;
 
-window.addEventListener('load', () => {
-  const typers = Array.from(document.querySelectorAll('.type'));
-  if (!typers.length) return;
-
-  // Run in sequence; each element waits for the previous to finish
-  let chain = Promise.resolve();
-  typers.forEach((el) => {
-    const text = el.getAttribute('data-text') || el.textContent;
-    el.setAttribute('data-text', text);
-    el.textContent = '';
-    chain = chain.then(() => new Promise(resolve => {
-      typeText(el, text, 22, resolve);
-    }));
-  });
-});
-
-/* ─────────────────────────────────────────────────────
-   TEXT HOVER WIGGLE
-   Wraps every character in a span so each can animate
-   independently. Keeps spaces intact.
-   ───────────────────────────────────────────────────── */
-document.querySelectorAll('.text-hover').forEach(el => {
-  // Don't re-wrap already wrapped elements
-  if (el.dataset.wrapped) return;
-  const text = el.textContent;
-  el.textContent = '';
-  for (const ch of text) {
-    const span = document.createElement('span');
-    span.className = ch === ' ' ? 'ch space' : 'ch';
-    span.textContent = ch === ' ' ? '\u00A0' : ch;
-    el.appendChild(span);
+  function scaleToCover() {
+    const w = thumb.offsetWidth;
+    const h = thumb.offsetHeight;
+    if (!w || !h) return;
+    const s = Math.max(w / 1920, h / 1080);
+    const x = (w - 1920 * s) / 2;
+    const y = (h - 1080 * s) / 2;
+    frame.style.transform = `translate(${x}px, ${y}px) scale(${s})`;
   }
-  el.dataset.wrapped = '1';
-});
+
+  frame.src = frame.dataset.src;
+  frame.addEventListener('load', scaleToCover, { once: true });
+  window.addEventListener('load', scaleToCover);
+  window.addEventListener('resize', scaleToCover);
+})();
 
 /* ─────────────────────────────────────────────────────
    MODAL SYSTEM
    Multiple modals can be open simultaneously.
    Each open/drag bumps the panel to the top z-layer.
-   Shared backdrop captures "click outside → close all".
+   Click outside any panel → close all. ESC → close all.
    ───────────────────────────────────────────────────── */
 (function initModals() {
   let zTop = 500;
@@ -106,13 +61,8 @@ document.querySelectorAll('.text-hover').forEach(el => {
     if (id === 'modal-photo' && trigger) {
       if (panel._resetDrag) panel._resetDrag();
       const rect = trigger.getBoundingClientRect();
-      panel.style.left = (rect.right + 4)  + 'px';
-      panel.style.top  = (rect.top  + 2) + 'px';
-    } else if (panel.classList.contains('modal-wip') && trigger) {
-      if (panel._resetDrag) panel._resetDrag();
-      const rect = trigger.getBoundingClientRect();
-      panel.style.left = (rect.right + 20) + 'px';
-      panel.style.top  = (rect.top  + 4) + 'px';
+      panel.style.left = Math.min(rect.right + 4, window.innerWidth - panel.offsetWidth - 8) + 'px';
+      panel.style.top  = (rect.top + 2) + 'px';
     } else if (panel.classList.contains('modal-project')) {
       let lastPanel = null, highestZ = 0;
       document.querySelectorAll('.modal-project.is-open').forEach(function (p) {
@@ -132,22 +82,6 @@ document.querySelectorAll('.text-hover').forEach(el => {
 
     panel.classList.add('is-open');
     panel.setAttribute('aria-hidden', 'false');
-
-    if (id === 'modal-archive') {
-      const frame = document.getElementById('fm-anim-modal');
-      const thumb = document.getElementById('fm-card-thumb-modal');
-      if (frame && frame.dataset.src && !frame.dataset.loaded) {
-        frame.dataset.loaded = '1';
-        const scaleModalAnim = function () {
-          if (!thumb) return;
-          const scale = thumb.offsetWidth / 1920;
-          frame.style.transform = 'scale(' + scale + ')';
-        };
-        frame.src = frame.dataset.src;
-        frame.addEventListener('load', scaleModalAnim, { once: true });
-        window.addEventListener('resize', scaleModalAnim);
-      }
-    }
   }
 
   function closeModal(id) {
@@ -162,7 +96,6 @@ document.querySelectorAll('.text-hover').forEach(el => {
     document.querySelectorAll('.modal-panel.is-open').forEach(p => closeModal(p.id));
   }
 
-  // Expose globally so inline scripts can trigger modals
   window._openModal = openModal;
 
   // Open triggers
@@ -220,139 +153,4 @@ document.querySelectorAll('.text-hover').forEach(el => {
       document.body.classList.remove('modal-dragging');
     });
   });
-
-  // Archive modal filter
-  (function () {
-    const filterBtns = document.querySelectorAll('#modal-archive .filter-btn');
-    const cards      = document.querySelectorAll('.archive-modal-grid .project-card');
-    const countEl   = document.querySelector('#modal-archive .archive-count');
-    if (!filterBtns.length) return;
-
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const filter = btn.textContent.trim().toLowerCase();
-        let visible = 0;
-        cards.forEach(card => {
-          const show = filter === 'all' || (card.dataset.cat || '').split(' ').includes(filter);
-          card.style.display = show ? '' : 'none';
-          if (show) visible++;
-        });
-        if (countEl) countEl.textContent = '[ 0' + visible + ' ]';
-      });
-    });
-  })();
 })();
-
-/* ─────────────────────────────────────────────────────
-   COLLAPSING MENU + CYLINDER ROLL
-   - Menu starts expanded
-   - Once user scrolls > 100px, it collapses into a single
-     rolling label that reads "› current section"
-   - As user scrolls into a different section, the label
-     rolls (cylinder transition) to the new section
-   - On hover, the full list returns
-   - Scrolling back to top expands the menu permanently
-   ───────────────────────────────────────────────────── */
-(function initMenu() {
-  const menu = document.querySelector('.menu-collapse');
-  if (!menu) return;
-
-  // Build the roller track: one slot per menu item, in order
-  const items = Array.from(menu.querySelectorAll('.menu-list a'));
-  const labels = items.map(a => a.textContent.trim());
-
-  const roller = document.createElement('div');
-  roller.className = 'menu-roller';
-  const track = document.createElement('div');
-  track.className = 'menu-roller-track';
-
-  // Triple the labels so we can fake an infinite cylinder roll either direction
-  // For the use case we only need labels in their order, but we duplicate a
-  // copy at top + bottom so the visual roll has space to slide.
-  labels.forEach(label => {
-    const s = document.createElement('span');
-    s.textContent = label;
-    track.appendChild(s);
-  });
-  roller.appendChild(track);
-  menu.appendChild(roller);
-
-  // Map sections to menu items
-  // Each menu link's href maps to a target section.
-  // For #anchor links → element with that id.
-  // For full-page links (work.html, project pages) → only the current page item is "active"; we don't roll.
-  const sectionMap = items.map(a => {
-    // Prefer data-section if present (allows external page links to still
-    // be tracked against an on-page section). Otherwise use href if it's an anchor.
-    const dataSec = a.getAttribute('data-section');
-    const href = a.getAttribute('href') || '';
-    let target = null;
-    if (dataSec && dataSec.startsWith('#')) {
-      target = document.querySelector(dataSec);
-    } else if (href.startsWith('#')) {
-      target = document.querySelector(href);
-    }
-    return { item: a, target };
-  });
-
-  // Determine which menu item is the "current" one
-  // 1. Always defaults to the .active item
-  // 2. If on the homepage, we update it based on which section is in view.
-  const initialActive = items.findIndex(a => a.classList.contains('active'));
-  let currentIndex = initialActive >= 0 ? initialActive : 0;
-
-  // Set the roller to the current label initially
-  function setRollerTo(index) {
-    track.style.transform = `translateY(-${index * 14}px)`;
-  }
-  setRollerTo(currentIndex);
-
-  // Collapse / expand toggle based on scroll
-  function updateCollapse() {
-    if (window.scrollY > 100) {
-      menu.classList.add('collapsed');
-    } else {
-      menu.classList.remove('collapsed');
-    }
-  }
-  updateCollapse();
-  window.addEventListener('scroll', updateCollapse, { passive: true });
-
-  // Section tracking — only meaningful if at least one menu item targets a section on this page
-  const trackable = sectionMap.filter(s => s.target);
-  if (trackable.length > 0) {
-    // Use IntersectionObserver to know which section is in view
-    const visible = new Map();
-
-    const sectionIO = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        visible.set(entry.target, entry.intersectionRatio);
-      });
-
-      // Find the section with the highest intersection ratio
-      let bestEl = null;
-      let bestRatio = 0;
-      visible.forEach((ratio, el) => {
-        if (ratio > bestRatio) { bestRatio = ratio; bestEl = el; }
-      });
-
-      if (bestEl && bestRatio > 0.15) {
-        const idx = sectionMap.findIndex(s => s.target === bestEl);
-        if (idx >= 0 && idx !== currentIndex) {
-          currentIndex = idx;
-          setRollerTo(currentIndex);
-          // Also update active state on links (visual)
-          items.forEach(a => a.classList.remove('active'));
-          items[idx].classList.add('active');
-        }
-      }
-    }, {
-      threshold: [0, 0.15, 0.3, 0.5, 0.75, 1]
-    });
-
-    trackable.forEach(s => sectionIO.observe(s.target));
-  }
-})();
-

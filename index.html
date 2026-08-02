@@ -16,107 +16,130 @@
 
   <div id="cur"></div>
 
-  <div class="home-wrap">
+  <!-- Header bar — Figma 34:144 -->
+  <header class="site-header">
+    <a href="index.html" class="sh-item">&lt;dani ;)&gt;</a>
+    <button class="sh-item" data-modal="modal-contact">&lt;contact&gt;</button>
+    <button class="sh-item" data-modal="modal-curriculum">&lt;curriculum&gt;</button>
+    <button class="sh-item" data-modal="modal-photo">( ... )</button>
+  </header>
 
-    <!-- Logo: top-left -->
-    <a href="index.html" class="home-logo">dani ;)</a>
+  <main class="mag">
 
-    <!-- Center dot: top-center -->
-    <button class="home-center-dot" data-modal="modal-photo">( ... )</button>
+    <!-- Highlight — Figma 34:152 -->
+    <section class="mag-hero">
+      <button class="mag-hero-media" data-modal="modal-brunge" aria-label="open brunge project">
+        <img src="assets/projects/brunge/cover.jpg" alt="brunge — highlighted project" />
+      </button>
+      <div class="mag-hero-info">
+        <div class="mag-hero-toprow">
+          <button class="mag-hero-name" data-modal="modal-brunge">&lt;brunge&gt;</button>
+          <span class="mag-hero-flag">&lt;highlight&gt;</span>
+        </div>
+        <div class="mag-hero-desc">
+          <p>&gt; how to design a visual identity for an organic, ever-changing brand that is supposed to reflect both the chaotic mind of the coffee roasting nerd behind it and the structured laboratorial work that sustains the heavy load of information on these coffees?</p>
+          <p>&nbsp;</p>
+          <p>&gt; with this goal in mind, we created brunge, a brand that is as much about coffee than it is about identity. handcrafted illustrations, texts and packaging material blends together with clean white spaces and basic fonts in order to translate information in a digestible way for every coffee enthusiast.</p>
+        </div>
+        <p class="mag-hero-tags">&gt; branding ; web design ; packaging ; digital marketing</p>
+      </div>
+    </section>
 
-    <!-- Nav: top-right -->
-    <nav class="home-nav">
-      <button data-modal="modal-archive">&lt;archive&gt;</button>
-      <button data-modal="modal-curriculum">&lt;curriculum&gt;</button>
-      <button data-modal="modal-gallery">&lt;gallery&gt;</button>
-    </nav>
+    <!-- Cover grid — Figma 34:85/88/89 (3-up). 2-up row (34:86/87) returns when a 5th project publishes -->
+    <section class="mag-grid" id="projects">
+      <div class="mag-row mag-row-3">
+        <button class="project-card mag-cover" data-modal="modal-nextplay">
+          <div class="card-thumb"><img src="assets/projects/nextplay/cover.jpg" alt="next play"></div>
+          <div class="card-overlay"></div>
+          <div class="card-info">
+            <p class="card-cat">graphic design ; motion</p>
+            <h3 class="card-title">&lt;next play&gt;</h3>
+          </div>
+        </button>
+        <button class="project-card mag-cover" data-modal="modal-fmaeda">
+          <div class="card-thumb card-thumb-anim" id="fm-card-thumb">
+            <iframe
+              id="fm-anim"
+              src=""
+              data-src="assets/projects/fmaeda-keiei/logo-anim.html"
+              scrolling="no"
+              frameborder="0"
+              title="F. Maeda Keiei — Logo Animation"
+              loading="lazy"
+            ></iframe>
+          </div>
+          <div class="card-overlay"></div>
+          <div class="card-info">
+            <p class="card-cat">graphic design ; web design</p>
+            <h3 class="card-title">&lt;f. maeda keiei&gt;</h3>
+          </div>
+        </button>
+        <button class="project-card mag-cover" data-modal="modal-zhive">
+          <div class="card-thumb"><img src="assets/projects/zhive/cover.jpg" alt="z-hive"></div>
+          <div class="card-overlay"></div>
+          <div class="card-info">
+            <p class="card-cat">web design</p>
+            <h3 class="card-title">&lt;z-hive&gt;</h3>
+          </div>
+        </button>
+      </div>
+      <!--
+      <div class="mag-row mag-row-2">
+        two 674×484 slots — un-comment when the 5th project publishes
+      </div>
+      -->
+    </section>
 
-    <!--
-      About + services: single flat text block (matches Figma node 14:52).
-      <about> has two <br> after it (= 2 blank lines before body text).
-      Two blank <p> separate about from services.
-      One blank <p> after <services> before body text.
-    -->
-    <div class="home-info">
-      <p>&lt;about&gt;<br aria-hidden="true"><br aria-hidden="true"></p>
-      <p>&gt; i'm a graphic and web designer based in lisbon, pt</p>
-      <p>&gt; also passionate about hand drawing, manual printing and analog photography</p>
-      <p>&gt; i recommend watching atlanta — both movie and series</p>
-      <p>&nbsp;</p>
-      <p>&nbsp;</p>
-      <p>&lt;services&gt;</p>
-      <p>&nbsp;</p>
-      <p>&gt; make ur brand look cool</p>
-      <p>&gt; ur website professional</p>
-      <p>&gt; and ur packaging, premium</p>
+  </main>
+
+  <!-- Footer — Figma 34:147 -->
+  <footer class="site-footer">
+    <div class="sf-col sf-left">
+      <a class="sf-link" href="#projects">( ) all projects</a>
+      <p class="sf-question">how to design a visual identity for an organic, ever-changing brand that is supposed to reflect both the chaotic mind of the coffee roasting nerd behind it and the structured laboratorial work that sustains the heavy load of information on these coffees?</p>
     </div>
-
-    <!-- Contact: bottom-left -->
-    <button class="home-contact" data-modal="modal-contact">&lt;contact&gt;</button>
-
-    <!-- Preview image: center -->
-    <a id="home-preview-link" href="#" class="home-preview-link">
-      <img id="home-preview-img"
-           class="home-preview-img"
-           src="assets/projects/brunge/preview.png"
-           alt="" />
-    </a>
-
-    <!--
-      Preview meta: single flat text block (matches Figma node 14:51).
-      Label has two <br> after it creating a blank-line gap before description.
-      Updated wholesale by JS on project change.
-    -->
-    <div class="home-preview-meta" id="home-preview-meta">
-      <p>&lt;brunge&gt;<br aria-hidden="true"><br aria-hidden="true"></p>
-      <p>&gt; ongoing visual identity, packaging and marketing for small scale coffee roasting op</p>
-      <p>&gt; graphic design ; marketing</p>
+    <div class="sf-col sf-right">
+      <p class="sf-status">( ) available for work</p>
+      <div class="sf-contact">
+        <p><a href="mailto:dthiemann.contact@gmail.com">dthiemann.contact@gmail.com</a></p>
+        <p><a href="https://instagram.com/dani.thiemnn" target="_blank" rel="noopener">@dani.thiemnn</a></p>
+        <p>© 2026 dani ;)</p>
+      </div>
     </div>
-
-    <!-- Arrow: separate element in gutter left of project list (Figma node 14:65) -->
-    <span class="home-arrow" id="home-arrow">&gt;</span>
-
-    <!-- Project list: right column -->
-    <ul class="home-project-list" id="home-project-list">
-      <li class="home-project-item active"
-          data-modal="modal-brunge"
-          data-img="assets/projects/brunge/preview.png"
-          data-label="brunge"
-          data-line1="&gt; ongoing visual identity, packaging and marketing for small scale coffee roasting op"
-          data-line2="&gt; graphic design ; marketing">brunge</li>
-      <li class="home-project-item"
-          data-modal="modal-nextplay"
-          data-img="assets/projects/nextplay/preview.png"
-          data-label="next play"
-          data-line1="&gt; branding for a brazillian esports broadcasting co."
-          data-line2="&gt; graphic design ; motion">next play</li>
-      <li class="home-project-item"
-          data-modal="modal-fmaeda"
-          data-img="assets/projects/fmaeda-keiei/preview.png"
-          data-label="f.maeda keiei"
-          data-line1="&gt; branding &amp; website design for consulting firm"
-          data-line2="&gt; graphic design ; web design">f.maeda keiei</li>
-      <li class="home-project-item"
-          data-modal="modal-zhive"
-          data-img="assets/projects/zhive/preview.png"
-          data-label="z-hive"
-          data-line1="&gt; website design for a home automation company in Brazil"
-          data-line2="&gt; web design">z-hive</li>
-    </ul>
-
-    <!-- View all -->
-    <button class="home-view-all" data-modal="modal-archive">( view all )</button>
-
-    <!-- Status: bottom-right -->
-    <div class="home-status">
-      <p>( ) available for projects</p>
-      <p>( ) this portfolio is constantly improving</p>
-    </div>
-
-  </div>
+  </footer>
 
   <!-- Shared backdrop — click to close all modals -->
   <div id="modal-backdrop"></div>
+
+  <!-- Brunge Project Modal — fill per Figma 34:153 -->
+  <div id="modal-brunge" class="modal-panel modal-project" role="dialog" aria-hidden="true" data-centered="true">
+    <button class="modal-close" data-close="modal-brunge">( x )</button>
+    <span class="modal-bal">( ... )</span>
+    <div class="modal-proj-scroll">
+      <div class="modal-inner">
+        <p class="mp-title">&lt;brunge&gt;</p>
+        <p class="mp-tags">&gt; branding<br>&gt; web design<br>&gt; packaging<br>&gt; digital marketing</p>
+        <div class="mp-desc">
+          <p>&gt; how to design a visual identity for an organic, ever-changing brand that is supposed to reflect both the chaotic mind of the coffee roasting nerd behind it and the structured laboratorial work that sustains the heavy load of information on these coffees?</p>
+          <p>&nbsp;</p>
+          <p>&gt; with this goal in mind, we created brunge, a brand that is as much about coffee than it is about identity. handcrafted illustrations, texts and packaging material blends together with clean white spaces and basic fonts in order to translate information in a digestible way for every coffee enthusiast.</p>
+        </div>
+      </div>
+      <div class="modal-inner">
+        <div class="mp-gallery">
+          <div class="mp-slot mp-hero"><img src="assets/projects/brunge/cover.jpg" alt="brunge — cover"></div>
+          <div class="mp-row mp-row-2">
+            <div class="mp-slot"><img src="assets/projects/brunge/gallery/01.jpg" alt="brunge — packaging"></div>
+            <div class="mp-slot"><img src="assets/projects/brunge/gallery/02.jpg" alt="brunge — packaging"></div>
+          </div>
+          <div class="mp-row mp-row-2">
+            <div class="mp-slot"><img src="assets/projects/brunge/gallery/03.jpg" alt="brunge — packaging"></div>
+            <div class="mp-slot"><img src="assets/projects/brunge/gallery/04.jpg" alt="brunge — packaging"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Next Play Project Modal -->
   <div id="modal-nextplay" class="modal-panel modal-project" role="dialog" aria-hidden="true" data-centered="true">
@@ -124,21 +147,32 @@
     <span class="modal-bal">( ... )</span>
     <div class="modal-proj-scroll">
       <div class="modal-inner">
-        <p class="modal-proj-title">&lt;next play&gt;</p>
-        <p class="modal-proj-desc">brazil's first esports broadcasting portal — built to own an entire vertical. the stretched hexagon frames content, tiles as texture, signals outward. red for the primary mark, violet for the analyst desk, lime for championship nights.</p>
+        <p class="mp-title">&lt;next play&gt;</p>
+        <p class="mp-tags">&gt; graphic design<br>&gt; motion</p>
+        <div class="mp-desc">
+          <p>&gt; brazil's first esports broadcasting portal — built to own an entire vertical. the stretched hexagon frames content, tiles as texture, signals outward. red for the primary mark, violet for the analyst desk, lime for championship nights.</p>
+        </div>
       </div>
       <div class="modal-inner">
-        <p class="modal-proj-marker">&gt;</p>
-        <div class="modal-proj-mosaic">
-          <img src="assets/projects/nextplay/gallery/01.jpg" alt="NEXT PLAY — Poster">
-          <img src="assets/projects/nextplay/gallery/02.jpg" alt="NEXT PLAY — Poster">
-          <img class="mpm-full" src="assets/projects/nextplay/gallery/03.jpg" alt="NEXT PLAY — Arena">
-          <img src="assets/projects/nextplay/gallery/04.jpg" alt="NEXT PLAY — Championship">
-          <img src="assets/projects/nextplay/gallery/05.jpg" alt="NEXT PLAY — Fan Reaction">
-          <img src="assets/projects/nextplay/gallery/06.jpg" alt="NEXT PLAY — Brand in Context">
-          <img src="assets/projects/nextplay/gallery/07.jpg" alt="NEXT PLAY — Billboard">
-          <img src="assets/projects/nextplay/gallery/08.jpg" alt="NEXT PLAY — Aspas">
-          <img src="assets/projects/nextplay/gallery/09.jpg" alt="NEXT PLAY — Community">
+        <div class="mp-gallery">
+          <div class="mp-slot mp-hero"><img src="assets/projects/nextplay/cover.jpg" alt="NEXT PLAY — merch"></div>
+          <div class="mp-row mp-row-2">
+            <div class="mp-slot"><img src="assets/projects/nextplay/gallery/01.jpg" alt="NEXT PLAY — poster"></div>
+            <div class="mp-slot"><img src="assets/projects/nextplay/gallery/02.jpg" alt="NEXT PLAY — poster"></div>
+          </div>
+          <div class="mp-row mp-row-3">
+            <div class="mp-slot"><img src="assets/projects/nextplay/gallery/03.jpg" alt="NEXT PLAY — arena"></div>
+            <div class="mp-slot"><img src="assets/projects/nextplay/gallery/04.jpg" alt="NEXT PLAY — championship"></div>
+            <div class="mp-slot"><img src="assets/projects/nextplay/gallery/05.jpg" alt="NEXT PLAY — fan reaction"></div>
+          </div>
+          <div class="mp-row mp-row-2">
+            <div class="mp-slot"><img src="assets/projects/nextplay/gallery/06.jpg" alt="NEXT PLAY — brand in context"></div>
+            <div class="mp-slot"><img src="assets/projects/nextplay/gallery/07.jpg" alt="NEXT PLAY — billboard"></div>
+          </div>
+          <div class="mp-row mp-row-2">
+            <div class="mp-slot"><img src="assets/projects/nextplay/gallery/08.jpg" alt="NEXT PLAY — aspas"></div>
+            <div class="mp-slot"><img src="assets/projects/nextplay/gallery/09.jpg" alt="NEXT PLAY — community"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -150,17 +184,25 @@
     <span class="modal-bal">( ... )</span>
     <div class="modal-proj-scroll">
       <div class="modal-inner">
-        <p class="modal-proj-title">&lt;f. maeda keiei&gt;</p>
-        <p class="modal-proj-desc">a brazilian-japanese consultancy for international operational expansion. binary palette, five-circle pentagon mark, typographic weight contrast as the sole design device. delivered across symbol, lockup, app icon, business cards, and live site.</p>
+        <p class="mp-title">&lt;f. maeda keiei&gt;</p>
+        <p class="mp-tags">&gt; graphic design<br>&gt; web design</p>
+        <div class="mp-desc">
+          <p>&gt; a brazilian-japanese consultancy for international operational expansion. binary palette, five-circle pentagon mark, typographic weight contrast as the sole design device. delivered across symbol, lockup, app icon, business cards, and live site.</p>
+          <p>&nbsp;</p>
+          <p>&gt; <a href="https://www.fmaeda.co" target="_blank" rel="noopener">fmaeda.co ↗</a></p>
+        </div>
       </div>
       <div class="modal-inner">
-        <p class="modal-proj-marker">&gt; <a href="https://www.fmaeda.co" target="_blank" rel="noopener">fmaeda.co ↗</a></p>
-        <div class="modal-proj-mosaic">
-          <img class="mpm-full" src="assets/projects/fmaeda-keiei/gallery/01.jpg" alt="F. Maeda Keiei — Live site">
-          <img src="assets/projects/fmaeda-keiei/gallery/02.jpg" alt="F. Maeda Keiei — Mark overhead">
-          <img src="assets/projects/fmaeda-keiei/gallery/03.jpg" alt="F. Maeda Keiei — Executive desk">
-          <img class="mpm-full" src="assets/projects/fmaeda-keiei/gallery/04.jpg" alt="F. Maeda Keiei — Studio">
-          <img class="mpm-full" src="assets/projects/fmaeda-keiei/gallery/05.jpg" alt="F. Maeda Keiei — Lockup">
+        <div class="mp-gallery">
+          <div class="mp-slot mp-hero"><img src="assets/projects/fmaeda-keiei/gallery/01.jpg" alt="F. Maeda Keiei — live site"></div>
+          <div class="mp-row mp-row-2">
+            <div class="mp-slot"><img src="assets/projects/fmaeda-keiei/gallery/02.jpg" alt="F. Maeda Keiei — mark overhead"></div>
+            <div class="mp-slot"><img src="assets/projects/fmaeda-keiei/gallery/03.jpg" alt="F. Maeda Keiei — executive desk"></div>
+          </div>
+          <div class="mp-row mp-row-2">
+            <div class="mp-slot"><img src="assets/projects/fmaeda-keiei/gallery/04.jpg" alt="F. Maeda Keiei — studio"></div>
+            <div class="mp-slot"><img src="assets/projects/fmaeda-keiei/gallery/05.jpg" alt="F. Maeda Keiei — lockup"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -172,117 +214,78 @@
     <span class="modal-bal">( ... )</span>
     <div class="modal-proj-scroll">
       <div class="modal-inner">
-        <p class="modal-proj-title">&lt;zhive&gt;</p>
-        <p class="modal-proj-desc">lighting, security, energy, and climate control in one residential interface — built for brazil, where engineering precision meets domestic comfort. dark-toned and architecturally structured, each solution has its own dedicated page.</p>
+        <p class="mp-title">&lt;z-hive&gt;</p>
+        <p class="mp-tags">&gt; web design</p>
+        <div class="mp-desc">
+          <p>&gt; lighting, security, energy, and climate control in one residential interface — built for brazil, where engineering precision meets domestic comfort. dark-toned and architecturally structured, each solution has its own dedicated page.</p>
+        </div>
       </div>
       <div class="modal-inner">
-        <p class="modal-proj-marker">&gt;</p>
-        <div class="modal-proj-mosaic">
-          <img src="assets/projects/zhive/gallery/01.jpg" alt="ZHIVE — Homepage">
-          <img src="assets/projects/zhive/gallery/02.jpg" alt="ZHIVE — Lighting">
-          <img class="mpm-full" src="assets/projects/zhive/gallery/03.jpg" alt="ZHIVE — Smart Lock">
-          <video class="mpm-full" src="assets/projects/zhive/gallery/04.mp4" autoplay muted loop playsinline></video>
-          <img src="assets/projects/zhive/gallery/05.jpg" alt="ZHIVE — Security">
-          <img src="assets/projects/zhive/gallery/06.jpg" alt="ZHIVE — Energy">
-          <video class="mpm-full" src="assets/projects/zhive/gallery/07.mp4" autoplay muted loop playsinline></video>
+        <div class="mp-gallery">
+          <div class="mp-slot mp-hero"><img src="assets/projects/zhive/cover.jpg" alt="ZHIVE — control panel"></div>
+          <div class="mp-row mp-row-2">
+            <div class="mp-slot"><img src="assets/projects/zhive/gallery/01.jpg" alt="ZHIVE — homepage"></div>
+            <div class="mp-slot"><img src="assets/projects/zhive/gallery/02.jpg" alt="ZHIVE — lighting"></div>
+          </div>
+          <div class="mp-row mp-row-3">
+            <div class="mp-slot"><img src="assets/projects/zhive/gallery/03.jpg" alt="ZHIVE — smart lock"></div>
+            <div class="mp-slot"><img src="assets/projects/zhive/gallery/05.jpg" alt="ZHIVE — security"></div>
+            <div class="mp-slot"><img src="assets/projects/zhive/gallery/06.jpg" alt="ZHIVE — energy"></div>
+          </div>
+          <div class="mp-row mp-row-2">
+            <div class="mp-slot"><video src="assets/projects/zhive/gallery/04.mp4" autoplay muted loop playsinline></video></div>
+            <div class="mp-slot"><video src="assets/projects/zhive/gallery/07.mp4" autoplay muted loop playsinline></video></div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Brunge Project Modal -->
-  <div id="modal-brunge" class="modal-panel modal-project" role="dialog" aria-hidden="true" data-centered="true">
-    <button class="modal-close" data-close="modal-brunge">( x )</button>
-    <span class="modal-bal">( ... )</span>
-    <div class="modal-proj-scroll">
-      <div class="modal-inner">
-        <p class="modal-proj-title">&lt;brunge&gt;</p>
-        <p class="modal-proj-desc">brunge was not born from a business plan, but from an impulse. to roast. small batches. accessible coffees. some will be amazing. some will be weird. there is nothing to hide.</p>
-      </div>
-      <div class="modal-inner">
-        <p class="modal-proj-marker">&gt;</p>
-        <div class="modal-proj-mosaic">
-          <img src="assets/projects/brunge/gallery/01.jpg" alt="BRUNGE">
-          <img src="assets/projects/brunge/gallery/02.jpg" alt="BRUNGE">
-          <img src="assets/projects/brunge/gallery/03.jpg" alt="BRUNGE">
-          <img src="assets/projects/brunge/gallery/04.jpg" alt="BRUNGE">
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Curriculum Modal -->
-  <div id="modal-curriculum" class="modal-panel modal-project" role="dialog" aria-hidden="true">
+  <!-- Curriculum Modal — fill per Figma 34:125 -->
+  <div id="modal-curriculum" class="modal-panel modal-project" role="dialog" aria-hidden="true" data-centered="true">
     <button class="modal-close" data-close="modal-curriculum">( x )</button>
     <span class="modal-bal">( ... )</span>
     <div class="modal-proj-scroll">
-
-      <!-- Box 1: Title + Intro -->
       <div class="modal-inner">
-        <p class="modal-proj-title">&lt;curriculum&gt;</p>
-        <p class="modal-proj-desc">freelance designer with experience in web design, illustration, and printmaking, seeking to contribute to creative projects in graphic design and communication. from the countryside of são paulo to the heart of lisbon, i have explored digital drawing, studied computer science, and earned a degree in fine arts, building a diverse perspective that combines technical rigor with artistic expression.</p>
-      </div>
-
-      <!-- Box 2: CV Content -->
-      <div class="modal-inner">
-        <div class="modal-cv-grid">
-
-          <p class="modal-cv-section" style="grid-row:span 3">&lt;qualifications&gt;</p>
-          <span class="modal-cv-date">2014–2019</span>
-          <span class="modal-cv-text">drawing & adobe suite<br>course @estudiolucidi</span>
-          <span class="modal-cv-date">2020–2021</span>
-          <span class="modal-cv-text">computer science studies<br>@usp são carlos</span>
-          <span class="modal-cv-date">2021–2024</span>
-          <span class="modal-cv-text">artistic drawing degree<br>@fine arts school of lisbon</span>
-
-          <div class="modal-cv-sep"></div>
-
-          <p class="modal-cv-section" style="grid-row:span 3">&lt;formations&gt;</p>
-          <span class="modal-cv-date">2024</span>
-          <span class="modal-cv-text">innovative web design in figma<br>online course by louis paquet</span>
-          <span class="modal-cv-date">2025</span>
-          <span class="modal-cv-text">meaningful visual identity<br>online workshop by rejane dal bello</span>
-          <span class="modal-cv-date">2025</span>
-          <span class="modal-cv-text">communication design<br>course @aprender design</span>
-
-          <div class="modal-cv-sep"></div>
-
-          <p class="modal-cv-section" style="grid-row:span 2">&lt;experience&gt;</p>
-          <span class="modal-cv-date">2020–2021</span>
-          <span class="modal-cv-text">designer<br>@eesc usp baja</span>
-          <span class="modal-cv-date">2025 – now</span>
-          <span class="modal-cv-text">freelance designer<br>independent projects + @irongate</span>
-
-          <div class="modal-cv-sep"></div>
-
-          <p class="modal-cv-section" style="grid-row:span 13">&lt;skills&gt;</p>
-          <span>illustration</span><span class="modal-cv-star">*****</span>
-          <span>visual identity</span><span class="modal-cv-star">*****</span>
-          <span>printmaking</span><span class="modal-cv-star">****<span class="star-dim">*</span></span>
-          <span>typography</span><span class="modal-cv-star">****<span class="star-dim">*</span></span>
-          <span>motion graphics</span><span class="modal-cv-star">***<span class="star-dim">**</span></span>
-          <span>adobe suite</span><span class="modal-cv-star">****<span class="star-dim">*</span></span>
-          <span>figma</span><span class="modal-cv-star">****<span class="star-dim">*</span></span>
-          <span>html / css / js</span><span class="modal-cv-star">****<span class="star-dim">*</span></span>
-          <span>ai art direction</span><span class="modal-cv-star">****<span class="star-dim">*</span></span>
-          <span>prompt engineering</span><span class="modal-cv-star">***<span class="star-dim">**</span></span>
-          <span>creativity</span><span class="modal-cv-star">*****</span>
-          <span>organization</span><span class="modal-cv-star">***<span class="star-dim">**</span></span>
-          <span>mycology</span><span class="modal-cv-star">***<span class="star-dim">**</span></span>
-
+        <div class="cv-intro-row">
+          <p class="cv-intro">&gt; i'm a graphic and web designer with a uniquely diverse background: from helping design an off-road vehicle for a baja competition in brasil to creating a full brand identity based on hand-drawn assets, it's safe to say i'm not afraid to try new things out and won't shy away from learning opportunities. lately, i've been getting familiar with a.i. workflows and prompting engineering.</p>
+          <p class="cv-contact">&lt;danieltcthiemann@gmail.com&gt;<br><br>&lt;(+351) 932 953 322&gt;</p>
         </div>
-        <p class="modal-cv-footer">;)</p>
       </div>
-    </div>
-  </div>
-
-  <!-- WIP Panel -->
-
-  <div id="modal-gallery" class="modal-panel modal-wip" role="dialog" aria-hidden="true">
-    <button class="modal-close" data-close="modal-gallery">( x )</button>
-    <span class="modal-bal">( ... )</span>
-    <div class="modal-inner">
-      <p>( page in development )</p>
+      <div class="modal-inner">
+        <div class="cv-section">
+          <p>&lt;qualifications&gt;</p>
+          <p>&nbsp;</p>
+          <p>&lt;2014-2019&gt; drawing &amp; adobe suite course @estudiolucidi</p>
+          <p>&lt;2020-2021&gt; computer science studies @university of são paulo</p>
+          <p>&lt;2021-2024&gt; artistic drawing graduation @fine arts school of lisbon</p>
+        </div>
+        <div class="cv-section">
+          <p>&lt;experience&gt;</p>
+          <p>&nbsp;</p>
+          <p>&lt;2020-2021&gt; head designer @eesc usp baja | * first place in the design &amp; marketing category at the biggest national baja competition</p>
+          <p>&lt;2020-now&gt; freelance graphic/web designer</p>
+          <p>&lt;2025&gt; communications designer @irongate business advisors (retainer)</p>
+          <p>&lt;2026&gt; founding partner &amp; brand developer @brunge coffee roasting operation</p>
+        </div>
+        <div class="cv-section">
+          <p>&lt;formations&gt;</p>
+          <p>&nbsp;</p>
+          <p>&lt;2025&gt; innovative web design in figma — online course by louis paquet</p>
+          <p>&lt;2025&gt; meaningful visual identity — online workshop by rejane dal bello</p>
+          <p>&lt;2025&gt; design for communication @aprender design</p>
+        </div>
+        <div class="cv-section">
+          <p>&lt;skills &amp; proficiency&gt;</p>
+          <p>&nbsp;</p>
+          <p>&gt; portuguese &amp; english</p>
+          <p>&gt; adobe suite</p>
+          <p>&gt; figma/canva</p>
+          <p>&gt; motion graphics</p>
+          <p>&gt; a.i. art direction</p>
+          <p>&gt; a.i. prompt engineering</p>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -310,142 +313,7 @@
     </div>
   </div>
 
-  <!-- Archive Panel -->
-  <div id="modal-archive" class="modal-panel" role="dialog" aria-hidden="true" data-centered="true">
-    <button class="modal-close" data-close="modal-archive">( x )</button>
-    <span class="modal-bal">( ... )</span>
-    <div class="modal-inner">
-      <p>&lt;archive&gt;</p>
-      <div class="archive-modal-subheader">
-        <span class="section-label">all projects</span>
-        <span class="archive-count">[ 04 ]</span>
-      </div>
-      <div class="archive-modal-filters filter-row">
-        <button class="filter-btn active">all</button>
-        <button class="filter-btn">branding</button>
-        <button class="filter-btn">web</button>
-        <button class="filter-btn">editorial</button>
-        <button class="filter-btn">motion</button>
-        <button class="filter-btn">packaging</button>
-      </div>
-      <div class="archive-modal-grid">
-        <a href="#" class="project-card" data-cat="branding packaging" data-modal="modal-brunge">
-          <div class="card-thumb t2"><img src="assets/projects/brunge/cover.jpg" alt="brunge"></div>
-          <div class="card-overlay"></div>
-          <span class="card-num">01</span>
-          <div class="card-info">
-            <p class="card-cat">branding &amp; packaging</p>
-            <h3 class="card-title">&lt;brunge&gt;</h3>
-          </div>
-        </a>
-        <a href="#" class="project-card" data-cat="branding" data-modal="modal-nextplay">
-          <div class="card-thumb t1"><img src="assets/projects/nextplay/cover.jpg" alt="next play"></div>
-          <div class="card-overlay"></div>
-          <span class="card-num">02</span>
-          <div class="card-info">
-            <p class="card-cat">branding &amp; identity</p>
-            <h3 class="card-title">&lt;next play&gt;</h3>
-          </div>
-        </a>
-        <a href="#" class="project-card" data-cat="branding web" data-modal="modal-fmaeda">
-          <div class="card-thumb t1" id="fm-card-thumb-modal">
-            <iframe
-              id="fm-anim-modal"
-              src=""
-              data-src="assets/projects/fmaeda-keiei/logo-anim.html"
-              scrolling="no"
-              frameborder="0"
-              title="F. Maeda Keiei — Logo Animation"
-            ></iframe>
-          </div>
-          <div class="card-overlay"></div>
-          <span class="card-num">03</span>
-          <div class="card-info">
-            <p class="card-cat">brand identity &amp; web design</p>
-            <h3 class="card-title">&lt;f. maeda keiei&gt;</h3>
-          </div>
-        </a>
-        <a href="#" class="project-card" data-cat="web" data-modal="modal-zhive">
-          <div class="card-thumb t3"><img src="assets/projects/zhive/cover.jpg" alt="zhive"></div>
-          <div class="card-overlay"></div>
-          <span class="card-num">04</span>
-          <div class="card-info">
-            <p class="card-cat">web design &amp; ux/ui</p>
-            <h3 class="card-title">&lt;zhive&gt;</h3>
-          </div>
-        </a>
-      </div>
-      <p class="gap-2">;)</p>
-    </div>
-  </div>
-
   <script src="js/main.js"></script>
-  <script>
-    (function () {
-      const items       = document.querySelectorAll('.home-project-item');
-      const previewImg  = document.getElementById('home-preview-img');
-      const previewMeta = document.getElementById('home-preview-meta');
-      const previewLink = document.getElementById('home-preview-link');
-      const arrow       = document.getElementById('home-arrow');
-      const list        = document.getElementById('home-project-list');
-
-      function esc(s) {
-        return s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
-      }
-
-      function moveArrow(item) {
-        if (!arrow || !list) return;
-        // Read list's computed top so this works at every breakpoint
-        var listTopPx = parseFloat(window.getComputedStyle(list).top) || 0;
-        arrow.style.top = (listTopPx + item.offsetTop - 1) + 'px';
-      }
-
-      function setProject(item) {
-        items.forEach(function (el) { el.classList.toggle('active', el === item); });
-        moveArrow(item);
-
-        previewImg.style.opacity = '0';
-        setTimeout(function () {
-          previewImg.src    = item.dataset.img;
-          previewMeta.innerHTML =
-            '<p>&lt;' + esc(item.dataset.label) + '&gt;' +
-            '<br aria-hidden="true"><br aria-hidden="true"></p>' +
-            '<p>' + esc(item.dataset.line1) + '</p>' +
-            '<p>' + esc(item.dataset.line2) + '</p>';
-          previewImg.style.opacity = '1';
-        }, 150);
-      }
-
-      items.forEach(function (item) {
-        item.addEventListener('mouseenter', function () { setProject(item); });
-        item.addEventListener('click', function () {
-          if (window._openModal) window._openModal(item.dataset.modal);
-        });
-      });
-
-      // Preview image — open modal if active project has one, else navigate
-      previewLink.addEventListener('click', function (e) {
-        var active = document.querySelector('.home-project-item.active');
-        if (active && active.dataset.modal && window._openModal) {
-          e.preventDefault();
-          e.stopPropagation();
-          window._openModal(active.dataset.modal);
-        }
-      });
-
-      // Initialize arrow on load
-      window.addEventListener('load', function () {
-        var active = document.querySelector('.home-project-item.active');
-        if (active) moveArrow(active);
-      });
-
-      // Keep arrow aligned on resize (breakpoint switches change list top)
-      window.addEventListener('resize', function () {
-        var active = document.querySelector('.home-project-item.active');
-        if (active) moveArrow(active);
-      });
-    })();
-  </script>
 
 </body>
 </html>

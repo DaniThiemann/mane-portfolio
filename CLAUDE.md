@@ -13,11 +13,11 @@ Static one-page HTML/CSS/JS graphic design portfolio. No build step, no server.
 **`assets/` is published.** Only web-ready files, committed and deployed. Fixed names per project:
 
 ```
-assets/projects/<slug>/preview.png     homepage hover image
-assets/projects/<slug>/cover.jpg       archive card thumbnail
+assets/projects/<slug>/cover.jpg       homepage cover / modal hero
 assets/projects/<slug>/gallery/01.jpg  modal gallery, numbered in display order
 assets/site/favicon/, assets/site/portrait.png
 ```
+(f. maeda has no cover.jpg — its homepage cover is the live `logo-anim.html` iframe.)
 
 **`content/` is authoring.** Gitignored, never deployed. Per project: `project.md` (copy),
 `inbox/` (unsorted drops), `source/` (full-quality originals), `notes/` (briefs, prompts).
@@ -126,60 +126,48 @@ Every clickable text element (nav buttons, contact button, modal close `( x )`, 
 - **No wiggle animation** — the `.text-hover` / `chJitter` wiggle effect has been retired. Do not add `.text-hover` class to any element
 - **Active/selected states** (e.g. active filter) use `color: var(--ink)` only — no background fill — to distinguish selection from hover
 
-Apply this pattern to every new interactive text element. Reference `.home-logo`, `.home-nav a/button`, `.home-contact`, `.modal-close`, `.filter-btn`, `.footer-link`, `.project-meta-link`, `.modal-inner p a` in `css/style.css` as canonical examples.
+Apply this pattern to every new interactive text element. Reference `.sh-item`, `.sf-link`, `.mag-hero-name`, `.sf-contact a`, `.modal-close`, `.modal-inner p a` in `css/style.css` as canonical examples.
 
-## Project Modal Layout Rules
+## Homepage — Magazine Layout (Figma Page 2, node 34:83)
 
-All project pages are implemented as modals in `index.html`, not as separate navigable pages. Each project modal follows this exact structure:
+`index.html` is the entire site. Structure, top to bottom:
+1. **Header bar** (white, `.site-header`): `<dani ;)>` `<contact>` `<curriculum>` `( ... )`
+2. **Highlight** (`.mag-hero`): one featured project — big cover image (aspect `1021/628`) + right column 329px: name / `<highlight>` flag / description / tags pinned to bottom
+3. **Cover grid** (`.mag-grid`): remaining projects — 3-up row (aspect `443/346`), then a 2-up row (aspect `674/484`) that stays commented out until a 5th project publishes
+4. **Footer bar** (white, `.site-footer`): left = `( ) all projects` (anchors to `#projects`) + the highlight's question paragraph; right = `( ) available for work` + email / instagram / ©
 
-### Structure
+The archive and gallery modals are **retired** — the homepage grid is the archive. Covers open project modals via `data-modal`. The f. maeda cover is the live GSAP iframe (`#fm-anim`), scaled to cover its cell by `initFmCover()` in `js/main.js`.
+
+## Grid Law — fixed gutters
+
+**Gutters are ALWAYS `--gutter` (20px), at every breakpoint, in the homepage grid AND modal galleries.** When a row doesn't fit, columns drop (3→1, 2→1) or slots rescale — spacing never compresses. Page margins are `--margin` (36px, 20px ≤520px). Breakpoints: hero stacks ≤1100px; grids drop to 1 column ≤760px.
+
+## Project Modal Fill (Figma node 34:153)
+
+Modal chassis is unchanged (draggable `.modal-panel`, `( x )`, `( ... )`, `min(820px, 92vw)`, max-height `88vh`). The fill:
+
 ```html
-<div id="modal-[project]" class="modal-panel modal-project" role="dialog" aria-hidden="true" data-centered="true">
-  <button class="modal-close" data-close="modal-[project]">( x )</button>
-  <span class="modal-bal">( ... )</span>
-  <div class="modal-proj-scroll">
-    <!-- Box 1: Info -->
-    <div class="modal-inner">
-      <p class="modal-proj-title">&lt;project name&gt;</p>
-      <p class="modal-proj-desc">project description text here.</p>
-    </div>
-    <!-- Box 2: Gallery -->
-    <div class="modal-inner">
-      <p class="modal-proj-marker">&gt;</p>
-      <div class="modal-proj-mosaic">
-        <!-- images here -->
-      </div>
+<div class="modal-proj-scroll">
+  <div class="modal-inner">                 <!-- Box 1: info -->
+    <p class="mp-title">&lt;name&gt;</p>     <!-- 36px margin-bottom (needs .modal-inner prefix in CSS) -->
+    <p class="mp-tags">&gt; tag<br>&gt; tag</p>
+    <div class="mp-desc"><p>&gt; …</p></div>
+  </div>
+  <div class="modal-inner">                 <!-- Box 2: gallery -->
+    <div class="mp-gallery">
+      <div class="mp-slot mp-hero">…</div>          <!-- aspect 1021/628 -->
+      <div class="mp-row mp-row-2">…2 slots…</div>  <!-- aspect 674/484 -->
+      <div class="mp-row mp-row-3">…3 slots…</div>  <!-- aspect 443/346 -->
     </div>
   </div>
 </div>
 ```
 
-### Layout rules
-- **No hero image** — projects open directly into the two-box layout
-- **Two separate white boxes** inside a scrollable container — the `--paper-2` chrome shows as an `0.5rem` gap between them
-- **Box 1 — Info:** project title (`.modal-proj-title`) with `2.5rem` margin-bottom, then description in smaller text (`.modal-proj-desc`: 14px, weight 400)
-- **Box 2 — Gallery:** `>` marker (`.modal-proj-marker`) with `2.5rem` margin-bottom, then images in a 2-column grid (`.modal-proj-mosaic`)
-- **Images:** full natural height (`width: 100%; height: auto`), never cropped, never forced aspect-ratio
-- **Scroll:** only the two white boxes scroll (`modal-proj-scroll`); the `( x )` chrome stays fixed at the top
-- **Width:** `min(820px, 92vw)`; **max-height:** `88vh`
-
-### Triggering the modal
-Wire up every entry point that would normally link to the project page:
-1. **Home project list item** — add `data-modal="modal-[project]"` to the `<li>`; the inline click handler already skips navigation when `data-modal` is present
-2. **Archive modal card** — add `data-modal="modal-[project]"` to the `<a>` (keep `href` for fallback); `e.preventDefault()` in the `[data-modal]` handler stops navigation
-3. **Preview image link** — already handled: clicks open the modal if the active list item has `data-modal`
-
-### CSS classes (defined in `css/style.css`)
-- `.modal-project` — width/max-height for all project modals
-- `.modal-proj-scroll` — flex column scroll container, gap between boxes
-- `.modal-inner .modal-proj-title` — title spacing
-- `.modal-inner .modal-proj-desc` — smaller description text
-- `.modal-inner .modal-proj-marker` — `>` spacing before mosaic
-- `.modal-proj-mosaic` — 2-col image grid
+Repeat/alternate `mp-row-2` / `mp-row-3` to fit however many images a project has. Curriculum modal uses the same chassis with `.cv-intro-row` / `.cv-section` fill (Figma 34:125 — no star ratings).
 
 ## Gallery Rules
-1. **Never crop images** — never force an `aspect-ratio` on mosaic items; set `height: auto` so the full image height flows naturally.
-2. **Always top-align images** — `object-position: top` on all mosaic `img` and `video`. If two images in a row have different heights, leftover space falls to the bottom of the shorter item, never the top.
+1. **Images are cropped to fixed-ratio slots** (`object-fit: cover`) — this replaced the old never-crop rule when the magazine layout landed. If an image crops badly, derive a better crop from `content/<slug>/source/` instead of changing the slot ratio.
+2. **Always top-align** — `object-position: top` on slot `img`/`video`, so tall screenshots show their top (hero) section.
 
 ## AI Image Generation Rules
 When generating images for any project:

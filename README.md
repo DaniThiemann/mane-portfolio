@@ -1,15 +1,16 @@
 # mane-portfolio
 
-Static one-page graphic design portfolio. No framework, no build step, no
-server — `index.html` is the whole site. Every project opens as a draggable
-modal on that page.
+Static one-page graphic design portfolio — magazine/poster layout. No
+framework, no build step, no server — `index.html` is the whole site: header
+bar, one highlighted project, a cover grid of the rest, footer bar. Every
+project opens as a draggable modal on that page.
 
 ## Structure
 
 ```
-index.html          ← the entire site: home, archive, curriculum, project modals
+index.html          ← the entire site: header, highlight, cover grid, footer, all modals
 css/style.css       ← design system — all styles live here
-js/main.js          ← modal system, cursor, scroll reveal, filters
+js/main.js          ← modal system, cursor, f. maeda cover animation
 js/gsap.min.js      ← used only by the f. maeda logo animation
 
 assets/             ← PUBLISHED — web-ready, committed, deployed
@@ -17,8 +18,7 @@ assets/             ← PUBLISHED — web-ready, committed, deployed
 │   ├── favicon/favicon-dark.png, favicon-white.png
 │   └── portrait.png
 └── projects/<slug>/
-    ├── preview.png     ← homepage hover image
-    ├── cover.jpg       ← archive card thumbnail
+    ├── cover.jpg       ← homepage cover / modal hero
     └── gallery/01.jpg… ← modal gallery, in display order
 
 content/            ← AUTHORING — source media and copy, gitignored, local only
