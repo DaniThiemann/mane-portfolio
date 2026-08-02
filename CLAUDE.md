@@ -154,20 +154,20 @@ Modal chassis is unchanged (draggable `.modal-panel`, `( x )`, `( ... )`, `min(8
     <div class="mp-desc"><p>&gt; …</p></div>
   </div>
   <div class="modal-inner">                 <!-- Box 2: gallery -->
-    <div class="mp-gallery">
-      <div class="mp-slot mp-hero">…</div>          <!-- aspect 1021/628 -->
-      <div class="mp-row mp-row-2">…2 slots…</div>  <!-- aspect 674/484 -->
-      <div class="mp-row mp-row-3">…3 slots…</div>  <!-- aspect 443/346 -->
+    <div class="mp-gallery">                <!-- CSS multicol masonry -->
+      <div class="mp-item"><img …></div>    <!-- cover first, then gallery/01… -->
+      <div class="mp-item"><img …></div>
     </div>
   </div>
 </div>
 ```
 
-Repeat/alternate `mp-row-2` / `mp-row-3` to fit however many images a project has. Curriculum modal uses the same chassis with `.cv-intro-row` / `.cv-section` fill (Figma 34:125 — no star ratings).
+Curriculum modal uses the same chassis with `.cv-intro-row` / `.cv-section` fill (Figma 34:125 — no star ratings).
 
 ## Gallery Rules
-1. **Images are cropped to fixed-ratio slots** (`object-fit: cover`) — this replaced the old never-crop rule when the magazine layout landed. If an image crops badly, derive a better crop from `content/<slug>/source/` instead of changing the slot ratio.
-2. **Always top-align** — `object-position: top` on slot `img`/`video`, so tall screenshots show their top (hero) section.
+1. **Modal galleries never crop.** `.mp-gallery` is a 2-column CSS multicol masonry: 20px between columns, 20px between stacked images, every image at its own natural aspect (`width: 100%; height: auto`). The two columns may end at different heights — that's fine. 1 column ≤600px.
+2. **Homepage covers DO crop** — fixed-ratio grid slots (`object-fit: cover`), that's the magazine look. If a cover crops badly, derive a better crop from `content/<slug>/source/`.
+3. Each project's modal gallery lists `cover.jpg` first (where it exists), then `gallery/01…` in order.
 
 ## AI Image Generation Rules
 When generating images for any project:

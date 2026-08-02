@@ -180,7 +180,7 @@ body.modal-dragging #cur {
 }
 .card-thumb {
   position: absolute; inset: 0;
-  transition: transform 0.6s cubic-bezier(.25,.46,.45,.94);
+  transition: transform 0.6s cubic-bezier(.25,.46,.45,.94), filter 0.4s;
   filter: grayscale(100%);
   overflow: hidden;
 }
@@ -190,14 +190,17 @@ body.modal-dragging #cur {
   object-fit: cover;
   display: block;
 }
-.project-card:hover .card-thumb { transform: scale(1.04); }
+.project-card:hover .card-thumb {
+  transform: scale(1.04);
+  filter: grayscale(0%);
+}
 .card-overlay {
   position: absolute; inset: 0;
   background: var(--ink);
   opacity: 0;
   transition: opacity 0.32s;
 }
-.project-card:hover .card-overlay { opacity: 0.55; }
+.project-card:hover .card-overlay { opacity: 0.35; }
 .card-info {
   position: absolute; bottom: 0; left: 0; right: 0;
   padding: 0.9rem 1rem;
@@ -319,29 +322,22 @@ body.modal-dragging #cur {
 .modal-inner .mp-tags  { margin-bottom: 36px; }
 .mp-desc p { margin: 0; }
 
+/* Two columns, 20px apart; images at their own dimensions, stacked
+   20px apart inside each column. Columns may end at different heights. */
 .mp-gallery {
-  display: flex;
-  flex-direction: column;
-  gap: var(--gutter);
+  columns: 2;
+  column-gap: var(--gutter);
+  margin-bottom: calc(-1 * var(--gutter)); /* swallow last items' bottom gap */
 }
-.mp-row {
-  display: grid;
-  gap: var(--gutter);
-}
-.mp-row-2 { grid-template-columns: repeat(2, 1fr); }
-.mp-row-3 { grid-template-columns: repeat(3, 1fr); }
-.mp-slot {
-  overflow: hidden;
+.mp-item {
+  break-inside: avoid;
+  margin-bottom: var(--gutter);
   background: var(--paper-2);
 }
-.mp-hero            { aspect-ratio: 1021 / 628; }
-.mp-row-2 .mp-slot  { aspect-ratio: 674 / 484; }
-.mp-row-3 .mp-slot  { aspect-ratio: 443 / 346; }
-.mp-slot img,
-.mp-slot video {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  object-position: top;
+.mp-item img,
+.mp-item video {
+  width: 100%;
+  height: auto;
   display: block;
 }
 
@@ -421,10 +417,7 @@ body.modal-dragging #cur {
     max-width: none;
   }
 
-  .mp-row-2,
-  .mp-row-3 { grid-template-columns: 1fr; }
-  .mp-row-2 .mp-slot,
-  .mp-row-3 .mp-slot { aspect-ratio: 674 / 484; }
+  .mp-gallery { columns: 1; }
 
   .cv-intro-row { flex-direction: column; gap: 36px; }
   .cv-contact { text-align: left; }
