@@ -120,6 +120,7 @@ body.modal-dragging #cur {
   gap: var(--gutter);
 }
 .mag-hero-media {
+  position: relative;
   display: block;
   width: 100%;
   aspect-ratio: 1021 / 628;
@@ -246,7 +247,6 @@ body.modal-dragging #cur {
 }
 .sf-col { display: flex; flex-direction: column; }
 .sf-left  { max-width: 674px; }
-.sf-left .sf-question { margin-top: 58px; }
 .sf-right {
   max-width: 287px;
   text-align: right;
@@ -397,7 +397,6 @@ body.modal-dragging #cur {
   .mag-hero { grid-template-columns: 1fr; }
   .mag-hero-toprow { margin-bottom: var(--gutter); }
   .mag-hero-tags { margin-top: var(--gutter); padding-top: 0; }
-  .sf-left .sf-question { margin-top: 36px; }
   .sf-right .sf-contact { margin-top: 36px; }
 }
 
@@ -408,12 +407,16 @@ body.modal-dragging #cur {
   .mag-row-3 .mag-cover,
   .mag-row-2 .mag-cover { aspect-ratio: 674 / 484; }
 
-  /* Highlight goes image-led: the description is identical to the one in the
-     project modal, so on a small screen it only pushes the work below the fold. */
-  .mag-hero-desc { display: none; }
+  /* Every project reads the same way on mobile: cover image with its title and
+     category laid over it. The highlight's text column is dropped entirely —
+     that copy is identical to the one inside the brunge modal. */
+  .mag-hero-info { display: none; }
   .mag-hero-media { aspect-ratio: 4 / 3; }
-  .mag-hero-toprow { margin-bottom: 16px; }
-  .mag-hero-tags { margin-top: 16px; padding-top: 0; }
+
+  .card-info    { opacity: 1; transform: none; }
+  .card-overlay { opacity: 0.35; }
+  .project-card:hover .card-thumb,
+  .mag-hero-media:hover img { transform: none; }
 
   /* The modal is now the only home for long copy — give it room to breathe. */
   .mp-desc p,
@@ -423,7 +426,6 @@ body.modal-dragging #cur {
   .cv-section p { font-size: 16px; line-height: 1.5; }
   .modal-inner .mp-title { margin-bottom: 20px; }
   .modal-inner .mp-tags  { margin-bottom: 20px; }
-  .sf-question { font-size: 16px; line-height: 1.5; }
 
   .site-header { gap: 24px; }
 
