@@ -199,6 +199,12 @@ When generating images or video for any project:
 5. **Model choice:** `nano_banana_pro` at 2k when the logo must be reproduced exactly (best mark
    fidelity, ~2 credits); `flux_2` pro at 2k for atmosphere where the mark isn't the subject (~1.5).
    Video: `seedance_2_0`, 5s, `mode: fast`, 720p, `generate_audio: false` (~17.5 credits).
+5b. **Composite, don't prompt, for complex marks.** No image model reliably reproduces a logo with
+   internal cut-outs — it redraws them. Simple geometry (the f. maeda five circles) survives a good
+   reference; the next play badge did not, twice. For those: generate a deliberately EMPTY plate
+   ("nothing on the wall, no signage, no logo, no text — plate for compositing"), then composite the
+   real PNG with PIL and fake the glow with stacked GaussianBlur passes screened over the plate.
+   See `content/projects/nextplay/source/gen2/badge-sign.png`. Guarantees pixel-exact identity.
 6. **Never put hex codes in a video prompt** — Seedance renders them as literal on-screen text
    (a `#0A0A0A` in the prompt printed "0A.0A.03" across the bottom of a clip). Name colours in words
    for video; hex is safe for stills.
