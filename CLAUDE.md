@@ -153,9 +153,11 @@ Apply this pattern to every new interactive text element. Reference `.sh-item`, 
 
 `index.html` is the entire site. Structure, top to bottom:
 1. **Header bar** (white, `.site-header`): `<dani ;)>` `<contact>` `<curriculum>` `( ... )`
-2. **Highlight** (`.mag-hero`): one featured project — big cover image (aspect `1021/628`) + right column 329px: name / `<highlight>` flag / description / tags pinned to bottom
-3. **Cover grid** (`.mag-grid`): remaining projects — 3-up row (aspect `443/346`), then a 2-up row (aspect `674/484`) that stays commented out until a 5th project publishes
-4. **Footer bar** (white, `.site-footer`): left = `( ) all projects` (anchors to `#projects`) + the highlight's question paragraph; right = `( ) available for work` + email / instagram / ©
+2. **Cover grid** (`.mag-grid`): EVERY project, same size, two columns, aspect `443/346`.
+   There is no highlight/hero slot — it was retired because it pushed the rest of the work
+   below the fold. Each cover carries its title and category over the image.
+3. **Footer bar** (white, `.site-footer`): left = `( NN ) all projects` (anchors to `#projects`,
+   count set by JS from `.mag-cover`); right = `( ) available for work` + email / instagram / ©
 
 The archive and gallery modals are **retired** — the homepage grid is the archive. Covers open project modals via `data-modal`. The f. maeda cover is the live GSAP iframe (`#fm-anim`), scaled to cover its cell by `initFmCover()` in `js/main.js`.
 

@@ -72,7 +72,6 @@ body.modal-dragging #cur {
 /* ── TEXT HOVER — unified ink-fill (see CLAUDE.md) ──── */
 .sh-item,
 .sf-link,
-.mag-hero-name,
 .sf-contact a,
 .modal-close,
 .modal-inner p a {
@@ -84,7 +83,6 @@ body.modal-dragging #cur {
 }
 .sh-item:hover,
 .sf-link:hover,
-.mag-hero-name:hover,
 .sf-contact a:hover,
 .modal-close:hover,
 .modal-inner p a:hover {
@@ -113,63 +111,14 @@ body.modal-dragging #cur {
   gap: var(--margin);
 }
 
-/* Highlight — hero media + info column */
-.mag-hero {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 329px;
-  gap: var(--gutter);
-}
-.mag-hero-media {
-  position: relative;
-  display: block;
-  width: 100%;
-  aspect-ratio: 1021 / 628;
-  overflow: hidden;
-  background: var(--paper-2);
-}
-.mag-hero-media img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  display: block;
-  filter: grayscale(100%);
-  transition: transform 0.6s cubic-bezier(.25,.46,.45,.94), filter 0.4s;
-}
-.mag-hero-media:hover img {
-  transform: scale(1.03);
-  filter: grayscale(0%);
-}
-.mag-hero-info {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-}
-.mag-hero-toprow {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  margin-bottom: 75px;
-}
-.mag-hero-flag { color: var(--ink); }
-.mag-hero-desc p { margin: 0; }
-.mag-hero-tags {
-  margin-top: auto;
-  padding-top: var(--gutter);
-}
-
-/* Cover grid — fixed 20px gutters at every breakpoint */
+/* Cover grid — every project the same size, two columns.
+   Fixed 20px gutters at every breakpoint; columns drop, spacing never does. */
 .mag-grid {
-  display: flex;
-  flex-direction: column;
-  gap: var(--gutter);
-}
-.mag-row {
   display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--gutter);
 }
-.mag-row-3 { grid-template-columns: repeat(3, 1fr); }
-.mag-row-2 { grid-template-columns: repeat(2, 1fr); }
-.mag-row-3 .mag-cover { aspect-ratio: 443 / 346; }
-.mag-row-2 .mag-cover { aspect-ratio: 674 / 484; }
+.mag-cover { aspect-ratio: 443 / 346; }
 
 /* ── PROJECT CARD (cover) — hover system kept ──────── */
 .project-card {
@@ -322,22 +271,23 @@ body.modal-dragging #cur {
 .modal-inner .mp-tags  { margin-bottom: 36px; }
 .mp-desc p { margin: 0; }
 
-/* Two columns, 20px apart; images at their own dimensions, stacked
-   20px apart inside each column. Columns may end at different heights. */
+/* Square grid — two columns, 20px apart, every slot 1:1 so the rows
+   line up exactly. Gallery source images are square, so nothing crops. */
 .mp-gallery {
-  columns: 2;
-  column-gap: var(--gutter);
-  margin-bottom: calc(-1 * var(--gutter)); /* swallow last items' bottom gap */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--gutter);
 }
 .mp-item {
-  break-inside: avoid;
-  margin-bottom: var(--gutter);
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
   background: var(--paper-2);
 }
 .mp-item img,
 .mp-item video {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 
@@ -392,31 +342,20 @@ body.modal-dragging #cur {
   .project-card:hover .card-thumb { transform: none; }
 }
 
-/* ── ≤1100px — hero stacks ─────────────────────────── */
+/* ── ≤1100px ───────────────────────────────────────── */
 @media (max-width: 1100px) {
-  .mag-hero { grid-template-columns: 1fr; }
-  .mag-hero-toprow { margin-bottom: var(--gutter); }
-  .mag-hero-tags { margin-top: var(--gutter); padding-top: 0; }
   .sf-right .sf-contact { margin-top: 36px; }
 }
 
-/* ── ≤760px — grids drop to one column ─────────────── */
+/* ── ≤760px — covers drop to one column ────────────── */
 @media (max-width: 760px) {
-  .mag-row-3,
-  .mag-row-2 { grid-template-columns: 1fr; }
-  .mag-row-3 .mag-cover,
-  .mag-row-2 .mag-cover { aspect-ratio: 674 / 484; }
+  .mag-grid { grid-template-columns: 1fr; }
+  .mag-cover { aspect-ratio: 674 / 484; }
 
-  /* Every project reads the same way on mobile: cover image with its title and
-     category laid over it. The highlight's text column is dropped entirely —
-     that copy is identical to the one inside the brunge modal. */
-  .mag-hero-info { display: none; }
-  .mag-hero-media { aspect-ratio: 4 / 3; }
-
+  /* Titles and categories sit over the cover, as on desktop hover. */
   .card-info    { opacity: 1; transform: none; }
   .card-overlay { opacity: 0.35; }
-  .project-card:hover .card-thumb,
-  .mag-hero-media:hover img { transform: none; }
+  .project-card:hover .card-thumb { transform: none; }
 
   /* The modal is now the only home for long copy — give it room to breathe. */
   .mp-desc p,
@@ -436,7 +375,7 @@ body.modal-dragging #cur {
     max-width: none;
   }
 
-  .mp-gallery { columns: 1; }
+  .mp-gallery { grid-template-columns: 1fr; }
 
   .cv-intro-row { flex-direction: column; gap: 36px; }
   .cv-contact { text-align: left; }
@@ -453,8 +392,6 @@ body.modal-dragging #cur {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .card-thumb,
-  .mag-hero-media img { transition: none; }
-  .project-card:hover .card-thumb,
-  .mag-hero-media:hover img { transform: none; }
+  .card-thumb { transition: none; }
+  .project-card:hover .card-thumb { transform: none; }
 }

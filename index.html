@@ -26,73 +26,50 @@
 
   <main class="mag">
 
-    <!-- Highlight — Figma 34:152 -->
-    <section class="mag-hero">
-      <button class="mag-hero-media" data-modal="modal-brunge" aria-label="open brunge project">
-        <img src="assets/projects/brunge/cover.jpg" alt="brunge — highlighted project" />
+    <!-- Cover grid — every project the same size, two columns -->
+    <section class="mag-grid" id="projects">
+      <button class="project-card mag-cover" data-modal="modal-brunge">
+        <div class="card-thumb"><img src="assets/projects/brunge/cover.jpg" alt="brunge"></div>
         <div class="card-overlay"></div>
         <div class="card-info">
           <p class="card-cat">branding ; packaging</p>
           <h3 class="card-title">&lt;brunge&gt;</h3>
         </div>
       </button>
-      <div class="mag-hero-info">
-        <div class="mag-hero-toprow">
-          <button class="mag-hero-name" data-modal="modal-brunge">&lt;brunge&gt;</button>
-          <span class="mag-hero-flag">&lt;highlight&gt;</span>
+      <button class="project-card mag-cover" data-modal="modal-nextplay">
+        <div class="card-thumb"><img src="assets/projects/nextplay/cover.jpg" alt="next play"></div>
+        <div class="card-overlay"></div>
+        <div class="card-info">
+          <p class="card-cat">branding ; motion</p>
+          <h3 class="card-title">&lt;next play&gt;</h3>
         </div>
-        <div class="mag-hero-desc">
-          <p>&gt; how to design a visual identity for an organic, ever-changing brand that is supposed to reflect both the chaotic mind of the coffee roasting nerd behind it and the structured laboratorial work that sustains the heavy load of information on these coffees?</p>
-          <p>&nbsp;</p>
-          <p>&gt; with this goal in mind, we created brunge, a brand that is as much about coffee than it is about identity. handcrafted illustrations, texts and packaging material blends together with clean white spaces and basic fonts in order to translate information in a digestible way for every coffee enthusiast.</p>
+      </button>
+      <button class="project-card mag-cover" data-modal="modal-fmaeda">
+        <div class="card-thumb card-thumb-anim" id="fm-card-thumb">
+          <iframe
+            id="fm-anim"
+            src=""
+            data-src="assets/projects/fmaeda-keiei/logo-anim.html"
+            scrolling="no"
+            frameborder="0"
+            title="F. Maeda Keiei — Logo Animation"
+            loading="lazy"
+          ></iframe>
         </div>
-        <p class="mag-hero-tags">&gt; branding ; packaging</p>
-      </div>
-    </section>
-
-    <!-- Cover grid — Figma 34:85/88/89 (3-up). 2-up row (34:86/87) returns when a 5th project publishes -->
-    <section class="mag-grid" id="projects">
-      <div class="mag-row mag-row-3">
-        <button class="project-card mag-cover" data-modal="modal-nextplay">
-          <div class="card-thumb"><img src="assets/projects/nextplay/cover.jpg" alt="next play"></div>
-          <div class="card-overlay"></div>
-          <div class="card-info">
-            <p class="card-cat">branding ; motion</p>
-            <h3 class="card-title">&lt;next play&gt;</h3>
-          </div>
-        </button>
-        <button class="project-card mag-cover" data-modal="modal-fmaeda">
-          <div class="card-thumb card-thumb-anim" id="fm-card-thumb">
-            <iframe
-              id="fm-anim"
-              src=""
-              data-src="assets/projects/fmaeda-keiei/logo-anim.html"
-              scrolling="no"
-              frameborder="0"
-              title="F. Maeda Keiei — Logo Animation"
-              loading="lazy"
-            ></iframe>
-          </div>
-          <div class="card-overlay"></div>
-          <div class="card-info">
-            <p class="card-cat">branding ; web design</p>
-            <h3 class="card-title">&lt;f. maeda keiei&gt;</h3>
-          </div>
-        </button>
-        <button class="project-card mag-cover" data-modal="modal-zhive">
-          <div class="card-thumb"><img src="assets/projects/zhive/cover.jpg" alt="z-hive"></div>
-          <div class="card-overlay"></div>
-          <div class="card-info">
-            <p class="card-cat">branding ; web design</p>
-            <h3 class="card-title">&lt;z-hive&gt;</h3>
-          </div>
-        </button>
-      </div>
-      <!--
-      <div class="mag-row mag-row-2">
-        two 674×484 slots — un-comment when the 5th project publishes
-      </div>
-      -->
+        <div class="card-overlay"></div>
+        <div class="card-info">
+          <p class="card-cat">branding ; web design</p>
+          <h3 class="card-title">&lt;f. maeda keiei&gt;</h3>
+        </div>
+      </button>
+      <button class="project-card mag-cover" data-modal="modal-zhive">
+        <div class="card-thumb"><img src="assets/projects/zhive/cover.jpg" alt="z-hive"></div>
+        <div class="card-overlay"></div>
+        <div class="card-info">
+          <p class="card-cat">branding ; web design</p>
+          <h3 class="card-title">&lt;z-hive&gt;</h3>
+        </div>
+      </button>
     </section>
 
   </main>
@@ -124,18 +101,21 @@
         <p class="mp-title">&lt;brunge&gt;</p>
         <p class="mp-tags">&gt; branding<br>&gt; packaging</p>
         <div class="mp-desc">
-          <p>&gt; how to design a visual identity for an organic, ever-changing brand that is supposed to reflect both the chaotic mind of the coffee roasting nerd behind it and the structured laboratorial work that sustains the heavy load of information on these coffees?</p>
+          <p>&gt; brunge is a micro-scale, no-bullshit, cool-as-f*ck specialty coffee roasting operation i've had the opportunity to help on the creation of.</p>
           <p>&nbsp;</p>
-          <p>&gt; with this goal in mind, we created brunge, a brand that is as much about coffee than it is about identity. handcrafted illustrations, texts and packaging material blends together with clean white spaces and basic fonts in order to translate information in a digestible way for every coffee enthusiast.</p>
+          <p>&gt; mixing the chaotic energy of the coffee nerd behind it with the dense technical information on each roast sample, we were able to put together a mix of hand drawn sketches with a monospaced font to create unique packagings and communication material that tells you everything you need to know about that coffee in a raw language.</p>
+          <p>&nbsp;</p>
+          <p>&gt; keep posted, there's much more to come.</p>
         </div>
       </div>
       <div class="modal-inner">
         <div class="mp-gallery">
-          <div class="mp-item"><img src="assets/projects/brunge/cover.jpg" alt="brunge — cover"></div>
-          <div class="mp-item"><img src="assets/projects/brunge/gallery/01.jpg" alt="brunge — packaging"></div>
-          <div class="mp-item"><img src="assets/projects/brunge/gallery/02.jpg" alt="brunge — packaging"></div>
-          <div class="mp-item"><img src="assets/projects/brunge/gallery/03.jpg" alt="brunge — packaging"></div>
-          <div class="mp-item"><img src="assets/projects/brunge/gallery/04.jpg" alt="brunge — packaging"></div>
+          <div class="mp-item"><img src="assets/projects/brunge/gallery/01.jpg" alt="brunge"></div>
+          <div class="mp-item"><img src="assets/projects/brunge/gallery/02.jpg" alt="brunge"></div>
+          <div class="mp-item"><img src="assets/projects/brunge/gallery/03.jpg" alt="brunge"></div>
+          <div class="mp-item"><img src="assets/projects/brunge/gallery/04.jpg" alt="brunge"></div>
+          <div class="mp-item"><img src="assets/projects/brunge/gallery/05.jpg" alt="brunge"></div>
+          <div class="mp-item"><img src="assets/projects/brunge/gallery/06.jpg" alt="brunge"></div>
         </div>
       </div>
     </div>
@@ -159,9 +139,8 @@
       </div>
       <div class="modal-inner">
         <div class="mp-gallery">
-          <div class="mp-item"><img src="assets/projects/nextplay/cover.jpg" alt="NEXT PLAY — badge application"></div>
           <div class="mp-item"><img src="assets/projects/nextplay/gallery/01.jpg" alt="NEXT PLAY — badge as illuminated sign"></div>
-          <div class="mp-item"><img src="assets/projects/nextplay/gallery/02.jpg" alt="NEXT PLAY — content system: competitions, round table, highlights"></div>
+          <div class="mp-item"><img src="assets/projects/nextplay/gallery/02.jpg" alt="NEXT PLAY — content system"></div>
           <div class="mp-item"><img src="assets/projects/nextplay/gallery/03.jpg" alt="NEXT PLAY — broadcast kit"></div>
           <div class="mp-item"><img src="assets/projects/nextplay/gallery/04.jpg" alt="NEXT PLAY — campeonato poster"></div>
           <div class="mp-item"><img src="assets/projects/nextplay/gallery/05.jpg" alt="NEXT PLAY — aspas poster"></div>
@@ -219,7 +198,6 @@
       </div>
       <div class="modal-inner">
         <div class="mp-gallery">
-          <div class="mp-item"><img src="assets/projects/zhive/cover.jpg" alt="z-hive — illuminated facade at dusk"></div>
           <div class="mp-item"><img src="assets/projects/zhive/gallery/01.jpg" alt="z-hive — mark routed into walnut"></div>
           <div class="mp-item"><img src="assets/projects/zhive/gallery/02.jpg" alt="z-hive — glass switch panel"></div>
           <div class="mp-item"><img src="assets/projects/zhive/gallery/03.jpg" alt="z-hive — site, rotina em fluxo"></div>
