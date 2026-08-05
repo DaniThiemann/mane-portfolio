@@ -100,6 +100,8 @@ body.modal-dragging #cur {
   gap: 50px;
   padding: var(--margin);
 }
+/* ( ... ) sits hard against the right edge at every width */
+.sh-end { margin-left: auto; }
 
 /* ─────────────────────────────────────────────────────
    MAGAZINE LAYOUT — Figma 34:83
@@ -195,13 +197,17 @@ body.modal-dragging #cur {
   padding: var(--margin);
 }
 .sf-col { display: flex; flex-direction: column; }
-.sf-left  { max-width: 674px; }
+.sf-left  {
+  max-width: 674px;
+  align-items: flex-start;   /* keeps the ink-fill hover tight to each line */
+}
 .sf-right {
   max-width: 287px;
   text-align: right;
   align-items: flex-end;
 }
-.sf-right .sf-contact { margin-top: 73px; }
+.sf-left .sf-contact { margin-top: 58px; }
+.sf-right .sf-copy   { margin-top: 73px; }
 .sf-contact p { margin: 0; }
 .sf-contact p + p { margin-top: 16px; }
 
@@ -344,7 +350,8 @@ body.modal-dragging #cur {
 
 /* ── ≤1100px ───────────────────────────────────────── */
 @media (max-width: 1100px) {
-  .sf-right .sf-contact { margin-top: 36px; }
+  .sf-left .sf-contact { margin-top: 36px; }
+  .sf-right .sf-copy   { margin-top: 36px; }
 }
 
 /* ── ≤760px — covers drop to one column ────────────── */
