@@ -11,32 +11,6 @@ if (cur) {
   });
 }
 
-/* ─────────────────────────────────────────────────────
-   F. MAEDA ANIMATION COVER
-   The grid card is a live GSAP animation in an iframe
-   (1920×1080 canvas) scaled to cover the card cell.
-   ───────────────────────────────────────────────────── */
-(function initFmCover() {
-  const frame = document.getElementById('fm-anim');
-  const thumb = document.getElementById('fm-card-thumb');
-  if (!frame || !thumb) return;
-
-  function scaleToCover() {
-    const w = thumb.offsetWidth;
-    const h = thumb.offsetHeight;
-    if (!w || !h) return;
-    const s = Math.max(w / 1920, h / 1080);
-    const x = (w - 1920 * s) / 2;
-    const y = (h - 1080 * s) / 2;
-    frame.style.transform = `translate(${x}px, ${y}px) scale(${s})`;
-  }
-
-  frame.src = frame.dataset.src;
-  frame.addEventListener('load', scaleToCover, { once: true });
-  window.addEventListener('load', scaleToCover);
-  window.addEventListener('resize', scaleToCover);
-})();
-
 /* ── Footer project count — one per cover on the grid ── */
 (function initProjectCount() {
   const el = document.getElementById('sf-count');

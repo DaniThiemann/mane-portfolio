@@ -17,7 +17,7 @@ assets/projects/<slug>/cover.jpg       homepage cover / modal hero
 assets/projects/<slug>/gallery/01.jpg  modal gallery, numbered in display order
 assets/site/favicon/, assets/site/portrait.png
 ```
-(f. maeda has no cover.jpg — its homepage cover is the live `logo-anim.html` iframe.)
+(Every project now has a real `cover.jpg`.)
 
 **`content/` is authoring.** Gitignored, never deployed. Per project: `project.md` (copy),
 `inbox/` (unsorted drops), `source/` (full-quality originals), `notes/` (briefs, prompts).
@@ -50,9 +50,9 @@ naming contract above and wire them into `index.html`.
   - `hf-mark-overhead.png` — Higgsfield generated: 5 discs overhead studio
   - `hf-desk-scene.png` — Higgsfield generated: executive desk scene
   - `hf-card-macro.png` — Higgsfield generated: card macro
-- **Archive card:** a live GSAP animation, not an image —
-  `assets/projects/fmaeda-keiei/logo-anim.html`, loaded in an iframe. It references
-  `js/gsap.min.js` via `../../../` — that relative depth must be preserved if the file moves.
+- **Cover:** `assets/projects/fmaeda-keiei/cover.jpg` (browser mockup of the live site).
+  The GSAP logo animation it used to be is retired but preserved in
+  `content/projects/fmaeda-keiei/source/` (`logo-anim.html` + `gsap.min.js`).
 - **Live site:** https://www.fmaeda.co
 
 #### Website Copy (fmaeda.co)
