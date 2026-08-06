@@ -286,17 +286,7 @@ body.modal-dragging #cur {
 }
 
 /* ── Curriculum fill — Figma 34:125 ─────────────────── */
-.cv-intro-row {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: var(--gutter);
-}
 .cv-intro { max-width: 60ch; }
-.cv-contact {
-  text-align: right;
-  white-space: nowrap;
-}
 .cv-section p { margin: 0; }
 .cv-section + .cv-section { margin-top: 48px; }
 
@@ -356,7 +346,6 @@ body.modal-dragging #cur {
   .mp-desc p,
   .mp-tags,
   .cv-intro,
-  .cv-contact,
   .cv-section p { font-size: 16px; line-height: 1.5; }
   .modal-inner .mp-title { margin-bottom: 20px; }
   .modal-inner .mp-tags  { margin-bottom: 20px; }
@@ -372,8 +361,6 @@ body.modal-dragging #cur {
 
   .mp-gallery { grid-template-columns: 1fr; }
 
-  .cv-intro-row { flex-direction: column; gap: 36px; }
-  .cv-contact { text-align: left; }
 }
 
 /* ── ≤520px — tighter page margins (gutters unchanged) ── */
