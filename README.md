@@ -1,25 +1,27 @@
 # mane-portfolio
 
-Static one-page graphic design portfolio — magazine/poster layout. No
-framework, no build step, no server — `index.html` is the whole site: header
-bar, one highlighted project, a cover grid of the rest, footer bar. Every
-project opens as a draggable modal on that page.
+Static one-page graphic design portfolio. No framework, no build step, no
+server — `index.html` is the whole site: header bar, a two-column grid of
+equally sized project covers, footer bar. Every project opens as a draggable
+modal on that page.
 
 ## Structure
 
 ```
-index.html          ← the entire site: header, highlight, cover grid, footer, all modals
+index.html          ← the entire site: header, cover grid, footer, all modals
 css/style.css       ← design system — all styles live here
-js/main.js          ← modal system, cursor, f. maeda cover animation
-js/gsap.min.js      ← used only by the f. maeda logo animation
+js/main.js          ← modal system, cursor, hover-play cover, footer count
 
 assets/             ← PUBLISHED — web-ready, committed, deployed
 ├── site/
 │   ├── favicon/favicon-dark.png, favicon-white.png
 │   └── portrait.png
 └── projects/<slug>/
-    ├── cover.jpg       ← homepage cover / modal hero
-    └── gallery/01.jpg… ← modal gallery, in display order
+    ├── cover.jpg       ← homepage cover (443:346)
+    │                     z-hive also has cover.mp4 — a hover-played animation,
+    │                     with cover.jpg as its final-frame poster
+    └── gallery/01…     ← modal gallery, SQUARE, in display order
+                          .jpg, .mp4 and animated .svg all supported
 
 content/            ← AUTHORING — source media and copy, gitignored, local only
 └── projects/<slug>/
@@ -35,15 +37,17 @@ under predictable names. `content/` holds everything else. See
 
 ## Running locally
 
-No server needed — open `index.html` in a browser.
+Use a static server that sends **no-cache** headers and supports **HTTP Range**.
+Plain `python -m http.server` does neither, and both failures are silent:
+stale CSS hides your changes, and no Range means `<video>` cannot seek, which
+breaks the z-hive cover's rest-on-last-frame. Netlify does both correctly, so
+these are local-only traps.
 
-If you want proper paths (recommended, matches production):
+A suitable dev server lives in `tools/devserver.py`:
 
 ```bash
-python -m http.server 8000
+python tools/devserver.py     # → http://localhost:8000/
 ```
-
-→ http://localhost:8000/
 
 ## Adding or editing a project
 
@@ -51,10 +55,13 @@ Edit `content/projects/<slug>/project.md`, drop media in `inbox/`, and ask
 Claude to publish it. Published images are resized to 2000px and compressed;
 originals stay in `source/`.
 
+**Gallery images must be square** — the modal grid uses 1:1 slots so the rows
+line up. Supply squares and nothing gets cropped.
+
 ## Deployment
 
 Static hosting on Netlify from `main`. Everything in the repo root is the
-site — `content/` and `MOCKUPS/` are gitignored and never deployed.
+site — `content/`, `temporary/` and `MOCKUPS/` are gitignored and never deployed.
 
 ## Conventions
 

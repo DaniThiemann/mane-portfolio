@@ -150,7 +150,7 @@ Every clickable text element (nav buttons, contact button, modal close `( x )`, 
 - **No wiggle animation** — the `.text-hover` / `chJitter` wiggle effect has been retired. Do not add `.text-hover` class to any element
 - **Active/selected states** (e.g. active filter) use `color: var(--ink)` only — no background fill — to distinguish selection from hover
 
-Apply this pattern to every new interactive text element. Reference `.sh-item`, `.sf-link`, `.mag-hero-name`, `.sf-contact a`, `.modal-close`, `.modal-inner p a` in `css/style.css` as canonical examples.
+Apply this pattern to every new interactive text element. Reference `.sh-item`, `.sf-link`, `.sf-contact a`, `.modal-close`, `.modal-inner p a` in `css/style.css` as canonical examples.
 
 ## Homepage — Magazine Layout (Figma Page 2, node 34:83)
 
@@ -162,7 +162,9 @@ Apply this pattern to every new interactive text element. Reference `.sh-item`, 
 3. **Footer bar** (white, `.site-footer`): left = `( NN ) all projects` (anchors to `#projects`,
    count set by JS from `.mag-cover`); right = `( ) available for work` + email / instagram / ©
 
-The archive and gallery modals are **retired** — the homepage grid is the archive. Covers open project modals via `data-modal`. The f. maeda cover is the live GSAP iframe (`#fm-anim`), scaled to cover its cell by `initFmCover()` in `js/main.js`.
+The archive and gallery modals are **retired** — the homepage grid is the archive. Covers open project modals via `data-modal`.
+
+A cover may be a **video** instead of a still: give the `<video>` class `cover-anim` plus a `poster` of its final frame, and `initCoverAnim()` in `js/main.js` parks it on that last frame and replays it on hover. z-hive uses this for the site's loading animation.
 
 ## Grid Law — fixed gutters
 
@@ -180,9 +182,9 @@ Modal chassis is unchanged (draggable `.modal-panel`, `( x )`, `( ... )`, `min(8
     <div class="mp-desc"><p>&gt; …</p></div>
   </div>
   <div class="modal-inner">                 <!-- Box 2: gallery -->
-    <div class="mp-gallery">                <!-- CSS multicol masonry -->
-      <div class="mp-item"><img …></div>    <!-- cover first, then gallery/01… -->
-      <div class="mp-item"><img …></div>
+    <div class="mp-gallery">                <!-- 2-col grid of 1:1 slots -->
+      <div class="mp-item"><img …></div>    <!-- gallery/01, 02, 03 … -->
+      <div class="mp-item"><video …></video></div>
     </div>
   </div>
 </div>
@@ -191,9 +193,9 @@ Modal chassis is unchanged (draggable `.modal-panel`, `( x )`, `( ... )`, `min(8
 Curriculum modal uses the same chassis with `.cv-intro-row` / `.cv-section` fill (Figma 34:125 — no star ratings).
 
 ## Gallery Rules
-1. **Modal galleries never crop.** `.mp-gallery` is a 2-column CSS multicol masonry: 20px between columns, 20px between stacked images, every image at its own natural aspect (`width: 100%; height: auto`). The two columns may end at different heights — that's fine. 1 column ≤600px.
+1. **Modal galleries are a square grid.** `.mp-gallery` is a 2-column CSS grid, 20px gaps, every `.mp-item` locked to `aspect-ratio: 1/1`. **Supply square sources** — then `object-fit: cover` never actually crops and rows align exactly. An odd count leaves the final slot empty, by design. 1 column ≤760px. Slots accept `.jpg`, `.mp4` and animated `.svg` alike.
 2. **Homepage covers DO crop** — fixed-ratio grid slots (`object-fit: cover`), that's the magazine look. If a cover crops badly, derive a better crop from `content/<slug>/source/`.
-3. Each project's modal gallery lists `cover.jpg` first (where it exists), then `gallery/01…` in order.
+3. A project's cover does NOT repeat inside its own gallery — the gallery starts at `gallery/01`.
 
 ## AI Image Generation Rules
 When generating images or video for any project:

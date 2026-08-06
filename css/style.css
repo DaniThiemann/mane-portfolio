@@ -173,21 +173,6 @@ body.modal-dragging #cur {
   line-height: 1.15;
 }
 
-/* F. Maeda animation cover — dark bg, unfiltered iframe scaled by JS */
-.card-thumb-anim {
-  background: #0A0A0A;
-  filter: none;
-}
-#fm-anim {
-  position: absolute;
-  top: 0; left: 0;
-  width: 1920px; height: 1080px;
-  transform-origin: top left;
-  border: none;
-  pointer-events: none;
-  display: block;
-}
-
 /* ─────────────────────────────────────────────────────
    FOOTER — Figma 34:147
    ───────────────────────────────────────────────────── */
