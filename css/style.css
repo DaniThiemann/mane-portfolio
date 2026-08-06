@@ -142,6 +142,9 @@ body.modal-dragging #cur {
   object-fit: cover;
   display: block;
 }
+/* Cover that is a looping build-on animation: it rests on its final frame and
+   replays on hover. JS drives playback (see initCoverAnim in js/main.js). */
+.cover-anim { background: #0A1420; }
 .project-card:hover .card-thumb {
   transform: scale(1.04);
   filter: grayscale(0%);

@@ -11,6 +11,38 @@ if (cur) {
   });
 }
 
+/* ─────────────────────────────────────────────────────
+   BUILD-ON COVER ANIMATION
+   A cover that is a video of the mark assembling: it sits
+   frozen on its final frame (the finished symbol) and
+   replays from the start while the card is hovered.
+   ───────────────────────────────────────────────────── */
+(function initCoverAnim() {
+  document.querySelectorAll('.cover-anim').forEach(v => {
+    const card = v.closest('.project-card');
+    if (!card) return;
+
+    // Park on the last frame once metadata is known. Seeking to exactly
+    // `duration` doesn't stick in Chrome, so land just short of it.
+    const rest = () => {
+      v.pause();
+      if (v.duration && isFinite(v.duration)) {
+        v.currentTime = Math.max(0, v.duration - 0.05);
+      }
+    };
+    if (v.readyState >= 1) rest();
+    else v.addEventListener('loadedmetadata', rest, { once: true });
+    v.addEventListener('ended', rest);
+
+    card.addEventListener('mouseenter', () => {
+      v.currentTime = 0;
+      const p = v.play();
+      if (p) p.catch(() => {});   // autoplay policy — stays on the poster frame
+    });
+    card.addEventListener('mouseleave', rest);
+  });
+})();
+
 /* ── Footer project count — one per cover on the grid ── */
 (function initProjectCount() {
   const el = document.getElementById('sf-count');

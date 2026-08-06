@@ -1,0 +1,201 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -120 560 560" width="560" height="560" role="img"
+     aria-label="Z-Hive isometric blueprint: light pulses travel from a central hub to light, TV, camera, blind and climate.">
+  <!-- Rebuilt from the site's HeroBlueprint component. The draw-on uses pathLength
+       normalisation; the pulses are the original SMIL, so this runs with no JS. -->
+  <defs>
+    <filter id="bp-glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="3.2"/>
+    </filter>
+    <radialGradient id="bp-ambient" cx="50%" cy="52%" r="55%">
+      <stop offset="0%" stop-color="rgba(142,213,255,0.07)"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+  </defs>
+
+  <rect x="0" y="-120" width="560" height="560" fill="#0A1420"/>
+
+  <ellipse cx="280" cy="195" rx="240" ry="150" fill="url(#bp-ambient)" opacity="0">
+    <animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.2s" fill="freeze"/>
+  </ellipse>
+
+  <!-- slab -->
+  <path d="M280,80 L470.5,190 L280,300 L89.5,190 Z" fill="none" stroke="rgba(142,213,255,0.38)"
+        stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"
+        pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" opacity="0">
+    <animate attributeName="stroke-dashoffset" from="1" to="0" dur="1.1s" begin="0.3s" fill="freeze"/>
+    <animate attributeName="opacity" from="0" to="1" dur="0.01s" begin="0.3s" fill="freeze"/>
+  </path>
+  <path d="M280,84.4 L462.9,190 L280,295.6 L97.1,190 Z" fill="none" stroke="rgba(142,213,255,0.16)"
+        stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"
+        pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" opacity="0">
+    <animate attributeName="stroke-dashoffset" from="1" to="0" dur="1s" begin="0.5s" fill="freeze"/>
+    <animate attributeName="opacity" from="0" to="1" dur="0.01s" begin="0.5s" fill="freeze"/>
+  </path>
+
+  <!-- interior walls -->
+  <g fill="none" stroke="rgba(142,213,255,0.30)" stroke-width="1" stroke-linecap="round">
+    <path d="M210.7,120 L262.7,150" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" opacity="0">
+      <animate attributeName="stroke-dashoffset" from="1" to="0" dur="0.5s" begin="0.80s" fill="freeze"/>
+      <animate attributeName="opacity" from="0" to="1" dur="0.01s" begin="0.80s" fill="freeze"/></path>
+    <path d="M284.3,162.5 L332,190" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" opacity="0">
+      <animate attributeName="stroke-dashoffset" from="1" to="0" dur="0.5s" begin="0.88s" fill="freeze"/>
+      <animate attributeName="opacity" from="0" to="1" dur="0.01s" begin="0.88s" fill="freeze"/></path>
+    <path d="M332,190 L288.7,215" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" opacity="0">
+      <animate attributeName="stroke-dashoffset" from="1" to="0" dur="0.5s" begin="0.96s" fill="freeze"/>
+      <animate attributeName="opacity" from="0" to="1" dur="0.01s" begin="0.96s" fill="freeze"/></path>
+    <path d="M267,227.5 L210.7,260" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" opacity="0">
+      <animate attributeName="stroke-dashoffset" from="1" to="0" dur="0.5s" begin="1.04s" fill="freeze"/>
+      <animate attributeName="opacity" from="0" to="1" dur="0.01s" begin="1.04s" fill="freeze"/></path>
+  </g>
+
+  <!-- vertical extrusion, unfinished sketch strokes -->
+  <g fill="none" stroke="rgba(142,213,255,0.14)" stroke-width="0.8" stroke-linecap="round">
+    <path d="M89.5,190 L89.5,136" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" opacity="0">
+      <animate attributeName="stroke-dashoffset" from="1" to="0" dur="0.5s" begin="1.10s" fill="freeze"/>
+      <animate attributeName="opacity" from="0" to="1" dur="0.01s" begin="1.10s" fill="freeze"/></path>
+    <path d="M280,80 L280,26" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" opacity="0">
+      <animate attributeName="stroke-dashoffset" from="1" to="0" dur="0.5s" begin="1.15s" fill="freeze"/>
+      <animate attributeName="opacity" from="0" to="1" dur="0.01s" begin="1.15s" fill="freeze"/></path>
+    <path d="M470.5,190 L470.5,136" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" opacity="0">
+      <animate attributeName="stroke-dashoffset" from="1" to="0" dur="0.5s" begin="1.20s" fill="freeze"/>
+      <animate attributeName="opacity" from="0" to="1" dur="0.01s" begin="1.20s" fill="freeze"/></path>
+    <path d="M89.5,136 L165.7,92" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" opacity="0">
+      <animate attributeName="stroke-dashoffset" from="1" to="0" dur="0.5s" begin="1.25s" fill="freeze"/>
+      <animate attributeName="opacity" from="0" to="1" dur="0.01s" begin="1.25s" fill="freeze"/></path>
+    <path d="M470.5,136 L394.3,92" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" opacity="0">
+      <animate attributeName="stroke-dashoffset" from="1" to="0" dur="0.5s" begin="1.30s" fill="freeze"/>
+      <animate attributeName="opacity" from="0" to="1" dur="0.01s" begin="1.30s" fill="freeze"/></path>
+    <path d="M280,26 L337.2,59" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" opacity="0">
+      <animate attributeName="stroke-dashoffset" from="1" to="0" dur="0.5s" begin="1.35s" fill="freeze"/>
+      <animate attributeName="opacity" from="0" to="1" dur="0.01s" begin="1.35s" fill="freeze"/></path>
+    <path d="M280,26 L222.8,59" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" opacity="0">
+      <animate attributeName="stroke-dashoffset" from="1" to="0" dur="0.5s" begin="1.40s" fill="freeze"/>
+      <animate attributeName="opacity" from="0" to="1" dur="0.01s" begin="1.40s" fill="freeze"/></path>
+  </g>
+
+  <!-- traces: hub to each device -->
+  <g fill="none" stroke="rgba(142,213,255,0.25)" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round">
+    <path id="bp-trace-lamp" d="M280,190 L228,160 L184.7,185" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" opacity="0">
+      <animate attributeName="stroke-dashoffset" from="1" to="0" dur="0.7s" begin="1.5s" fill="freeze"/>
+      <animate attributeName="opacity" from="0" to="1" dur="0.01s" begin="1.5s" fill="freeze"/></path>
+    <path id="bp-trace-tv" d="M280,190 L323.3,165 L375.3,195" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" opacity="0">
+      <animate attributeName="stroke-dashoffset" from="1" to="0" dur="0.7s" begin="1.6s" fill="freeze"/>
+      <animate attributeName="opacity" from="0" to="1" dur="0.01s" begin="1.6s" fill="freeze"/></path>
+    <path id="bp-trace-cam" d="M280,190 L280,110" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" opacity="0">
+      <animate attributeName="stroke-dashoffset" from="1" to="0" dur="0.7s" begin="1.7s" fill="freeze"/>
+      <animate attributeName="opacity" from="0" to="1" dur="0.01s" begin="1.7s" fill="freeze"/></path>
+    <path id="bp-trace-blind" d="M280,190 L323.3,215 L228,270" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" opacity="0">
+      <animate attributeName="stroke-dashoffset" from="1" to="0" dur="0.7s" begin="1.8s" fill="freeze"/>
+      <animate attributeName="opacity" from="0" to="1" dur="0.01s" begin="1.8s" fill="freeze"/></path>
+    <path id="bp-trace-thermo" d="M280,190 L236.7,215 L332,270" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" opacity="0">
+      <animate attributeName="stroke-dashoffset" from="1" to="0" dur="0.7s" begin="1.9s" fill="freeze"/>
+      <animate attributeName="opacity" from="0" to="1" dur="0.01s" begin="1.9s" fill="freeze"/></path>
+  </g>
+
+  <!-- device glows: flash as each pulse arrives -->
+  <g fill="rgba(142,213,255,1)" filter="url(#bp-glow)">
+    <circle cx="184.7" cy="185" r="8" opacity="0">
+      <animate attributeName="opacity" from="0" to="0.12" dur="0.6s" begin="2.00s" fill="freeze"/>
+      <animate attributeName="opacity" values="0.12;0.55;0.2;0.12;0.12" keyTimes="0;0.05;0.18;0.3;1" dur="8s" begin="4.70s" repeatCount="indefinite"/></circle>
+    <circle cx="375.3" cy="188" r="8" opacity="0">
+      <animate attributeName="opacity" from="0" to="0.12" dur="0.6s" begin="2.08s" fill="freeze"/>
+      <animate attributeName="opacity" values="0.12;0.55;0.2;0.12;0.12" keyTimes="0;0.05;0.18;0.3;1" dur="8s" begin="6.00s" repeatCount="indefinite"/></circle>
+    <circle cx="280" cy="110" r="8" opacity="0">
+      <animate attributeName="opacity" from="0" to="0.12" dur="0.6s" begin="2.16s" fill="freeze"/>
+      <animate attributeName="opacity" values="0.12;0.55;0.2;0.12;0.12" keyTimes="0;0.05;0.18;0.3;1" dur="8s" begin="7.30s" repeatCount="indefinite"/></circle>
+    <circle cx="228" cy="270.5" r="8" opacity="0">
+      <animate attributeName="opacity" from="0" to="0.12" dur="0.6s" begin="2.24s" fill="freeze"/>
+      <animate attributeName="opacity" values="0.12;0.55;0.2;0.12;0.12" keyTimes="0;0.05;0.18;0.3;1" dur="8s" begin="8.60s" repeatCount="indefinite"/></circle>
+    <circle cx="332" cy="270" r="8" opacity="0">
+      <animate attributeName="opacity" from="0" to="0.12" dur="0.6s" begin="2.32s" fill="freeze"/>
+      <animate attributeName="opacity" values="0.12;0.55;0.2;0.12;0.12" keyTimes="0;0.05;0.18;0.3;1" dur="8s" begin="9.90s" repeatCount="indefinite"/></circle>
+  </g>
+
+  <!-- devices -->
+  <circle cx="184.7" cy="185" r="3.5" fill="none" stroke="rgba(142,213,255,0.8)" stroke-width="1.1" opacity="0">
+    <animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="2.00s" fill="freeze"/></circle>
+
+  <path d="M365.3,189.3 L385.3,200.8 L385.3,186.8 L365.3,175.3 Z" fill="rgba(96,165,250,1)" fill-opacity="0.06"
+        stroke="rgba(142,213,255,0.8)" stroke-width="1.1" stroke-linejoin="round" opacity="0">
+    <animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="2.08s" fill="freeze"/>
+    <animate attributeName="fill-opacity" values="0.06;0.35;0.12;0.06;0.06" keyTimes="0;0.05;0.18;0.3;1" dur="8s" begin="6.00s" repeatCount="indefinite"/></path>
+
+  <g opacity="0">
+    <animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="2.16s" fill="freeze"/>
+    <circle cx="280" cy="110" r="3" fill="none" stroke="rgba(142,213,255,0.8)" stroke-width="1.1"/>
+    <path d="M277.5,108.5 L266,101 M277.5,111.5 L266,118" stroke="rgba(142,213,255,0.35)" stroke-width="0.8" stroke-linecap="round" fill="none"/>
+  </g>
+
+  <g opacity="0" stroke="rgba(142,213,255,0.8)" stroke-width="1.1" stroke-linecap="round" fill="none">
+    <animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="2.24s" fill="freeze"/>
+    <path d="M222.8,262 L233.2,268"/>
+    <path d="M222.8,267.5 L233.2,273.5"/>
+    <path d="M222.8,273 L233.2,279"/>
+  </g>
+
+  <g opacity="0">
+    <animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="2.32s" fill="freeze"/>
+    <circle cx="332" cy="270" r="5.5" fill="none" stroke="rgba(142,213,255,0.8)" stroke-width="1.1"/>
+    <path d="M332,266 L332,270" stroke="rgba(142,213,255,0.8)" stroke-width="1.1" stroke-linecap="round"/>
+  </g>
+
+  <!-- central hub -->
+  <g opacity="0">
+    <animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="1.9s" fill="freeze"/>
+    <circle cx="280" cy="190" r="14" fill="rgba(142,213,255,1)" opacity="0.18" filter="url(#bp-glow)">
+      <animate attributeName="opacity" values="0.18;0.4;0.18" dur="3.5s" repeatCount="indefinite"/>
+    </circle>
+    <polygon points="280,179 289.5,184.5 289.5,195.5 280,201 270.5,195.5 270.5,184.5"
+             fill="rgba(12,19,36,0.85)" stroke="rgba(142,213,255,0.9)" stroke-width="1.2" stroke-linejoin="round"/>
+    <circle cx="280" cy="190" r="2.2" fill="rgba(142,213,255,0.9)"/>
+  </g>
+
+  <!-- light pulses travelling along the traces -->
+  <g opacity="0">
+    <circle r="6" fill="rgba(142,213,255,0.25)" filter="url(#bp-glow)"/>
+    <circle r="2.4" fill="rgba(142,213,255,0.95)"/>
+    <animateMotion dur="8s" begin="3.2s" repeatCount="indefinite" calcMode="linear" keyPoints="0;1;1" keyTimes="0;0.2;1">
+      <mpath href="#bp-trace-lamp"/></animateMotion>
+    <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.03;0.18;0.23;1" dur="8s" begin="3.2s" repeatCount="indefinite"/>
+  </g>
+  <g opacity="0">
+    <circle r="6" fill="rgba(142,213,255,0.25)" filter="url(#bp-glow)"/>
+    <circle r="2.4" fill="rgba(142,213,255,0.95)"/>
+    <animateMotion dur="8s" begin="4.5s" repeatCount="indefinite" calcMode="linear" keyPoints="0;1;1" keyTimes="0;0.2;1">
+      <mpath href="#bp-trace-tv"/></animateMotion>
+    <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.03;0.18;0.23;1" dur="8s" begin="4.5s" repeatCount="indefinite"/>
+  </g>
+  <g opacity="0">
+    <circle r="6" fill="rgba(142,213,255,0.25)" filter="url(#bp-glow)"/>
+    <circle r="2.4" fill="rgba(142,213,255,0.95)"/>
+    <animateMotion dur="8s" begin="5.8s" repeatCount="indefinite" calcMode="linear" keyPoints="0;1;1" keyTimes="0;0.2;1">
+      <mpath href="#bp-trace-cam"/></animateMotion>
+    <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.03;0.18;0.23;1" dur="8s" begin="5.8s" repeatCount="indefinite"/>
+  </g>
+  <g opacity="0">
+    <circle r="6" fill="rgba(142,213,255,0.25)" filter="url(#bp-glow)"/>
+    <circle r="2.4" fill="rgba(142,213,255,0.95)"/>
+    <animateMotion dur="8s" begin="7.1s" repeatCount="indefinite" calcMode="linear" keyPoints="0;1;1" keyTimes="0;0.2;1">
+      <mpath href="#bp-trace-blind"/></animateMotion>
+    <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.03;0.18;0.23;1" dur="8s" begin="7.1s" repeatCount="indefinite"/>
+  </g>
+  <g opacity="0">
+    <circle r="6" fill="rgba(142,213,255,0.25)" filter="url(#bp-glow)"/>
+    <circle r="2.4" fill="rgba(142,213,255,0.95)"/>
+    <animateMotion dur="8s" begin="8.4s" repeatCount="indefinite" calcMode="linear" keyPoints="0;1;1" keyTimes="0;0.2;1">
+      <mpath href="#bp-trace-thermo"/></animateMotion>
+    <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.03;0.18;0.23;1" dur="8s" begin="8.4s" repeatCount="indefinite"/>
+  </g>
+
+  <!-- plan annotations -->
+  <g fill="rgba(142,213,255,0.5)" font-size="7.5" letter-spacing="1.5"
+     font-family="Manrope, Inter, Helvetica, Arial, sans-serif" opacity="0">
+    <animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="2.4s" fill="freeze"/>
+    <text x="296" y="193">HUB</text>
+    <text x="184.7" y="201" text-anchor="middle">LUZ</text>
+    <text x="291" y="108">CAM</text>
+    <text x="375.3" y="170" text-anchor="middle">TV</text>
+    <text x="228" y="293" text-anchor="middle">PERSIANA</text>
+    <text x="332" y="288" text-anchor="middle">CLIMA</text>
+  </g>
+</svg>

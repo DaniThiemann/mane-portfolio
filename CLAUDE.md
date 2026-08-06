@@ -6,14 +6,17 @@ Static one-page HTML/CSS/JS graphic design portfolio. No build step, no server.
 - **Design system:** `css/style.css` — single source of truth for all styles
 - **Aesthetic:** Printed form / risograph / zine — ink on paper, Courier Prime mono, Roboto display
 - **Colors:** `--paper: #F4F1EC`, `--ink: #0A0A0A`, muted tones, dashed dividers
-- **Local preview:** `python -m http.server 8000`
+- **Local preview:** use a dev server that sends **no-cache AND supports HTTP Range**.
+  Plain `python -m http.server` fails both: stale CSS/HTML hides your changes, and no Range
+  means `<video>` can't seek (`seekable.end === 0`), which silently breaks hover-scrub covers.
+  Netlify does both, so those bugs are local-only — but they will waste your time.
 
 ## Asset Structure — two zones
 
 **`assets/` is published.** Only web-ready files, committed and deployed. Fixed names per project:
 
 ```
-assets/projects/<slug>/cover.jpg       homepage cover / modal hero
+assets/projects/<slug>/cover.jpg       homepage cover (or cover.mp4 + cover.jpg poster)
 assets/projects/<slug>/gallery/01.jpg  modal gallery, numbered in display order
 assets/site/favicon/, assets/site/portrait.png
 ```
