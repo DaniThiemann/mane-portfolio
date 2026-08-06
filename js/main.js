@@ -18,6 +18,9 @@ if (cur) {
    replays from the start while the card is hovered.
    ───────────────────────────────────────────────────── */
 (function initCoverAnim() {
+  // No hover means the animation is unreachable, and seeking a video the
+  // browser never preloaded paints black — the CSS shows a still instead.
+  if (!window.matchMedia('(hover: hover)').matches) return;
   document.querySelectorAll('.cover-anim').forEach(v => {
     const card = v.closest('.project-card');
     if (!card) return;
@@ -130,7 +133,10 @@ if (cur) {
   // ESC → close all
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAllModals(); });
 
-  // Drag from chrome bar; bump z on grab
+  // Drag from chrome bar; bump z on grab.
+  // Desktop only: on touch the browser synthesises mousedown, and the
+  // preventDefault() below cancels the panel's own scroll gesture.
+  const canHover = window.matchMedia('(hover: hover)').matches;
   document.querySelectorAll('.modal-panel').forEach(panel => {
     let dragging = false, sx = 0, sy = 0, tx = 0, ty = 0;
 
@@ -143,6 +149,7 @@ if (cur) {
     };
 
     panel.addEventListener('mousedown', e => {
+      if (!canHover) return;
       if (e.target.closest('.modal-inner') || e.target.closest('.modal-close')) return;
       bumpZ(panel);
       dragging = true;

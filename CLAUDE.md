@@ -166,6 +166,20 @@ The archive and gallery modals are **retired** — the homepage grid is the arch
 
 A cover may be a **video** instead of a still: give the `<video>` class `cover-anim` plus a `poster` of its final frame, and `initCoverAnim()` in `js/main.js` parks it on that last frame and replays it on hover. z-hive uses this for the site's loading animation.
 
+**It must ship with an `<img class="cover-still">` sibling.** Without hover the animation is
+unreachable, and mobile browsers routinely ignore `preload`, so seeking a video they never
+fetched paints a black rectangle. `@media (hover: none)` swaps the video for the still.
+Both rules need a `.card-thumb` prefix — plain `.cover-still` loses to `.card-thumb img`.
+
+## Touch rules — learned the hard way
+
+- **Never `preventDefault()` on `mousedown` in a scrollable panel.** Touch browsers synthesise
+  mousedown, and cancelling it kills the scroll gesture. Panel dragging is gated behind
+  `matchMedia('(hover: hover)')` for exactly this reason.
+- **Use `dvh` alongside `vh` for modal heights.** On mobile `vh` means the *largest* viewport,
+  so a `88vh` panel runs under the browser chrome and its scroll area ends up off-screen.
+- `.modal-proj-scroll` carries `touch-action: pan-y` and `overscroll-behavior: contain`.
+
 ## Grid Law — fixed gutters
 
 **Gutters are ALWAYS `--gutter` (20px), at every breakpoint, in the homepage grid AND modal galleries.** When a row doesn't fit, columns drop (3→1, 2→1) or slots rescale — spacing never compresses. Page margins are `--margin` (36px, 20px ≤520px). Breakpoints: hero stacks ≤1100px; grids drop to 1 column ≤760px.

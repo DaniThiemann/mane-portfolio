@@ -145,7 +145,15 @@ body.modal-dragging #cur {
 }
 /* Cover that is a looping build-on animation: it rests on its final frame and
    replays on hover. JS drives playback (see initCoverAnim in js/main.js). */
-.cover-anim { background: #0A1420; }
+.card-thumb .cover-anim  { background: #0A1420; }
+.card-thumb .cover-still { display: none; }
+/* Without hover the animation is unreachable, and mobile browsers commonly skip
+   preload — the video would render as a black rectangle. Show the still there.
+   Both selectors need .card-thumb: `.card-thumb img` would otherwise outrank them. */
+@media (hover: none) {
+  .card-thumb .cover-anim  { display: none; }
+  .card-thumb .cover-still { display: block; }
+}
 .project-card:hover .card-thumb {
   transform: scale(1.04);
   filter: grayscale(0%);
@@ -253,13 +261,18 @@ body.modal-dragging #cur {
 .modal-project {
   width: min(820px, 92vw);
   max-height: 88vh;
+  max-height: 88dvh;   /* mobile: vh is the largest viewport, dvh the visible one */
 }
 .modal-proj-scroll {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   max-height: calc(88vh - 62px); /* 46px top chrome + 16px bottom padding */
+  max-height: calc(88dvh - 62px);
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;           /* keep the vertical scroll gesture on touch */
+  overscroll-behavior: contain;  /* don't hand the scroll to the page behind */
 }
 
 .modal-inner .mp-title { margin-bottom: 36px; }
