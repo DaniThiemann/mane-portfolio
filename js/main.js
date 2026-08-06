@@ -173,5 +173,61 @@ if (cur) {
       panel.style.transition = '';
       document.body.classList.remove('modal-dragging');
     });
+
+    /* ── Touch: hold to pick the panel up, then drag ──────────────
+       A press that stays put is a grab; a press that moves is a scroll.
+       Nothing is preventDefault()ed until the hold completes, so normal
+       scrolling is untouched. */
+    const HOLD_MS = 350;   // how long to hold before the panel is grabbed
+    const SLOP    = 10;    // px of movement that still counts as "held still"
+
+    let holdTimer = null, held = false, sxT = 0, syT = 0, bx = 0, by = 0;
+    const scroller = panel.querySelector('.modal-proj-scroll');
+
+    function releaseTouch() {
+      clearTimeout(holdTimer); holdTimer = null;
+      if (!held) return;
+      held = false;
+      panel.classList.remove('is-grabbed');
+      document.body.classList.remove('modal-dragging');
+      panel.style.transition = '';
+      if (scroller) scroller.style.touchAction = '';
+      panel.style.touchAction = '';
+    }
+
+    panel.addEventListener('touchstart', e => {
+      if (e.touches.length !== 1) return;
+      if (e.target.closest('a, button')) return;   // let taps and closes work
+      const t = e.touches[0];
+      sxT = t.clientX; syT = t.clientY; bx = tx; by = ty;
+      holdTimer = setTimeout(() => {
+        held = true;
+        bumpZ(panel);
+        panel.classList.add('is-grabbed');
+        document.body.classList.add('modal-dragging');
+        panel.style.transition = 'none';
+        // The finger hasn't moved, so no scroll has been claimed yet — dropping
+        // touch-action now keeps the following touchmoves cancelable.
+        if (scroller) scroller.style.touchAction = 'none';
+        panel.style.touchAction = 'none';
+      }, HOLD_MS);
+    }, { passive: true });
+
+    panel.addEventListener('touchmove', e => {
+      if (e.touches.length !== 1) return;
+      const t = e.touches[0];
+      const dx = t.clientX - sxT, dy = t.clientY - syT;
+      if (!held) {
+        // Moved before the hold matured → treat it as a scroll and stand down.
+        if (Math.hypot(dx, dy) > SLOP) { clearTimeout(holdTimer); holdTimer = null; }
+        return;                       // no preventDefault: the page still scrolls
+      }
+      tx = bx + dx; ty = by + dy;
+      panel.style.transform = `translate(${tx}px, ${ty}px)`;
+      if (e.cancelable) e.preventDefault();
+    }, { passive: false });
+
+    panel.addEventListener('touchend', releaseTouch);
+    panel.addEventListener('touchcancel', releaseTouch);
   });
 })();

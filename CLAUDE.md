@@ -174,8 +174,14 @@ Both rules need a `.card-thumb` prefix — plain `.cover-still` loses to `.card-
 ## Touch rules — learned the hard way
 
 - **Never `preventDefault()` on `mousedown` in a scrollable panel.** Touch browsers synthesise
-  mousedown, and cancelling it kills the scroll gesture. Panel dragging is gated behind
+  mousedown, and cancelling it kills the scroll gesture. Mouse dragging is gated behind
   `matchMedia('(hover: hover)')` for exactly this reason.
+- **Touch dragging is a long press**, not a drag from the first pixel — a press that stays put
+  is a grab, a press that moves is a scroll. Nothing is `preventDefault()`ed until the 350ms
+  hold matures, so scrolling is never affected. `touch-action` is dropped to `none` *at the
+  moment the hold fires* — the finger hasn't moved yet, so no scroll has been claimed and the
+  following `touchmove`s stay cancelable. Restore it on `touchend`/`touchcancel`.
+- `-webkit-touch-callout: none` on the panel, or iOS opens its save-image sheet mid-drag.
 - **Use `dvh` alongside `vh` for modal heights.** On mobile `vh` means the *largest* viewport,
   so a `88vh` panel runs under the browser chrome and its scroll area ends up off-screen.
 - `.modal-proj-scroll` carries `touch-action: pan-y` and `overscroll-behavior: contain`.
