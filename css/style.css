@@ -27,7 +27,8 @@ body {
   font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 18px;
   font-weight: 700;
-  line-height: 16px;
+  line-height: 1.05;     /* was 16px (0.89). Inter 700 @18px paints 18.0px of ink, so 1.0 is
+                            the no-overlap floor; 1.05 clears it by ~0.9px and no more. */
   letter-spacing: 0.54px;
   cursor: none;
   overflow-x: hidden;
