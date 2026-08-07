@@ -46,6 +46,74 @@ if (cur) {
   });
 })();
 
+/* ─────────────────────────────────────────────────────
+   TOUCH — HOLD A COVER TO PLAY IT
+   Touch has no hover, so the reveal desktop gets on
+   mouseenter — colour, scale, the build-on animation —
+   is bound to a press-and-hold instead. A tap still opens
+   the project; a hold that matures previews it and
+   swallows the click that would otherwise follow.
+   ───────────────────────────────────────────────────── */
+(function initCoverPress() {
+  if (window.matchMedia('(hover: hover)').matches) return;
+
+  const HOLD_MS = 350;   // the hold the modal drag already uses
+  const SLOP    = 10;    // px of drift that still counts as holding still
+
+  document.querySelectorAll('.project-card').forEach(card => {
+    const vid = card.querySelector('.cover-anim');
+    let timer = null, held = false, sx = 0, sy = 0;
+
+    function engage() {
+      held = true;
+      card.classList.add('is-pressed');
+      if (!vid) return;
+      vid.currentTime = 0;
+      const p = vid.play();
+      if (p) p.catch(() => {});   // no data yet — the still just stays up
+    }
+
+    function release() {
+      clearTimeout(timer); timer = null;
+      if (!held) return;
+      held = false;
+      card.classList.remove('is-pressed');
+      // The still is the animation's final frame, so hiding the video lands on
+      // exactly the rest state desktop parks at.
+      if (vid) { vid.pause(); vid.classList.remove('is-live'); }
+    }
+
+    // Reveal the video only once it is actually painting. Mobile browsers skip
+    // preload freely, and an unbuffered video would flash black over the still.
+    if (vid) vid.addEventListener('playing', () => {
+      if (held) vid.classList.add('is-live');
+    });
+
+    card.addEventListener('touchstart', e => {
+      if (e.touches.length !== 1) return;
+      sx = e.touches[0].clientX;
+      sy = e.touches[0].clientY;
+      timer = setTimeout(engage, HOLD_MS);
+    }, { passive: true });
+
+    // Passive, and nothing is ever cancelled here: a press that moves is a
+    // scroll, so it stands the hold down and lets the page scroll untouched.
+    card.addEventListener('touchmove', e => {
+      const t = e.touches[0];
+      if (!t) return;
+      if (Math.hypot(t.clientX - sx, t.clientY - sy) > SLOP) release();
+    }, { passive: true });
+
+    card.addEventListener('touchend', e => {
+      // A matured hold was a preview, not a tap — don't let it open the modal,
+      // which would bury the animation the hold just asked for.
+      if (held && e.cancelable) e.preventDefault();
+      release();
+    });
+    card.addEventListener('touchcancel', release);
+  });
+})();
+
 /* ── Footer project count — one per cover on the grid ── */
 (function initProjectCount() {
   const el = document.getElementById('sf-count');
@@ -64,6 +132,8 @@ if (cur) {
   let zTop = 500;
 
   function bumpZ(panel) { panel.style.zIndex = ++zTop; }
+
+  const isNarrow = () => window.matchMedia('(max-width: 760px)').matches;
 
   function centerPanel(panel) {
     panel.style.left = Math.max(0, (window.innerWidth  - panel.offsetWidth)  / 2) + 'px';
@@ -93,7 +163,9 @@ if (cur) {
       } else {
         centerPanel(panel);
       }
-    } else if (panel.dataset.centered) {
+    } else if (panel.dataset.centered || isNarrow()) {
+      // Loose panels are hand-placed for the desktop layout (the contact panel
+      // sits at 140/350), which runs them off a phone screen. Center instead.
       centerPanel(panel);
     }
 

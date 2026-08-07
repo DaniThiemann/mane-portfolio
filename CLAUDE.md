@@ -166,9 +166,11 @@ The archive and gallery modals are **retired** — the homepage grid is the arch
 
 A cover may be a **video** instead of a still: give the `<video>` class `cover-anim` plus a `poster` of its final frame, and `initCoverAnim()` in `js/main.js` parks it on that last frame and replays it on hover. z-hive uses this for the site's loading animation.
 
-**It must ship with an `<img class="cover-still">` sibling.** Without hover the animation is
-unreachable, and mobile browsers routinely ignore `preload`, so seeking a video they never
-fetched paints a black rectangle. `@media (hover: none)` swaps the video for the still.
+**It must ship with an `<img class="cover-still">` sibling.** On touch the still is what the
+card rests on and `@media (hover: none)` layers the video over it at `opacity: 0`; `.is-live`
+(set by `initCoverPress` on the video's `playing` event) fades it in. The gate matters —
+mobile browsers routinely ignore `preload`, and a video they never fetched paints a black
+rectangle, so it must not become visible until it is genuinely painting frames.
 Both rules need a `.card-thumb` prefix — plain `.cover-still` loses to `.card-thumb img`.
 
 ## Touch rules — learned the hard way
@@ -181,6 +183,13 @@ Both rules need a `.card-thumb` prefix — plain `.cover-still` loses to `.card-
   hold matures, so scrolling is never affected. `touch-action` is dropped to `none` *at the
   moment the hold fires* — the finger hasn't moved yet, so no scroll has been claimed and the
   following `touchmove`s stay cancelable. Restore it on `touchend`/`touchcancel`.
+- **Hover-only reveals need a touch equivalent.** A cover's hover reveal (colour, scale,
+  build-on animation) is bound to a 350ms press-and-hold on touch — `initCoverPress` adds
+  `.is-pressed`, which repeats the hover declarations. Those rules are declared *after* the
+  `(hover: none)` and ≤760px blocks on purpose: those neutralise the hover transform at the
+  same specificity, and a phone keeps matching `:hover` after a tap, so an earlier rule loses.
+- A matured hold `preventDefault()`s `touchend` so the preview isn't immediately buried by the
+  modal the tap would have opened. A short tap is untouched and still opens the project.
 - `-webkit-touch-callout: none` on the panel, or iOS opens its save-image sheet mid-drag.
 - **Use `dvh` alongside `vh` for modal heights.** On mobile `vh` means the *largest* viewport,
   so a `88vh` panel runs under the browser chrome and its scroll area ends up off-screen.
