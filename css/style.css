@@ -302,6 +302,7 @@ body.modal-dragging #cur {
   gap: var(--gutter);
 }
 .mp-item {
+  position: relative;
   aspect-ratio: 1 / 1;
   overflow: hidden;
   background: var(--paper-2);
@@ -312,6 +313,72 @@ body.modal-dragging #cur {
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform 0.3s ease, opacity 0.2s ease;
+}
+
+/* The slot is clickable — say so. Same ink-on-paper fill the text hovers use,
+   parked in a corner so it never covers the middle of the image. */
+.mp-item::after {
+  content: "( + )";
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  padding: 3px 5px;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 14px;
+  line-height: 1;
+  opacity: 0;
+  transition: opacity 0.12s;
+  pointer-events: none;
+}
+@media (hover: hover) {
+  .mp-item:hover img,
+  .mp-item:hover video { transform: scale(1.03); opacity: 0.85; }
+  .mp-item:hover::after { opacity: 1; }
+}
+/* No hover to give the hint on touch — keep it permanently visible instead. */
+@media (hover: none) {
+  .mp-item::after { opacity: 1; }
+}
+
+/* ── Media lightbox — a gallery slot expanded ────────
+   Same chassis language as a modal panel (paper frame, 46px chrome bar,
+   ( x ) / ( ... ) corners), but centered over a dimmed page and sized to the
+   media instead of the grid — this is where an image escapes the 1:1 crop. */
+#lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: var(--margin);
+  background: rgba(26, 26, 26, 0.82);
+}
+#lightbox.is-open { display: flex; }
+
+.lb-frame {
+  position: relative;
+  background: var(--paper-2);
+  border-radius: 6px;
+  padding: 46px 16px 16px;
+  max-width: min(1100px, 92vw);
+}
+.lb-stage {
+  background: var(--chrome);
+  padding: 16px;
+  line-height: 0;
+}
+.lb-stage img,
+.lb-stage video {
+  display: block;
+  margin: 0 auto;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: calc(88vh - 94px);   /* 46px chrome + 16px padding + 2*16px stage */
+  max-height: calc(88dvh - 94px);
 }
 
 /* ── Curriculum fill — Figma 34:125 ─────────────────── */

@@ -123,6 +123,56 @@ if (cur) {
 })();
 
 /* ─────────────────────────────────────────────────────
+   GALLERY LIGHTBOX
+   A gallery slot crops its media to 1:1; clicking one
+   re-shows it whole, over a dimmed page. The project
+   modal stays open behind it.
+   ───────────────────────────────────────────────────── */
+(function initLightbox() {
+  const box = document.getElementById('lightbox');
+  if (!box) return;
+  const stage = box.querySelector('.lb-stage');
+
+  function open(media) {
+    const clone = media.cloneNode(true);
+    clone.removeAttribute('class');
+    if (clone.tagName === 'VIDEO') {
+      clone.controls = true;
+      clone.loop = clone.muted = clone.autoplay = clone.playsInline = true;
+    }
+    stage.replaceChildren(clone);
+    box.classList.add('is-open');
+    box.setAttribute('aria-hidden', 'false');
+  }
+
+  function close() {
+    box.classList.remove('is-open');
+    box.setAttribute('aria-hidden', 'true');
+    stage.replaceChildren();   // drops the clone, so any video stops with it
+  }
+
+  document.querySelectorAll('.mp-item').forEach(item => {
+    item.addEventListener('click', e => {
+      const media = item.querySelector('img, video');
+      if (!media) return;
+      e.stopPropagation();
+      open(media);
+    });
+  });
+
+  // Anywhere on the overlay dismisses it — and never reaches the
+  // click-outside handler, which would close the modal behind it too.
+  box.addEventListener('click', e => { e.stopPropagation(); close(); });
+
+  // Capture phase: ESC closes the lightbox first and leaves the modals alone.
+  document.addEventListener('keydown', e => {
+    if (e.key !== 'Escape' || !box.classList.contains('is-open')) return;
+    e.stopPropagation();
+    close();
+  }, true);
+})();
+
+/* ─────────────────────────────────────────────────────
    MODAL SYSTEM
    Multiple modals can be open simultaneously.
    Each open/drag bumps the panel to the top z-layer.
