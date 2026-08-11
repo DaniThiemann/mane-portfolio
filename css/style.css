@@ -263,13 +263,6 @@ body.modal-dragging #cur {
   left: 14px;
   line-height: 1;
 }
-.modal-bal {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  color: var(--ink);
-  line-height: 1;
-}
 
 .modal-inner {
   background: var(--chrome);

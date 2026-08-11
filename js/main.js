@@ -197,8 +197,10 @@ if (cur) {
 
     if (id === 'modal-photo' && trigger) {
       if (panel._resetDrag) panel._resetDrag();
+      // The trigger sits at the far right of the header, so the panel hangs
+      // leftwards from it — right edges aligned — instead of running off screen.
       const rect = trigger.getBoundingClientRect();
-      panel.style.left = Math.min(rect.right + 4, window.innerWidth - panel.offsetWidth - 8) + 'px';
+      panel.style.left = Math.max(8, rect.right - panel.offsetWidth) + 'px';
       panel.style.top  = (rect.top + 2) + 'px';
     } else if (panel.classList.contains('modal-project')) {
       let lastPanel = null, highestZ = 0;
