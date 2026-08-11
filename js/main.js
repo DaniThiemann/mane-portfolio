@@ -137,8 +137,10 @@ if (cur) {
     const clone = media.cloneNode(true);
     clone.removeAttribute('class');
     if (clone.tagName === 'VIDEO') {
+      // Muted autoplay so the expanded copy runs on its own; looping is left to
+      // the source, so a one-shot animation ends on its final frame.
       clone.controls = true;
-      clone.loop = clone.muted = clone.autoplay = clone.playsInline = true;
+      clone.muted = clone.autoplay = clone.playsInline = true;
     }
     stage.replaceChildren(clone);
     box.classList.add('is-open');
@@ -223,6 +225,14 @@ if (cur) {
 
     panel.classList.add('is-open');
     panel.setAttribute('aria-hidden', 'false');
+
+    // A gallery video is a piece the visitor should see run, not a still they
+    // have to poke — start it from the top every time the modal is opened.
+    panel.querySelectorAll('.mp-item video').forEach(v => {
+      v.currentTime = 0;
+      const p = v.play();
+      if (p) p.catch(() => {});   // autoplay refused — it rests on its poster
+    });
   }
 
   function closeModal(id) {
