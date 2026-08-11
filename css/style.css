@@ -143,6 +143,11 @@ body.modal-dragging #cur {
   object-fit: cover;
   display: block;
 }
+/* A cover whose left edge carries something that must survive the crop (a
+   byline, a mark): anchor it left instead of centering, so the slot only
+   eats into the right. */
+.card-thumb .cover-left { object-position: left center; }
+
 /* Cover that is a looping build-on animation: it rests on its final frame and
    replays on hover. JS drives playback (see initCoverAnim in js/main.js). */
 .card-thumb .cover-anim  { background: #0A1420; }
@@ -315,6 +320,14 @@ body.modal-dragging #cur {
   display: block;
   transition: transform 0.3s ease, opacity 0.2s ease;
 }
+
+/* Landscape/portrait sources that must not be cropped: the slot stays 1:1 and
+   the page sits whole inside it on white, filling it edge to edge on its long
+   side. The 20px grid gutter keeps neighbours apart, so the slot needs no
+   padding of its own. Opt in per project with .mp-fit on the gallery. */
+.mp-fit .mp-item { background: #FFFFFF; }
+.mp-fit .mp-item img,
+.mp-fit .mp-item video { object-fit: contain; }
 
 /* The slot is clickable — say so. Same ink-on-paper fill the text hovers use,
    parked in a corner so it never covers the middle of the image. */
