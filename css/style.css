@@ -506,3 +506,107 @@ body.modal-dragging #cur {
   .project-card:hover .card-thumb,
   .project-card.is-pressed .card-thumb { transform: none; }
 }
+
+/* ─────────────────────────────────────────────────────
+   CASE WINDOW — "J2" (Figma 06 — Proposta, case-window 29:887)
+   Same chassis as a modal panel, wider, with its own URL.
+   Blocks are white cards 8px apart; brand blocks speak the
+   project's own language (colours, surfaces, type).
+   ───────────────────────────────────────────────────── */
+.modal-project.j2 { width: min(1200px, calc(100vw - 32px)); }
+.j2-url {
+  position: absolute; top: 15px; left: 50%; transform: translateX(-50%);
+  font: 14px/1.2 'DM Mono', ui-monospace, monospace; color: var(--ink-mid);
+  white-space: nowrap; pointer-events: none;
+}
+.j2 .modal-proj-scroll { gap: 8px; }
+.j2-b { background: var(--chrome); padding: 24px; margin: 0; font-weight: 400; }
+.j2 .mono, .j2-meta, .j2 figcaption, .j2-credits, .j2-cap {
+  font: 14px/1.2 'DM Mono', ui-monospace, monospace; color: var(--ink-mid); letter-spacing: 0;
+}
+.j2-head { display: flex; flex-direction: column; align-items: flex-start; gap: 24px; }
+.j2-title { margin: 0; font: 700 56px/0.95 'Inter', sans-serif; letter-spacing: -0.03em; }
+.j2-meta, .j2-line { margin: 0; }
+.j2-line, .j2-text p { font-size: 18px; line-height: 1.45; letter-spacing: 0.2px; }
+.j2-link, .j2-next {
+  font: 700 18px/1.05 'Inter', sans-serif; letter-spacing: 0.54px; color: var(--ink);
+  text-decoration: none; background: none; border: 0; padding: 0; cursor: pointer;
+  transition: background 0.12s, color 0.12s;
+}
+.j2-link:hover, .j2-next:hover { background: var(--ink); color: var(--paper); }
+.j2-text { display: grid; grid-template-columns: 300px 1fr; gap: 40px; }
+.j2-text h3 { margin: 0; font: 700 18px/1.05 'Inter', sans-serif; letter-spacing: 0.54px; }
+.j2-text p { margin: 0; }
+
+.j2-fig { display: grid; gap: 20px; }
+.j2-fig.j2-split { grid-template-columns: 1fr 1fr; }
+.j2-fig.j2-split.j2-trio { grid-template-columns: 1fr 1fr 1fr; }
+.j2-fig figcaption { grid-column: 1 / -1; margin-top: -8px; }
+.j2-m { position: relative; aspect-ratio: var(--r, 16 / 9); background: var(--bg, var(--paper-2)); overflow: hidden; }
+.j2-m img, .j2-m video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.j2-m.fit img, .j2-m.fit video { object-fit: contain; }
+.j2-m.pad img, .j2-m.pad video { inset: 8%; width: 84%; height: 84%; object-fit: contain; }
+
+/* brand tiles — the project's own surfaces */
+.j2-tiles { display: grid; grid-template-columns: var(--cols, 1fr 1fr); gap: 20px; }
+.j2-tile {
+  position: relative; aspect-ratio: var(--r, 1); background: var(--bg, #0D0D0D); color: var(--fg, #fff);
+  display: flex; align-items: center; justify-content: center; overflow: hidden;
+}
+.j2-tile > img { width: var(--w, 70%); height: auto; display: block; }
+.j2-tile > img.full { width: 100%; height: 100%; object-fit: cover; }
+.j2-tile .j2-cap { position: absolute; left: 16px; bottom: 14px; right: 16px; color: inherit; opacity: 0.85; }
+.j2-row { display: flex; gap: 8%; align-items: center; justify-content: center; }
+.j2-row img { flex: 1 1 0; min-width: 0; width: 100%; height: auto; }
+
+/* swatches */
+.j2-sw { display: grid; grid-template-columns: repeat(var(--n, 4), 1fr); gap: 20px; }
+.j2-sw div { display: flex; flex-direction: column; gap: 8px; }
+.j2-sw i { display: block; height: 200px; background: var(--c); border: 1px solid rgba(0,0,0,0.08); border-radius: var(--rad, 0); }
+.j2-note { margin-top: 16px; font-size: 18px; line-height: 1.45; }
+
+/* type specimens — rows of specimen + name */
+.j2-type { display: grid; gap: 0; background: var(--bg, var(--chrome)); color: var(--fg, var(--ink)); }
+.j2-type > div { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; padding: 28px 0; border-top: 1px solid var(--line, var(--ink)); }
+.j2-type > div:first-child { border-top: 0; }
+.j2-type img { width: 100%; max-width: 560px; height: auto; display: block; }
+.j2-type h4 { margin: 0 0 8px; font: 700 18px/1.05 'Inter', sans-serif; letter-spacing: 0.54px; color: inherit; }
+.j2-type .j2-cap { color: var(--fg2, var(--ink-mid)); }
+.j2-dark { padding: 24px 32px; }
+
+/* f. maeda specimen, live Inter */
+.j2-fm-spec .aa { font: 700 120px/1 'Inter', sans-serif; letter-spacing: -0.03em; }
+.j2-fm-spec .wm { font: 700 48px/1.1 'Inter', sans-serif; letter-spacing: -0.02em; margin: 12px 0 20px; }
+.j2-fm-spec .wm span { font-weight: 300; }
+
+.j2-foot { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; }
+.j2-credits { margin: 0; }
+
+@media (max-width: 760px) {
+  .modal-project.j2 { width: calc(100vw - 16px); }
+  .j2-url { display: none; }
+  .j2-b { padding: 20px; }
+  .j2-title { font-size: 32px; line-height: 1; }
+  .j2-line, .j2-text p, .j2-note { font-size: 16px; line-height: 1.5; }
+  .j2-text { grid-template-columns: 1fr; gap: 12px; }
+  .j2-fig.j2-split, .j2-fig.j2-split.j2-trio, .j2-tiles, .j2-type > div { grid-template-columns: 1fr; }
+  .j2-sw { grid-template-columns: 1fr 1fr; }
+  .j2-sw i { height: 120px; }
+  .j2-tile { aspect-ratio: var(--rm, var(--r, 1)); }
+  .j2-type > div { gap: 16px; padding: 20px 0; }
+  .j2-dark { padding: 20px; }
+  .j2-fm-spec .aa { font-size: 72px; }
+  .j2-fm-spec .wm { font-size: 32px; }
+  .j2-foot { flex-direction: column; }
+}
+
+/* ── Animated covers (29 Sep) ──────────────────────────
+   Every cover video autoplays muted. data-hold: pause on the last frame for
+   that many ms, then replay. .cover-seq: when the video ends, the still
+   (the site print) fades in for data-hold ms, then the animation runs again. */
+.card-thumb .cover-vid { background: #0A0A0A; }
+.cover-seq .cover-seq-still {
+  position: absolute; inset: 0;
+  opacity: 0; transition: opacity 0.6s ease;
+}
+.cover-seq.show-still .cover-seq-still { opacity: 1; }

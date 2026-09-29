@@ -233,6 +233,16 @@ if (cur) {
       const p = v.play();
       if (p) p.catch(() => {});   // autoplay refused — it rests on its poster
     });
+
+    // Case windows (J2): own URL, and their videos only load once opened.
+    if (panel.classList.contains('j2')) {
+      panel.querySelectorAll('video[data-src]').forEach(v => {
+        if (!v.src) { v.src = v.dataset.src; }
+        const p = v.play(); if (p) p.catch(() => {});
+      });
+      const url = panel.dataset.url;
+      if (url && location.pathname !== url) history.pushState({ case: id }, '', url);
+    }
   }
 
   function closeModal(id) {
@@ -241,6 +251,10 @@ if (cur) {
     panel.classList.remove('is-open');
     panel.setAttribute('aria-hidden', 'true');
     if (panel._resetDrag) panel._resetDrag();
+    if (panel.classList.contains('j2')) {
+      panel.querySelectorAll('video').forEach(v => v.pause());
+      if (location.pathname === panel.dataset.url) history.pushState({}, '', '/');
+    }
   }
 
   function closeAllModals() {
@@ -248,6 +262,32 @@ if (cur) {
   }
 
   window._openModal = openModal;
+
+  // J2: "next →" closes this case and opens the next one at the top.
+  document.querySelectorAll('[data-next]').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const cur = btn.closest('.modal-panel');
+      const next = document.getElementById(btn.dataset.next);
+      if (!next) return;
+      if (cur) closeModal(cur.id);
+      const sc = next.querySelector('.modal-proj-scroll'); if (sc) sc.scrollTop = 0;
+      openModal(next.id);
+    });
+  });
+
+  // J2: deep links (/work/<slug>) and back/forward.
+  function syncFromUrl() {
+    const target = document.querySelector('.j2[data-url="' + location.pathname + '"]');
+    document.querySelectorAll('.j2.is-open').forEach(p => { if (p !== target) {
+      p.classList.remove('is-open'); p.setAttribute('aria-hidden', 'true');
+      p.querySelectorAll('video').forEach(v => v.pause()); } });
+    if (target && !target.classList.contains('is-open')) openModal(target.id);
+  }
+  window.addEventListener('popstate', syncFromUrl);
+  if (location.pathname.indexOf('/work/') === 0) {
+    if (document.readyState === 'complete') syncFromUrl(); else window.addEventListener('load', syncFromUrl);
+  }
 
   // Open triggers
   document.querySelectorAll('[data-modal]').forEach(btn => {
@@ -364,4 +404,37 @@ if (cur) {
     panel.addEventListener('touchend', releaseTouch);
     panel.addEventListener('touchcancel', releaseTouch);
   });
+})();
+
+/* ─────────────────────────────────────────────────────
+   ANIMATED COVERS (29 Sep)
+   Muted autoplay while on screen. data-hold → freeze on the
+   last frame that long, then replay. data-then="still" →
+   when the animation ends the still fades in for data-hold,
+   then the animation runs again.
+   ───────────────────────────────────────────────────── */
+(function initCoverVideos() {
+  const vids = document.querySelectorAll('.cover-vid');
+  const play = v => { const p = v.play(); if (p) p.catch(() => {}); };
+  vids.forEach(v => {
+    v.muted = true;
+    const hold = parseInt(v.dataset.hold || '0', 10);
+    const seq = v.dataset.then === 'still' ? v.closest('.cover-seq') : null;
+    v.addEventListener('ended', () => {
+      clearTimeout(v._t);
+      if (seq) seq.classList.add('show-still');
+      v._t = setTimeout(() => {
+        v._t = null;
+        if (seq) seq.classList.remove('show-still');
+        v.currentTime = 0;
+        if (v._inView) play(v);
+      }, hold);
+    });
+  });
+  if (!('IntersectionObserver' in window)) { vids.forEach(v => { v._inView = true; play(v); }); return; }
+  const io = new IntersectionObserver(entries => entries.forEach(e => {
+    const v = e.target; v._inView = e.isIntersecting;
+    if (e.isIntersecting) { if (!v._t) { if (v.ended) v.currentTime = 0; play(v); } } else v.pause();
+  }), { threshold: 0.15 });
+  vids.forEach(v => io.observe(v));
 })();
