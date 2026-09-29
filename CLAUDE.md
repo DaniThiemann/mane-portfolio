@@ -221,18 +221,6 @@ Modal chassis is unchanged (draggable `.modal-panel`, `( x )`, `( ... )`, `min(8
 
 Curriculum modal uses the same chassis with `.cv-intro-row` / `.cv-section` fill (Figma 34:125 — no star ratings).
 
-## Case windows — J2 (replaces the old project modal fill)
-
-Every project opens as a wide case window (`.modal-project.j2`, `min(1200px, 100vw − 32px)`) on the
-same draggable chassis, with its own URL `/work/<slug>` (history API + `_redirects` → `index.html`;
-`<base href="/">` keeps relative asset paths working under `/work/`). The markup is **generated**:
-edit the copy and blocks in `tools/build_cases.py`, then run `python3 tools/build_cases.py`.
-Blocks: header, text rows (`<NN label>` + body), media (full / split, 16:9, 3:2, 1:1, `fit` letterbox),
-brand tiles, swatches, type rows, footer with `next →`. Brand blocks speak the project's own language
-(z-hive on navy, brunge on grey paper with black ink, the arcana in the print's red/cream/black).
-New media lives in `assets/projects/<slug>/case/`. Case videos load only when the window opens.
-Type specimens are outlined SVGs (no brand fonts are shipped as web fonts).
-
 ## Gallery Rules
 1. **Modal galleries are a square grid.** `.mp-gallery` is a 2-column CSS grid, 20px gaps, every `.mp-item` locked to `aspect-ratio: 1/1`. **Supply square sources** — then `object-fit: cover` never actually crops and rows align exactly. An odd count leaves the final slot empty, by design. 1 column ≤760px. Slots accept `.jpg`, `.mp4` and animated `.svg` alike.
 2. **Homepage covers DO crop** — fixed-ratio grid slots (`object-fit: cover`), that's the magazine look. If a cover crops badly, derive a better crop from `content/<slug>/source/`.
